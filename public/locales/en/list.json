@@ -144,6 +144,27 @@
     "trimItemsDescription": "Remove leading and trailing spaces before comparing items.",
     "uniqueItemOptions": "Unique Item Options"
   },
+  "listDifference": {
+    "title": "List Difference",
+    "description": "Compare two line-based lists and find which items appear only in the first list or only in the second list.",
+    "shortDescription": "Compare two lists and find line-only differences",
+    "longDescription": "This tool compares two lists line by line. It splits each input by newlines, optionally trims whitespace, optionally ignores empty lines, and reports the items that exist only in the first input or only in the second input. It is useful for comparing IDs, filenames, keywords, exported rows, or any other line-based data.",
+    "firstInputTitle": "First list",
+    "secondInputTitle": "Second list",
+    "inputPlaceholder": "Enter one item per line",
+    "onlyInFirstTitle": "Only in first list",
+    "onlyInSecondTitle": "Only in second list",
+    "optionsTitle": "Comparison Options",
+    "trimLines": "Trim lines",
+    "trimLinesDescription": "Remove leading and trailing whitespace from each line before comparing.",
+    "skipEmptyLines": "Skip empty lines",
+    "skipEmptyLinesDescription": "Ignore empty lines after optional trimming.",
+    "caseSensitive": "Case sensitive comparison",
+    "caseSensitiveDescription": "Treat uppercase and lowercase letters as different characters.",
+    "toolInfo": {
+      "title": "What is List Difference?"
+    }
+  },
   "reverse": {
     "description": "This is a super simple browser-based application prints all list items in reverse. The input items can be separated by any symbol and you can also change the separator of the reversed list items.",
     "inputTitle": "Input list",
