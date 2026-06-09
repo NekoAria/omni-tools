@@ -3,6 +3,7 @@ import { tool as listUnwrap } from './unwrap/meta';
 import { tool as listReverse } from './reverse/meta';
 import { tool as listFindUnique } from './find-unique/meta';
 import { tool as listDifference } from './list-difference/meta';
+import { tool as listIntersection } from './list-intersection/meta';
 import { tool as listFindMostPopular } from './find-most-popular/meta';
 import { tool as listGroup } from './group/meta';
 import { tool as listWrap } from './wrap/meta';
@@ -17,6 +18,7 @@ export const listTools = [
   listReverse,
   listFindUnique,
   listDifference,
+  listIntersection,
   listFindMostPopular,
   listGroup,
   listWrap,

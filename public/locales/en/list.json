@@ -165,6 +165,26 @@
       "title": "What is List Difference?"
     }
   },
+  "listIntersection": {
+    "title": "List Intersection",
+    "description": "Compare two line-based lists and output the lines that appear in both inputs.",
+    "shortDescription": "Find common lines shared by two lists",
+    "longDescription": "This tool compares two lists line by line. It splits each input by newlines, optionally trims whitespace, optionally ignores empty lines, and outputs the items that exist in both inputs. Results keep the order from the first input, making it useful for comparing IDs, filenames, keywords, exported rows, or other line-based data.",
+    "firstInputTitle": "First list",
+    "secondInputTitle": "Second list",
+    "inputPlaceholder": "Enter one item per line",
+    "resultTitle": "Common lines",
+    "optionsTitle": "Comparison Options",
+    "trimLines": "Trim lines",
+    "trimLinesDescription": "Remove leading and trailing whitespace from each line before comparing.",
+    "skipEmptyLines": "Skip empty lines",
+    "skipEmptyLinesDescription": "Ignore empty lines after optional trimming.",
+    "caseSensitive": "Case sensitive comparison",
+    "caseSensitiveDescription": "Treat uppercase and lowercase letters as different characters when finding matches.",
+    "toolInfo": {
+      "title": "What is List Intersection?"
+    }
+  },
   "reverse": {
     "description": "This is a super simple browser-based application prints all list items in reverse. The input items can be separated by any symbol and you can also change the separator of the reversed list items.",
     "inputTitle": "Input list",
