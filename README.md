@@ -118,20 +118,20 @@ This is a React Project with Typescript Material UI. We use icons from [Iconify]
 ```bash
 git clone https://github.com/iib0011/omni-tools.git
 cd omni-tools
-npm i
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ### Create a new tool
 
 ```bash
-npm run script:create:tool my-tool-name folder1 # npm run script:create:tool split pdf
+pnpm run script:create:tool my-tool-name folder1 # pnpm run script:create:tool split pdf
 ```
 
 For tools located under multiple nested directories, use:
 
 ```bash
-npm run script:create:tool my-tool-name folder1/folder2 # npm run script:create:tool compress image/png
+pnpm run script:create:tool my-tool-name folder1/folder2 # pnpm run script:create:tool compress image/png
 ```
 
 Use `folder1\folder2` on Windows.
@@ -139,13 +139,13 @@ Use `folder1\folder2` on Windows.
 ### Run tests
 
 ```bash
-npm run test
+pnpm test
 ```
 
 - For e2e tests
 
 ```bash
-npm run test:e2e
+pnpm test:e2e
 ```
 
 ### i18n (Translations)

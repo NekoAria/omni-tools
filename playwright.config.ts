@@ -11,7 +11,7 @@ export default defineConfig({
     trace: 'on-first-retry'
   },
   webServer: {
-    command: 'npm run build && npm run serve',
+    command: 'pnpm run build && pnpm run serve',
     url: 'http://localhost:4173'
   },
   projects: [
