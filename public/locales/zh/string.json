@@ -145,11 +145,11 @@
     "processMultiLine": "处理多行文本",
     "processMultiLineDescription": "每行将单独反转",
     "resultTitle": "反转文本",
-    "reversalOptions": "逆转期权",
+    "reversalOptions": "反转选项",
     "shortDescription": "逐个字符地反转任何文本",
     "skipEmptyLines": "跳过空行",
     "skipEmptyLinesDescription": "输出中的空行将被删除",
-    "title": "撤销",
+    "title": "反转",
     "trimWhitespace": "修剪空格",
     "trimWhitespaceDescription": "删除每行的前导和尾随空格"
   },
@@ -160,7 +160,7 @@
     "shortDescription": "使用 ROT13 密码对文本进行编码或解码。",
     "title": "ROT13编码器/解码器",
     "toolInfo": {
-      "description": "ROT13（循环13位）是一种简单的字母替换密码，用字母表中该字母后面的第13个字母替换该字母。ROT13是古罗马凯撒密码的一个特例。由于英语字母表有26个字母，因此ROT13是其自身的逆；也就是说，要撤销ROT13，需要应用相同的算法，因此编码和解码的操作相同。",
+      "description": "ROT13（循环 13 位）是一种简单的字母替换密码，会用字母表中该字母后第 13 位的字母替换它。ROT13 是古罗马凯撒密码的一个特例。由于英语字母表有 26 个字母，因此 ROT13 是其自身的逆运算；也就是说，要还原 ROT13，只需应用相同算法，所以同一操作可用于编码和解码。",
       "title": "ROT13 是什么？"
     }
   },
@@ -177,7 +177,7 @@
     "title": "旋转文本",
     "toolInfo": {
       "description": "此工具允许您将字符串中的字符旋转指定位数。您可以向左或向右旋转，并通过分别旋转每一行来处理多行文本。字符串旋转对于简单的文本转换、创建模式或实现基本的加密技术非常有用。",
-      "title": "琴弦旋转"
+      "title": "字符串旋转"
     }
   },
   "split": {
@@ -322,6 +322,33 @@
       "longDescription": "此工具会对字符串进行 URL 编码。特殊 URL 字符会被转换为百分号编码。这种编码之所以称为百分号编码，是因为每个字符的数值都会被转换为百分号，后跟两位十六进制值。十六进制值根据字符的代码点值确定。例如，空格会被转义为 %20，冒号会被转义为 %3a，斜杠会被转义为 %2f。非特殊字符保持不变。如果您还需要将非特殊字符转换为百分号编码，我们还添加了一个额外的选项来实现此目的。选择“encode-non-special-chars”选项即可启用此行为。",
       "shortDescription": "快速对字符串进行 URL 转义。",
       "title": "字符串 URL 编码器"
+    }
+  },
+  "slugGenerator": {
+    "description": "将任意文本转换为 URL 友好的 slug。",
+    "inputTitle": "输入文本",
+    "longDescription": "将任意文本转换为干净、SEO 友好的 slug，用于 URL。此工具可处理空格、特殊字符、重音字母，并支持一次处理多行，方便将博客文章标题、产品名称或页面标题批量转换为一致且易读的 URL 片段。",
+    "options": {
+      "caseDescription": "保留输入原始大小写，而不是转换为小写",
+      "caseLabel": "区分大小写",
+      "title": "Slug 选项"
+    },
+    "resultTitle": "URL Slug",
+    "shortDescription": "从文本生成 URL 友好的 slug。",
+    "title": "Slug 生成器"
+  },
+  "textCompare": {
+    "title": "文本比较",
+    "description": "分析两个文本块并高亮差异，包括新增、删除和修改。",
+    "shortDescription": "比较两段文本并即时发现差异",
+    "longDescription": "此工具可帮助您快速识别两个文本版本之间的差异。它会高亮插入、删除和修改的内容，适合审阅编辑、跟踪更改或比较文档。您可以根据需要选择按单词或字符级别检测差异。",
+    "inputTitle": "输入文本",
+    "resultTitle": "高亮差异",
+    "options": {
+      "title": "比较设置",
+      "wordLevel": "单词级别",
+      "charLevel": "字符级别",
+      "levelDesc": "选择比较的详细程度。单词级别按单词高亮变化，字符级别可检测更细粒度的差异。"
     }
   }
 }

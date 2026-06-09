@@ -22,5 +22,19 @@
     "resultTitle": "WEBP 图像",
     "shortDescription": "使用质量控制将图像转换为 WebP 格式。",
     "title": "将图像转换为 WebP"
+  },
+  "convertToJPG": {
+    "description": "使用可自定义的质量和背景颜色设置将各种图像格式转换为 JPG。",
+    "failedToConvert": "将图像转换为 JPG 失败。请重试。",
+    "inputTitle": "输入图像",
+    "options": {
+      "colorDescription": "背景颜色（用于透明图像）",
+      "quality": "转换质量：",
+      "qualityDescription": "值越高 = 质量越好，文件大小越大",
+      "title": "转换设置"
+    },
+    "resultTitle": "JPG 图像",
+    "shortDescription": "使用质量控制将图像转换为 JPG 格式",
+    "title": "将图像转换为 JPG"
   }
 }

@@ -117,7 +117,7 @@
     },
     "reverse": {
       "description": "这是一个基于浏览器的超级简单的应用程序，可以反向打印所有列表项。输入项可以用任意符号分隔，并且您还可以更改反向列表项的分隔符。",
-      "name": "撤销",
+      "name": "反转",
       "shortDescription": "快速反转列表"
     },
     "sort": {
@@ -196,7 +196,7 @@
     },
     "reverse": {
       "description": "世界上最简单的基于浏览器的文本反转工具。输入任意文本即可立即逐字符反转。非常适合创建镜像文本、分析回文或玩转文本模式。反转时保留空格和特殊字符。",
-      "name": "撤销",
+      "name": "反转",
       "shortDescription": "逐个字符地反转任何文本"
     },
     "toMorse": {
@@ -225,10 +225,6 @@
   },
   "toolLayout": {
     "allToolsTitle": "全部 {{type}}"
-  },
-  "toolsByCategory": {
-    "noResultsTitle": "未找到工具",
-    "noResultsDescription": "请尝试调整搜索条件或筛选条件"
   },
   "toolMultiFileResult": {
     "copied": "文件已复制",
@@ -259,5 +255,13 @@
   "userTypes": {
     "developers": "开发人员",
     "generalUsers": "普通用户"
+  },
+  "converters": {
+    "audioconverter": {
+      "description": "在不同格式之间转换音频文件。",
+      "longDescription": "此工具允许您将音频文件从一种格式转换为另一种格式，支持多种音频格式的无缝转换。",
+      "shortDescription": "将音频文件转换为各种格式。",
+      "title": "音频转换器"
+    }
   }
 }

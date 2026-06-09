@@ -24,7 +24,19 @@
   "convertToPdf": {
     "description": "将各种图像格式（PNG, GIF, JPG, TIF, PSD, SVG, WEBP, HEIC, RAW）转换为 PDF，并可调整图像大小和页面方向。",
     "shortDescription": "将图像转换为 PDF，可调整大小和方向",
-    "title": "将图像转换为 PDF"
+    "title": "将图像转换为 PDF",
+    "inputTitle": "输入图像",
+    "options": {
+      "a4": "A4 页面",
+      "fullsize": "原始尺寸（图像大小）",
+      "image": "图像",
+      "landscape": "横向",
+      "orientation": "方向",
+      "portrait": "纵向",
+      "scale": "缩放",
+      "type": "PDF 类型"
+    },
+    "resultTitle": "输出 PDF"
   },
   "editor": {
     "description": "高级 PDF 编辑器，具备注释、表单填写、高亮显示和导出功能。您可以使用专业级工具（包括文本插入、绘图、高亮显示、签名和表单填写）直接在浏览器中编辑 PDF。",
@@ -85,7 +97,7 @@
     "inputTitle": "输入 PDF",
     "longDescription": "通过将 PDF 页面旋转 90 度、180 度或 270 度来更改其方向。这对于修复扫描错误的文档或准备打印 PDF 非常有用。",
     "pageRangesDescription": "输入页码或范围，以逗号分隔（例如，1,3,5-7）",
-    "pageRangesPlaceholder": "例如，1.5-8",
+    "pageRangesPlaceholder": "例如，1,5-8",
     "pagesWillBeRotated": "{{count}} 页 将会轮换",
     "pdfPageCount": "PDF 有 {{count}} 页",
     "resultTitle": "旋转的 PDF",
@@ -105,7 +117,7 @@
     "inputTitle": "输入 PDF",
     "pageExtractionPreview": "{{count}} 页 将被提取",
     "pageRangesDescription": "输入页码或范围，以逗号分隔（例如，1,3,5-7）",
-    "pageRangesPlaceholder": "例如，1.5-8",
+    "pageRangesPlaceholder": "例如，1,5-8",
     "pageSelection": "页面选择",
     "pdfPageCount": "PDF 有 {{count}} 页",
     "resultTitle": "提取的 PDF",
@@ -115,5 +127,13 @@
       "description": "此工具允许您从 PDF 文档中提取特定页面。您可以指定要提取的单个页面或页面范围。",
       "title": "拆分 PDF"
     }
+  },
+  "extractImagesFromPdf": {
+    "description": "以原始质量从 PDF 文件中提取所有嵌入图像。",
+    "shortDescription": "从 PDF 文件中提取图像。",
+    "longDescription": "上传 PDF 文档后，自动提取所有嵌入图像。此工具会保留原始图像质量，并支持 JPG、PNG 等常见格式。非常适合从 PDF 文档中恢复插图、照片、扫描页面或素材。",
+    "title": "从 PDF 提取图像",
+    "inputTitle": "输入 PDF",
+    "resultTitle": "提取的图像"
   }
 }

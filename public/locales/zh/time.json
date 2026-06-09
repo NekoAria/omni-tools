@@ -70,7 +70,6 @@
     "date-to-unix": "日期 → Unix",
     "description": "将 Unix 时间戳转换为可读日期，并将格式化日期转换回 Unix 时间戳（双向转换）。",
     "optionsTitle": "转换模式",
-    "outputOptions": "输出选项",
     "shortDescription": "双向转换 Unix 时间戳和日期。",
     "title": "转换 Unix ↔ 日期",
     "toolInfo": {
@@ -151,5 +150,18 @@
     "zeroPaddingDescription": "使所有时间部分始终为两位数宽度。",
     "zeroPrintDescription": "将删除的部分显示为零值“00”。",
     "zeroPrintTruncatedParts": "零打印截断部件"
+  },
+  "convertDateToUnix": {
+    "description": "将人类可读的日期转换为 Unix 时间戳。",
+    "outputOptions": "输出选项",
+    "shortDescription": "将日期转换为 Unix 时间戳。",
+    "title": "日期转 Unix",
+    "toolInfo": {
+      "description": "此工具将人类可读的日期格式（例如 YYYY-MM-DD HH:MM:SS）转换为 Unix 时间戳。用户可以指定 UTC 偏移（例如 YYYY-MM-DD HH:MM:SS +XX:XX）或使用本地时区。如果用户既未提供偏移，也未选择使用本地时区，则结果默认使用 +00:00 偏移。",
+      "title": "日期转 Unix"
+    },
+    "useLocalTime": "使用本地时间",
+    "useLocalTimeDescription": "输入的日期和时间将按浏览器所在时区处理。其他时区设置将被忽略。",
+    "options": "选项"
   }
 }

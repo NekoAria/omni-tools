@@ -35,7 +35,7 @@
     "inputTitle": "输入列表",
     "joinSeparatorDescription": "用于连接重复列表的分隔符",
     "resultTitle": "重复列表",
-    "reverse": "撤销",
+    "reverse": "反转",
     "reverseDescription": "反转重复项",
     "shortDescription": "按照指定条件复制列表项",
     "splitByRegex": "按正则表达式拆分",
@@ -133,7 +133,7 @@
       }
     },
     "splitterMode": "分离器模式",
-    "title": "撤销",
+    "title": "反转",
     "toolInfo": {
       "description": "使用此实用程序，您可以反转列表中项目的顺序。该实用程序首先将输入列表拆分成单个项目，然后从最后一个项目到第一个项目进行迭代，并在迭代过程中将每个项目打印到输出中。输入列表可以包含任何可以表示为文本数据的内容，包括数字、数值、字符串、单词、句子等。输入项分隔符也可以是正则表达式。例如，正则表达式 /[;,]/ 允许您使用逗号或分号分隔的项目。输入和输出列表项分隔符可以在选项中自定义。默认情况下，输入和输出列表均以逗号分隔。Listabulous！",
       "title": "什么是列表反转器？"
@@ -223,5 +223,36 @@
       "title": "列表包装"
     },
     "wrapOptions": "包装选项"
+  },
+  "chunk": {
+    "deleteEmptyItems": "删除空项目",
+    "deleteEmptyItemsDescription": "忽略空项目并将其从结果中排除。",
+    "description": "将列表拆分为固定大小的连续分组。此工具会分隔输入项、按顺序分组，可选择填充不完整分组，并使用自定义分隔符和包裹符格式化输出。",
+    "emptyItemsAndPadding": "空项目和填充",
+    "groupNumberDescription": "每组的项目数量",
+    "groupSeparatorDescription": "组之间的分隔符",
+    "groupSizeAndSeparators": "组大小和输出格式",
+    "inputItemSeparator": "输入项分隔符",
+    "inputTitle": "输入列表",
+    "itemSeparatorDescription": "组内项目之间的分隔符",
+    "leftWrapDescription": "添加在每组前面的符号",
+    "padNonFullGroups": "填充不完整分组",
+    "padNonFullGroupsDescription": "如果最后一组项目数不足，则进行填充。",
+    "paddingCharDescription": "用于填充不完整分组的字符或值。",
+    "resultTitle": "分组输出",
+    "rightWrapDescription": "添加在每组后面的符号",
+    "shortDescription": "将列表拆分为固定大小的分组",
+    "splitOperators": {
+      "regex": {
+        "description": "使用正则表达式拆分输入项。",
+        "title": "使用正则拆分"
+      },
+      "symbol": {
+        "description": "使用单个字符拆分输入项。",
+        "title": "使用符号拆分"
+      }
+    },
+    "splitSeparatorDescription": "用于拆分输入项的分隔符号或正则表达式。",
+    "title": "列表分组"
   }
 }

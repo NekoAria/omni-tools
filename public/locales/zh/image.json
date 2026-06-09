@@ -2,7 +2,22 @@
   "changeColors": {
     "description": "快速准确地将图像中的选定颜色替换为新颜色。",
     "shortDescription": "快速交换图像中的颜色",
-    "title": "改变图像的颜色"
+    "title": "改变图像的颜色",
+    "inputTitle": "输入图像",
+    "resultTitle": "结果图像",
+    "fromColor": {
+      "title": "源颜色",
+      "colorOption": "替换指定颜色",
+      "transparentOption": "替换透明像素",
+      "selectorDescription": "要替换的颜色（源颜色）",
+      "similarityDescription": "匹配源颜色的相似颜色百分比。例如，10% 的白色会匹配白色和少量灰色。"
+    },
+    "toColor": {
+      "title": "目标颜色",
+      "colorOption": "替换为指定颜色",
+      "transparentOption": "替换为透明",
+      "selectorDescription": "替换成此颜色（目标颜色）"
+    }
   },
   "changeOpacity": {
     "description": "轻松调整图片透明度。只需上传图片，使用滑块在 0（完全透明）和 1（完全不透明）之间设置所需的不透明度，然后下载修改后的图片即可。",
@@ -21,7 +36,9 @@
     "qualityDescription": "图像质量百分比（越低表示文件大小越小）",
     "resultTitle": "压缩图像",
     "shortDescription": "压缩图像以减小文件大小，同时保持合理的质量。",
-    "title": "压缩图像"
+    "title": "压缩图像",
+    "compressing": "正在压缩图像...",
+    "someFailedToCompress": "部分图像无法压缩，已跳过。"
   },
   "compressPng": {
     "description": "这是一个压缩 PNG 图片的程序。只要您将 PNG 图片粘贴到输入区域，程序就会对其进行压缩，并在输出区域显示结果。在选项中，您可以调整压缩级别，以及查看新旧图片文件的大小。",
@@ -58,7 +75,28 @@
   "qrCode": {
     "description": "为不同数据类型生成二维码：URL、文本、电子邮件、电话、短信、WiFi、vCard 等。",
     "shortDescription": "为各种数据格式创建定制的二维码。",
-    "title": "二维码生成器"
+    "title": "二维码生成器",
+    "options": {
+      "address": "地址",
+      "company": "公司（可选）",
+      "email": "电子邮件",
+      "emailBody": "邮件正文（可选）",
+      "emailSubject": "邮件主题（可选）",
+      "encryptionType": "加密类型",
+      "fullName": "姓名",
+      "job": "职位（可选）",
+      "message": "消息（可选）",
+      "name": "名称",
+      "password": "密码",
+      "phone": "电话号码",
+      "qrType": "选择二维码类型",
+      "size": "尺寸（像素，100-1000）",
+      "ssid": "网络名称 (SSID)",
+      "text": "输入文本",
+      "url": "输入 URL",
+      "website": "网站（可选）"
+    },
+    "resultOutput": "生成的二维码"
   },
   "removeBackground": {
     "description": "自动移除图像背景，并保留主体为透明背景。",
@@ -96,5 +134,45 @@
     "description": "按指定角度旋转图像。",
     "shortDescription": "轻松旋转图像。",
     "title": "旋转图像"
+  },
+  "split": {
+    "title": "将图像拆分为页面",
+    "shortDescription": "将大图像拆分为多个页面（PDF）。",
+    "description": "将地图或大图像拆分为匹配所选纸张格式和边距的页面。指定每个打印方格对应的像素数和方格数量，以正确缩放图像。",
+    "inputTitle": "输入图像",
+    "resultTitle": "拆分后的 PDF",
+    "loadingText": "正在加载...这可能需要一点时间。",
+    "pageParameters": {
+      "title": "页面参数",
+      "selectPageFormat": "选择页面格式",
+      "padding": {
+        "label": "边距",
+        "description": "每页地图周围的边距（使用所选单位）"
+      }
+    },
+    "scaleParameters": {
+      "title": "比例参数",
+      "pxPerSquareQuantity": {
+        "label": "每组方格的像素数",
+        "description": "原图中指定数量的方格对应多少像素（水平或垂直）"
+      },
+      "squareQuantity": {
+        "label": "方格数量",
+        "description": "用于缩放的横向或纵向游戏方格数量"
+      },
+      "unitsPerOneSquare": {
+        "label": "每个方格的单位数",
+        "description": "所选单位中一个方格的实际尺寸"
+      }
+    },
+    "units": {
+      "title": "单位",
+      "select": "选择测量单位",
+      "options": {
+        "pt": "点 (pt)",
+        "mm": "毫米 (mm)",
+        "in": "英寸 (in)"
+      }
+    }
   }
 }

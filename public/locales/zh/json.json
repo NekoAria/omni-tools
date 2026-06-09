@@ -58,5 +58,53 @@
       "title": "什么是 JSON 验证？"
     },
     "validJson": "✅ 有效的 JSON"
+  },
+  "jsonToCsv": {
+    "delimiterOption": "分隔符",
+    "description": "将 JSON 数据转换为 CSV 格式。支持嵌套对象和数组、自动检测表头，以及可配置的分隔符和引号方式，可直接用于 Excel、Google Sheets 或任何电子表格应用。",
+    "headerOption": "表头",
+    "inputTitle": "输入 JSON",
+    "options": {
+      "alwaysQuote": {
+        "description": "无论内容如何，都用双引号包裹每个单元格。",
+        "label": "始终加引号"
+      },
+      "autoQuote": {
+        "description": "仅当单元格包含分隔符、双引号或换行符时才加引号，保持输出简洁。",
+        "label": "自动（推荐）"
+      },
+      "delimiter": "每行中用于分隔值的字符（例如逗号、分号、制表符）",
+      "header": {
+        "description": "使用 JSON 键作为第一行中的列名。为提高可读性和导入兼容性，建议启用。",
+        "label": "包含表头行"
+      }
+    },
+    "outputTitle": "输出 CSV",
+    "quotingOption": "字符串引号",
+    "shortDescription": "将 JSON 转换为 CSV 格式",
+    "title": "JSON 转 CSV"
+  },
+  "tsvToJson": {
+    "description": "将 TSV（制表符分隔值）数据转换为 JSON 格式。将表格数据转换为结构化 JSON 对象。",
+    "shortDescription": "将 TSV 转换为 JSON 格式",
+    "title": "TSV 转 JSON"
+  },
+  "sortJson": {
+    "title": "排序 JSON",
+    "description": "通过按所选键以升序或降序组织对象数组，或按字母顺序排序 JSON 对象的键，来对 JSON 数据进行排序。",
+    "shortDescription": "按值或对象键的字母顺序排序 JSON 数组",
+    "longDescription": "此工具可让您以结构化且可预测的方式轻松排序 JSON 数据。您可以按任意键对对象数组排序，并选择升序或降序，非常适合整理用户、产品或记录等数据列表。也可以按字母顺序排序 JSON 对象的键，以提升可读性和一致性。该工具支持灵活的排序模式并能处理常见 JSON 结构，适合开发者、数据分析师以及任何需要干净、有序输出的 JSON 数据使用者。",
+    "inputTitle": "输入 JSON",
+    "resultTitle": "排序后的 JSON",
+    "options": {
+      "title": "排序选项",
+      "sortByKey": "按字母顺序排序对象键",
+      "sortByValue": "按键值排序数组",
+      "ascending": "升序 (A → Z)",
+      "descending": "降序 (Z → A)",
+      "modeDescription": "选择是按键值排序数组项，还是按字母顺序排序对象的键",
+      "keyDescription": "选择用于排序的键",
+      "orderDescription": "选择排序顺序"
+    }
   }
 }
