@@ -18,6 +18,7 @@ import type { AlternativeVarInfo, GenericCalcType } from './data/types';
 import { dataTableLookup } from 'datatables';
 
 import nerdamer from 'nerdamer-prime';
+import type { NerdamerExpression } from 'nerdamer-prime';
 import 'nerdamer-prime/Algebra';
 import 'nerdamer-prime/Solve';
 import 'nerdamer-prime/Calculus';
@@ -29,27 +30,46 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 import { validNamespaces } from '../../../../i18n';
 
+function isNerdamerExpression(value: unknown): value is NerdamerExpression {
+  return (
+    value !== null &&
+    typeof value === 'object' &&
+    typeof (value as Partial<NerdamerExpression>).toDecimal === 'function'
+  );
+}
+
+function solveForFirstExpression(
+  expr: NerdamerExpression,
+  varName: string
+): NerdamerExpression | undefined {
+  if (expr.solveFor === undefined) {
+    throw new Error('Nerdamer Solve module is not available');
+  }
+
+  const result = expr.solveFor(varName) as unknown;
+  if (isNerdamerExpression(result)) {
+    return result;
+  }
+
+  return (result as NerdamerExpression[] | null | undefined)?.[0];
+}
+
 function numericSolveEquationFor(
   equation: string,
   varName: string,
   variables: { [key: string]: number }
 ) {
-  let expr = nerdamer(equation);
+  let expr: NerdamerExpression = nerdamer(equation);
   for (const key in variables) {
     expr = expr.sub(key, variables[key].toString());
   }
 
-  let result: nerdamer.Expression | nerdamer.Expression[] =
-    expr.solveFor(varName);
-
-  // Sometimes the result is an array, check for it while keeping linter happy
-  if ((result as unknown as nerdamer.Expression).toDecimal === undefined) {
-    result = (result as unknown as nerdamer.Expression[])[0];
+  const result = solveForFirstExpression(expr, varName);
+  if (result === undefined) {
+    throw new Error('No solution found for this input');
   }
 
-  return parseFloat(
-    (result as unknown as nerdamer.Expression).evaluate().toDecimal()
-  );
+  return parseFloat(result.evaluate().toDecimal());
 }
 
 export default async function makeTool(
@@ -498,7 +518,7 @@ export default async function makeTool(
             showSnackBar('Please select a solve for variable', 'error');
             return;
           }
-          let expr: nerdamer.Expression | null = null;
+          let expr: NerdamerExpression | null = null;
 
           for (const variable of calcData.variables) {
             if (variable.name === values.outputVariable) {
@@ -523,37 +543,28 @@ export default async function makeTool(
             expr = expr.sub(key, values.vars[key].value.toString());
           });
 
-          let result: nerdamer.Expression | nerdamer.Expression[] =
-            expr.solveFor(values.outputVariable);
+          const result = solveForFirstExpression(expr, values.outputVariable);
 
-          // Sometimes the result is an array
-          if (
-            (result as unknown as nerdamer.Expression).toDecimal === undefined
-          ) {
-            if ((result as unknown as nerdamer.Expression[])?.length < 1) {
-              values.vars[values.outputVariable].value = NaN;
-              if (calcData.extraOutputs !== undefined) {
-                // Update extraOutputs using setState
-                setExtraOutputs((prevState) => {
-                  const newState = { ...prevState };
-                  for (let i = 0; i < calcData.extraOutputs!.length; i++) {
-                    const extraOutput = calcData.extraOutputs![i];
-                    newState[extraOutput.title] = NaN;
-                  }
-                  return newState;
-                });
-              }
-              throw new Error('No solution found for this input');
+          if (result === undefined) {
+            values.vars[values.outputVariable].value = NaN;
+            if (calcData.extraOutputs !== undefined) {
+              // Update extraOutputs using setState
+              setExtraOutputs((prevState) => {
+                const newState = { ...prevState };
+                for (let i = 0; i < calcData.extraOutputs!.length; i++) {
+                  const extraOutput = calcData.extraOutputs![i];
+                  newState[extraOutput.title] = NaN;
+                }
+                return newState;
+              });
             }
-            result = (result as unknown as nerdamer.Expression[])[0];
+            throw new Error('No solution found for this input');
           }
 
           if (result) {
             if (values.vars[values.outputVariable] != undefined) {
               values.vars[values.outputVariable].value = parseFloat(
-                (result as unknown as nerdamer.Expression)
-                  .evaluate()
-                  .toDecimal()
+                result.evaluate().toDecimal()
               );
             }
           } else {
@@ -571,7 +582,7 @@ export default async function makeTool(
               });
 
               // todo could this have multiple solutions too?
-              const result: nerdamer.Expression = expr.evaluate();
+              const result: NerdamerExpression = expr.evaluate();
 
               if (result) {
                 // Update extraOutputs state properly
