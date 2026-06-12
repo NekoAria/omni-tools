@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import ToolContent from '@components/ToolContent';
@@ -18,11 +20,18 @@ const initialValues = {
   emptyLines: true
 };
 type InitialValuesType = typeof initialValues;
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Convert Game Data from the CSV Format to the TSV Format',
-    description:
-      'In this example, we transform a Comma Separated Values (CSV) file containing a leaderboard of gaming data into a Tab Separated Values (TSV) file. The input data shows the players\' names, scores, times, and goals. We preserve the CSV column headers by enabling the "Preserve Headers" option and convert all data rows into TSV format. The resulting data is easier to work with as it\'s organized in neat columns',
+    title: 'csvToTsv.examples.gameData.title',
+    description: 'csvToTsv.examples.gameData.description',
     sampleText: `player_name,score,time,goals
 ToniJackson,2500,30:00,15
 HenryDalton,1800,25:00,12
@@ -44,9 +53,8 @@ KrisDavis	1500	20:00	10`,
     }
   },
   {
-    title: 'Mythical Creatures',
-    description:
-      'In this example, we load a CSV file containing coffee varieties and their origins. The file is quite messy, with numerous empty lines and comments, and it is hard to work with. To clean up the file, we specify the comment pattern // in the options, and the program automatically removes the comment lines from the input. Also, the empty lines are automatically removed. Once the file is cleaned up, we transform the five clean rows into five columns, each having a height of two fields.',
+    title: 'csvToTsv.examples.mythicalCreatures.title',
+    description: 'csvToTsv.examples.mythicalCreatures.description',
     sampleText: `creature;origin;habitat;powers
 Unicorn;Mythology;Forest;Magic horn
 Mermaid;Mythology;Ocean;Hypnotic singing
@@ -68,9 +76,8 @@ Phoenix	Mythology	Desert	Rebirth from ashes`,
     }
   },
   {
-    title: 'Convert Fitness Tracker Data from CSV to TSV',
-    description:
-      'In this example, we swap rows and columns in CSV data about team sports, the equipment used, and the number of players. The input has 5 rows and 3 columns and once rows and columns have been swapped, the output has 3 rows and 5 columns. Also notice that in the last data record, for the "Baseball" game, the number of players is missing. To create a fully-filled CSV, we use a custom message "NA", specified in the options, and fill the missing CSV field with this value.',
+    title: 'csvToTsv.examples.fitnessTracker.title',
+    description: 'csvToTsv.examples.fitnessTracker.description',
     sampleText: `day,steps,distance,calories
 
 Mon,7500,3.75,270
@@ -99,8 +106,16 @@ export default function CsvToTsv({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (optionsValues: typeof initialValues, input: string) => {
     setResult(
@@ -120,48 +135,42 @@ export default function CsvToTsv({
     updateField
   }) => [
     {
-      title: 'CSV Format Options',
+      title: t('common.csvFormatOptions'),
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.delimiter}
             onOwnChange={(val) => updateField('delimiter', val)}
-            description={
-              'Enter the character used to delimit columns in the CSV file.'
-            }
+            description={t('common.csvSeparatorDescriptionFile')}
           />
           <TextFieldWithDesc
             value={values.quoteCharacter}
             onOwnChange={(val) => updateField('quoteCharacter', val)}
-            description={
-              'Enter the quote character used to quote the CSV fields.'
-            }
+            description={t('common.quoteCharacterDescriptionFields')}
           />
           <TextFieldWithDesc
             value={values.commentCharacter}
             onOwnChange={(val) => updateField('commentCharacter', val)}
-            description={
-              'Enter the character indicating the start of a comment line. Lines starting with this symbol will be skipped.'
-            }
+            description={t('common.commentCharacterDescription')}
           />
         </Box>
       )
     },
     {
-      title: 'Conversion Options',
+      title: t('common.conversionOptions'),
       component: (
         <Box>
           <CheckboxWithDesc
             checked={values.header}
             onChange={(value) => updateField('header', value)}
-            title="Use Headers"
-            description="Keep the first row as column names."
+            title={t('common.useHeaders')}
+            description={t('common.keepFirstRowAsColumnNames')}
           />
           <CheckboxWithDesc
             checked={values.emptyLines}
             onChange={(value) => updateField('emptyLines', value)}
-            title="Ignore Lines with No Data"
-            description="Enable to prevent the conversion of empty lines in the input CSV file."
+            title={t('common.ignoreLinesWithNoData')}
+            description={t('common.ignoreLinesWithNoDataDescription')}
           />
         </Box>
       )
@@ -178,8 +187,11 @@ export default function CsvToTsv({
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
-      exampleCards={exampleCards}
+      toolInfo={{
+        title: t('common.toolInfoTitle', { title }),
+        description: longDescription
+      }}
+      exampleCards={translatedExampleCards}
     />
   );
 }

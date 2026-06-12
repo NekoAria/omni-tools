@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import ToolContent from '@components/ToolContent';
@@ -16,11 +18,18 @@ const initialValues = {
   commentCharacter: '//'
 };
 type InitialValuesType = typeof initialValues;
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Convert CSV Rows to Columns',
-    description:
-      'In this example, we transform the input CSV file with a single horizontal row of six values "a,b,c,d,e,f" into a vertical column. The program takes this row, rotates it 90 degrees, and outputs it as a column with each CSV value on a new line. This operation can also be viewed as converting a 6-dimensional row vector into a 6-dimensional column vector.',
+    title: 'csvRowsToColumns.examples.singleRow.title',
+    description: 'csvRowsToColumns.examples.singleRow.description',
     sampleText: `a,b,c,d,e,f`,
     sampleResult: `a
 b
@@ -35,9 +44,8 @@ f`,
     }
   },
   {
-    title: 'Rows to Columns Transformation',
-    description:
-      'In this example, we load a CSV file containing coffee varieties and their origins. The file is quite messy, with numerous empty lines and comments, and it is hard to work with. To clean up the file, we specify the comment pattern // in the options, and the program automatically removes the comment lines from the input. Also, the empty lines are automatically removed. Once the file is cleaned up, we transform the five clean rows into five columns, each having a height of two fields.',
+    title: 'csvRowsToColumns.examples.coffee.title',
+    description: 'csvRowsToColumns.examples.coffee.description',
     sampleText: `Variety,Origin
 Arabica,Ethiopia
 
@@ -55,9 +63,8 @@ Origin,Ethiopia,Africa,Philippines,Yemen`,
     }
   },
   {
-    title: 'Fill Missing Data',
-    description:
-      'In this example, we swap rows and columns in CSV data about team sports, the equipment used, and the number of players. The input has 5 rows and 3 columns and once rows and columns have been swapped, the output has 3 rows and 5 columns. Also notice that in the last data record, for the "Baseball" game, the number of players is missing. To create a fully-filled CSV, we use a custom message "NA", specified in the options, and fill the missing CSV field with this value.',
+    title: 'csvRowsToColumns.examples.missingData.title',
+    description: 'csvRowsToColumns.examples.missingData.description',
     sampleText: `Sport,Equipment,Players
 Basketball,Ball,5
 Football,Ball,11
@@ -78,8 +85,16 @@ export default function CsvRowsToColumns({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (optionsValues: typeof initialValues, input: string) => {
     setResult(
@@ -97,42 +112,40 @@ export default function CsvRowsToColumns({
     updateField
   }) => [
     {
-      title: 'Fix incomplete data',
+      title: t('csvRowsToColumns.options.fixIncompleteData'),
       component: (
         <Box>
           <SelectWithDesc
             selected={values.emptyValuesFilling}
             options={[
-              { label: 'Fill With Empty Values', value: true },
-              { label: 'Fill With Customs Values', value: false }
+              { label: t('common.fillWithEmptyValues'), value: true },
+              { label: t('common.fillWithCustomValues'), value: false }
             ]}
             onChange={(value) => updateField('emptyValuesFilling', value)}
-            description={
-              'If the input CSV file is incomplete (missing values), then add empty fields or custom symbols to records to make a well-formed CSV?'
-            }
+            description={t('csvRowsToColumns.options.customFillDescription')}
           />
           {!values.emptyValuesFilling && (
             <TextFieldWithDesc
               value={values.customFiller}
               onOwnChange={(val) => updateField('customFiller', val)}
-              description={
-                'Use this custom value to fill in missing fields. (Works only with "Custom Values" mode above.)'
-              }
+              description={t(
+                'csvRowsToColumns.options.customFillValueDescription'
+              )}
             />
           )}
         </Box>
       )
     },
     {
-      title: 'Lines with comments',
+      title: t('csvRowsToColumns.options.linesWithComments'),
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.commentCharacter}
             onOwnChange={(val) => updateField('commentCharacter', val)}
-            description={
-              'Enter the symbol indicating the start of a comment line. (These lines are removed during conversion.)'
-            }
+            description={t(
+              'csvRowsToColumns.options.commentCharacterDescription'
+            )}
           />
         </Box>
       )
@@ -149,8 +162,11 @@ export default function CsvRowsToColumns({
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
-      exampleCards={exampleCards}
+      toolInfo={{
+        title: t('common.toolInfoTitle', { title }),
+        description: longDescription
+      }}
+      exampleCards={translatedExampleCards}
     />
   );
 }

@@ -12,6 +12,8 @@ import SimpleRadio from '@components/options/SimpleRadio';
 import CheckboxWithDesc from '@components/options/CheckboxWithDesc';
 import TextFieldWithDesc from '@components/options/TextFieldWithDesc';
 import { InitialValuesType } from './types';
+import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 
 const initialValues: InitialValuesType = {
   delimiter: '\t',
@@ -24,11 +26,18 @@ const initialValues: InitialValuesType = {
   spacesCount: 2
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Basic TSV to JSON Array',
-    description:
-      'Convert a simple TSV file into a JSON array structure by using spaces as formatting indentation.',
+    title: 'tsvToJson.examples.basic.title',
+    description: 'tsvToJson.examples.basic.description',
     sampleText: `name	age	city
 John	30	New York
 Alice	25	London`,
@@ -51,8 +60,8 @@ Alice	25	London`,
     }
   },
   {
-    title: 'Turn TSV to JSON without Headers',
-    description: 'Convert a TSV file in minified JSON file.',
+    title: 'tsvToJson.examples.noHeaders.title',
+    description: 'tsvToJson.examples.noHeaders.description',
     sampleText: `Square	Triangle	Circle
 Cube	Cone	Sphere
 #Oval`,
@@ -64,8 +73,8 @@ Cube	Cone	Sphere
     }
   },
   {
-    title: 'Transform TSV to JSON with Headers',
-    description: 'Convert a TSV file with headers into a JSON file.',
+    title: 'tsvToJson.examples.headers.title',
+    description: 'tsvToJson.examples.headers.description',
     sampleText: `item	material	quantity
 
 
@@ -125,8 +134,16 @@ export default function TsvToJson({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (values: InitialValuesType, input: string) => {
     setResult(convertTsvToJson(input, values));
@@ -137,16 +154,16 @@ export default function TsvToJson({
     updateField
   }) => [
     {
-      title: 'Input CSV Format',
+      title: t('tsvToJson.inputTsvFormat'),
       component: (
         <Box>
           <TextFieldWithDesc
-            description="Character used to qutoe tsv values"
+            description={t('tsvToJson.quoteDescription')}
             onOwnChange={(val) => updateField('quote', val)}
             value={values.quote}
           />
           <TextFieldWithDesc
-            description="Symbol use to mark comments in the TSV"
+            description={t('tsvToJson.commentDescription')}
             value={values.comment}
             onOwnChange={(val) => updateField('comment', val)}
           />
@@ -154,36 +171,36 @@ export default function TsvToJson({
       )
     },
     {
-      title: 'Conversion Options',
+      title: t('common.conversionOptions'),
       component: (
         <Box>
           <CheckboxWithDesc
             checked={values.useHeaders}
             onChange={(value) => updateField('useHeaders', value)}
-            title="Use Headers"
-            description="First row is treated as column headers"
+            title={t('common.useHeaders')}
+            description={t('tsvToJson.useHeadersDescription')}
           />
           <CheckboxWithDesc
             checked={values.dynamicTypes}
             onChange={(value) => updateField('dynamicTypes', value)}
-            title="Dynamic Types"
-            description="Convert numbers and booleans to their proper types"
+            title={t('csvToJson.dynamicTypes')}
+            description={t('tsvToJson.dynamicTypesDescription')}
           />
         </Box>
       )
     },
     {
-      title: 'Output Formatting',
+      title: t('tsvToJson.outputFormatting'),
       component: (
         <Box>
           <SimpleRadio
             onClick={() => updateField('indentationType', 'space')}
             checked={values.indentationType === 'space'}
-            title={'Use Spaces for indentation'}
+            title={t('tsvToJson.useSpaces')}
           />
           {values.indentationType === 'space' && (
             <TextFieldWithDesc
-              description="Number of spaces for indentation"
+              description={t('tsvToJson.spacesDescription')}
               value={values.spacesCount}
               onOwnChange={(val) =>
                 updateNumberField(val, 'spacesCount', updateField)
@@ -194,12 +211,12 @@ export default function TsvToJson({
           <SimpleRadio
             onClick={() => updateField('indentationType', 'tab')}
             checked={values.indentationType === 'tab'}
-            title={'Use Tabs for indentation'}
+            title={t('tsvToJson.useTabs')}
           />
           <SimpleRadio
             onClick={() => updateField('indentationType', 'none')}
             checked={values.indentationType === 'none'}
-            title={'Minify JSON'}
+            title={t('tsvToJson.minifyJson')}
           />
         </Box>
       )
@@ -213,20 +230,27 @@ export default function TsvToJson({
       setInput={setInput}
       initialValues={initialValues}
       compute={compute}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
       getGroups={getGroups}
       inputComponent={
         <ToolCodeInput
-          title="Input TSV"
+          title={t('tsvToJson.inputTitle')}
           value={input}
           onChange={setInput}
           language="tsv"
         />
       }
       resultComponent={
-        <ToolTextResult title="Output JSON" value={result} extension={'json'} />
+        <ToolTextResult
+          title={t('tsvToJson.resultTitle')}
+          value={result}
+          extension={'json'}
+        />
       }
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('common.toolInfoTitle', { title }),
+        description: longDescription
+      }}
     />
   );
 }

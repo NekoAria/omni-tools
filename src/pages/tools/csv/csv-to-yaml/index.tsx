@@ -1,4 +1,6 @@
 import { Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 import React, { useState } from 'react';
 import ToolContent from '@components/ToolContent';
 import { ToolComponentProps } from '@tools/defineTool';
@@ -20,11 +22,18 @@ const initialValues: InitialValuesType = {
   spaces: 2
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Convert Music Playlist CSV to YAML',
-    description:
-      'In this example, we transform a short CSV file containing a music playlist into structured YAML data. The input CSV contains five records with three columns each and the output YAML contains five lists of lists (one list for each CSV record). In YAML, lists start with the "-" symbol and the nested lists are indented with two spaces',
+    title: 'csvToYaml.examples.musicPlaylist.title',
+    description: 'csvToYaml.examples.musicPlaylist.description',
     sampleText: `The Beatles,"Yesterday",Pop Rock
 Queen,"Bohemian Rhapsody",Rock
 Nirvana,"Smells Like Teen Spirit",Grunge
@@ -56,9 +65,8 @@ Stevie Wonder,"Superstition",Funk`,
     }
   },
   {
-    title: 'Planetary CSV Data',
-    description:
-      'In this example, we are working with CSV data that summarizes key properties of three planets in our solar system. The data consists of three columns with headers "planet", "relative mass" (with "1" being the mass of earth), and "satellites". To preserve the header names in the output YAML data, we enable the "Transform Headers" option, creating a YAML file that contains a list of YAML objects, where each object has three keys: "planet", "relative mass", and "satellites".',
+    title: 'csvToYaml.examples.planets.title',
+    description: 'csvToYaml.examples.planets.description',
     sampleText: `planet,relative mass,satellites
 Venus,0.815,0
 Earth,1.000,1
@@ -80,9 +88,8 @@ Mars,0.107,2`,
     }
   },
   {
-    title: 'Convert Non-standard CSV to YAML',
-    description:
-      'In this example, we convert a CSV file with non-standard formatting into a regular YAML file. The input data uses a semicolon as a separator for the "product", "quantity", and "price" fields. It also contains empty lines and lines that are commented out. To make the program work with this custom CSV file, we input the semicolon symbol in the CSV delimiter options. To skip comments, we specify "#" as the symbol that starts comments. And to remove empty lines, we activate the option for skipping blank lines (that do not contain any symbols). In the output, we obtain a YAML file that contains a list of three objects, which use CSV headers as keys. Additionally, the objects in the YAML file are indented with four spaces.',
+    title: 'csvToYaml.examples.nonStandard.title',
+    description: 'csvToYaml.examples.nonStandard.description',
     sampleText: `item;quantity;price
 milk;2;3.50
 
@@ -112,8 +119,16 @@ export default function CsvToYaml({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (optionsValues: InitialValuesType, input: string) => {
     setResult(main(input, optionsValues));
@@ -124,54 +139,48 @@ export default function CsvToYaml({
     updateField
   }) => [
     {
-      title: 'Adjust CSV input',
+      title: t('common.adjustCsvInput'),
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.csvSeparator}
             onOwnChange={(val) => updateField('csvSeparator', val)}
-            description={
-              'Enter the character used to delimit columns in the CSV file.'
-            }
+            description={t('common.csvSeparatorDescriptionFile')}
           />
           <TextFieldWithDesc
             value={values.quoteCharacter}
             onOwnChange={(val) => updateField('quoteCharacter', val)}
-            description={
-              'Enter the quote character used to quote the CSV fields.'
-            }
+            description={t('common.quoteCharacterDescriptionFields')}
           />
           <TextFieldWithDesc
             value={values.commentCharacter}
             onOwnChange={(val) => updateField('commentCharacter', val)}
-            description={
-              'Enter the character indicating the start of a comment line. Lines starting with this symbol will be skipped.'
-            }
+            description={t('common.commentCharacterDescription')}
           />
         </Box>
       )
     },
     {
-      title: 'Conversion Options',
+      title: t('common.conversionOptions'),
       component: (
         <Box>
           <CheckboxWithDesc
             checked={values.headerRow}
             onChange={(value) => updateField('headerRow', value)}
-            title="Use Headers"
-            description="Keep the first row as column names."
+            title={t('common.useHeaders')}
+            description={t('common.keepFirstRowAsColumnNames')}
           />
           <CheckboxWithDesc
             checked={values.emptyLines}
             onChange={(value) => updateField('emptyLines', value)}
-            title="Ignore Lines with No Data"
-            description="Enable to prevent the conversion of empty lines in the input CSV file."
+            title={t('common.ignoreLinesWithNoData')}
+            description={t('common.ignoreLinesWithNoDataDescription')}
           />
         </Box>
       )
     },
     {
-      title: 'Adjust YAML indentation',
+      title: t('csvToYaml.options.adjustYamlIndentation'),
       component: (
         <Box>
           <TextFieldWithDesc
@@ -179,9 +188,7 @@ export default function CsvToYaml({
             type="number"
             onOwnChange={(val) => updateField('spaces', Number(val))}
             inputProps={{ min: 1 }}
-            description={
-              'Set the number of spaces to use for YAML indentation.'
-            }
+            description={t('csvToYaml.options.spacesDescription')}
           />
         </Box>
       )
@@ -192,15 +199,24 @@ export default function CsvToYaml({
       title={title}
       input={input}
       inputComponent={
-        <ToolTextInput title={'Input CSV'} value={input} onChange={setInput} />
+        <ToolTextInput
+          title={t('common.inputCsv')}
+          value={input}
+          onChange={setInput}
+        />
       }
-      resultComponent={<ToolTextResult title={'Output YAML'} value={result} />}
+      resultComponent={
+        <ToolTextResult title={t('common.outputYaml')} value={result} />
+      }
       initialValues={initialValues}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('common.toolInfoTitle', { title }),
+        description: longDescription
+      }}
     />
   );
 }

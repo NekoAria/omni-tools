@@ -11,6 +11,7 @@ import { InitialValuesType } from './types';
 import TextFieldWithDesc from '@components/options/TextFieldWithDesc';
 import CheckboxWithDesc from '@components/options/CheckboxWithDesc';
 import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 
 const initialValues: InitialValuesType = {
   csvSeparator: ',',
@@ -22,11 +23,18 @@ const initialValues: InitialValuesType = {
   messageNumber: 10
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'CSV Completeness Check',
-    description:
-      'In this example, we upload a simple CSV file containing names, surnames, and dates of birth. The tool analyzes the data and displays a green "Complete CSV" badge as it finds that there are no missing values or empty records. To say it differently, this check confirms that all rows and columns have the expected number of values in the data and the file is ready for use in any software that imports CSV files without hiccups.',
+    title: 'findIncompleteCsvRecords.examples.complete.title',
+    description: 'findIncompleteCsvRecords.examples.complete.description',
     sampleText: `name,surname,dob
 John,Warner,1990-05-15
 Lily,Meadows,1985-12-20
@@ -45,9 +53,8 @@ Simon,Harper,2013-04-10`,
     }
   },
   {
-    title: 'Find Missing Fields in Broken CSV',
-    description:
-      'In this example, we find the missing fields in a CSV file containing city names, time zones, and standard time information. As a result of the analysis, we see a red badge in the output and a text list of missing values in the dataset. The file has missing values on two rows: row 3 lacks standard time data (column 3), and row 5 lacks time zone and standard time data (columns 2 and 3).',
+    title: 'findIncompleteCsvRecords.examples.missingFields.title',
+    description: 'findIncompleteCsvRecords.examples.missingFields.description',
     sampleText: `City,Time Zone,Standard Time
 London,UTC+00:00,GMT
 Chicago,UTC-06:00
@@ -70,9 +77,8 @@ Message: Line 5 has 2 missing column(s).`,
     }
   },
   {
-    title: 'Detect Empty and Missing Values',
-    description:
-      'This example checks a data file containing information astronomical data about constellations. Not only does it find incomplete records but also detects all empty fields by activating the "Find Empty Values" checkbox. The empty fields are those that have zero length or contain just whitespace. Such fields contain no information. Additionally, since this file uses semicolons instead of commas for separators, we specify the ";" symbol in the options to make the program work with SSV (Semicolon-Separated Values) data. As a result, the program identifies three empty fields and one row with missing data.',
+    title: 'findIncompleteCsvRecords.examples.emptyValues.title',
+    description: 'findIncompleteCsvRecords.examples.emptyValues.description',
     sampleText: `Abbreviation;Constellation;Main stars
 
 Cas;Cassiopeia;5
@@ -108,8 +114,51 @@ export default function FindIncompleteCsvRecords({
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
 
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
+
   const compute = (values: InitialValuesType, input: string) => {
-    setResult(findIncompleteCsvRecords(input, values));
+    setResult(
+      findIncompleteCsvRecords(input, values, {
+        missingLineTitle: t(
+          'findIncompleteCsvRecords.messages.missingLineTitle'
+        ),
+        emptyLineMessage: (lineNumber) =>
+          t('findIncompleteCsvRecords.messages.emptyLineMessage', {
+            lineNumber
+          }),
+        missingColumnsTitle: (lineNumber) =>
+          t('findIncompleteCsvRecords.messages.missingColumnsTitle', {
+            lineNumber
+          }),
+        missingColumnsMessage: (lineNumber, count) =>
+          t('findIncompleteCsvRecords.messages.missingColumnsMessage', {
+            lineNumber,
+            count
+          }),
+        missingValuesTitle: (lineNumber) =>
+          t('findIncompleteCsvRecords.messages.missingValuesTitle', {
+            lineNumber
+          }),
+        emptyValuesPrefix: (lineNumber) =>
+          t('findIncompleteCsvRecords.messages.emptyValuesPrefix', {
+            lineNumber
+          }),
+        columnLabel: (columnNumber) =>
+          t('findIncompleteCsvRecords.messages.columnLabel', { columnNumber }),
+        resultTitleLabel: t(
+          'findIncompleteCsvRecords.messages.resultTitleLabel'
+        ),
+        resultMessageLabel: t(
+          'findIncompleteCsvRecords.messages.resultMessageLabel'
+        ),
+        completeMessage: t('findIncompleteCsvRecords.messages.completeMessage')
+      })
+    );
   };
 
   const getGroups: GetGroupsType<InitialValuesType> | null = ({
@@ -203,7 +252,7 @@ export default function FindIncompleteCsvRecords({
         />
       }
       initialValues={initialValues}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}

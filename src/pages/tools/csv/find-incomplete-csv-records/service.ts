@@ -1,40 +1,74 @@
 import { InitialValuesType } from './types';
 import { splitCsv } from '@utils/csv';
 
+export type FindIncompleteCsvMessages = {
+  missingLineTitle: string;
+  emptyLineMessage: (lineNumber: number) => string;
+  missingColumnsTitle: (lineNumber: number) => string;
+  missingColumnsMessage: (lineNumber: number, count: number) => string;
+  missingValuesTitle: (lineNumber: number) => string;
+  emptyValuesPrefix: (lineNumber: number) => string;
+  columnLabel: (columnNumber: number) => string;
+  resultTitleLabel: string;
+  resultMessageLabel: string;
+  completeMessage: string;
+};
+
+const defaultMessages: FindIncompleteCsvMessages = {
+  missingLineTitle: 'Missing Line',
+  emptyLineMessage: (lineNumber) => `Line ${lineNumber} is empty.`,
+  missingColumnsTitle: (lineNumber) =>
+    `Found missing column(s) on line ${lineNumber}`,
+  missingColumnsMessage: (lineNumber, count) =>
+    `Line ${lineNumber} has ${count} missing column(s).`,
+  missingValuesTitle: (lineNumber) =>
+    `Found missing values on line ${lineNumber}`,
+  emptyValuesPrefix: (lineNumber) => `Empty values on line ${lineNumber}: `,
+  columnLabel: (columnNumber) => `column ${columnNumber}`,
+  resultTitleLabel: 'Title',
+  resultMessageLabel: 'Message',
+  completeMessage: 'The Csv input is complete.'
+};
+
 function generateMessage(
   row: string[],
   lineIndex: number,
   maxLength: number,
   emptyLines: boolean,
-  emptyValues: boolean
+  emptyValues: boolean,
+  messages: FindIncompleteCsvMessages
 ) {
   const lineNumber = lineIndex + 1;
   // check if empty lines are allowed
   if (!emptyLines && row.length === 1 && row[0] === '')
-    return { title: 'Missing Line', message: `Line ${lineNumber} is empty.` };
+    return {
+      title: messages.missingLineTitle,
+      message: messages.emptyLineMessage(lineNumber)
+    };
 
   // if row legth is less than maxLength it means that there are missing columns
   if (row.length < maxLength)
     return {
-      title: `Found missing column(s) on line ${lineNumber}`,
-      message: `Line ${lineNumber} has ${
+      title: messages.missingColumnsTitle(lineNumber),
+      message: messages.missingColumnsMessage(
+        lineNumber,
         maxLength - row.length
-      } missing column(s).`
+      )
     };
 
   // if row length is equal to maxLength we should check if there are empty values
   if (row.length == maxLength && emptyValues) {
     let missingValues = false;
-    let message = `Empty values on line ${lineNumber}: `;
+    let message = messages.emptyValuesPrefix(lineNumber);
     row.forEach((cell, index) => {
       if (cell.trim() === '') {
         missingValues = true;
-        message += `column ${index + 1}, `;
+        message += `${messages.columnLabel(index + 1)}, `;
       }
     });
     if (missingValues)
       return {
-        title: `Found missing values on line ${lineNumber}`,
+        title: messages.missingValuesTitle(lineNumber),
         message: message.slice(0, -2) + '.'
       };
   }
@@ -43,7 +77,8 @@ function generateMessage(
 }
 export function findIncompleteCsvRecords(
   input: string,
-  options: InitialValuesType
+  options: InitialValuesType,
+  messages: FindIncompleteCsvMessages = defaultMessages
 ): string {
   if (!input) return '';
 
@@ -59,22 +94,28 @@ export function findIncompleteCsvRecords(
     options.quoteCharacter
   );
   const maxLength = Math.max(...rows.map((row) => row.length));
-  const messages = rows
+  const resultMessages = rows
     .map((row, index) =>
       generateMessage(
         row,
         index,
         maxLength,
         options.emptyLines,
-        options.emptyValues
+        options.emptyValues,
+        messages
       )
     )
     .filter(Boolean)
-    .map((msg) => `Title: ${msg!.title}\nMessage: ${msg!.message}`);
+    .map(
+      (msg) =>
+        `${messages.resultTitleLabel}: ${msg!.title}\n${
+          messages.resultMessageLabel
+        }: ${msg!.message}`
+    );
 
-  return messages.length > 0
+  return resultMessages.length > 0
     ? options.messageLimit
-      ? messages.slice(0, options.messageNumber).join('\n\n')
-      : messages.join('\n\n')
-    : 'The Csv input is complete.';
+      ? resultMessages.slice(0, options.messageNumber).join('\n\n')
+      : resultMessages.join('\n\n')
+    : messages.completeMessage;
 }

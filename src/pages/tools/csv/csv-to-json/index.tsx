@@ -9,6 +9,7 @@ import { Box } from '@mui/material';
 import CheckboxWithDesc from '@components/options/CheckboxWithDesc';
 import TextFieldWithDesc from '@components/options/TextFieldWithDesc';
 import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 
 type InitialValuesType = {
   delimiter: string;
@@ -32,10 +33,18 @@ const initialValues: InitialValuesType = {
   spacesCount: 2
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Basic CSV to JSON Array',
-    description: 'Convert a simple CSV file into a JSON array structure.',
+    title: 'csvToJson.examples.basic.title',
+    description: 'csvToJson.examples.basic.description',
     sampleText: 'name,age,city\nJohn,30,New York\nAlice,25,London',
     sampleResult: `[
   {
@@ -56,8 +65,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'CSV with Custom Delimiter',
-    description: 'Convert a CSV file that uses semicolons as separators.',
+    title: 'csvToJson.examples.customDelimiter.title',
+    description: 'csvToJson.examples.customDelimiter.description',
     sampleText: 'product;price;quantity\nApple;1.99;50\nBanana;0.99;100',
     sampleResult: `[
   {
@@ -77,8 +86,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'CSV with Comments and Empty Lines',
-    description: 'Process CSV data while handling comments and empty lines.',
+    title: 'csvToJson.examples.comments.title',
+    description: 'csvToJson.examples.comments.description',
     sampleText: `# This is a comment
 id,name,active
 1,John,true
@@ -117,6 +126,13 @@ export default function CsvToJson({ title }: ToolComponentProps) {
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
 
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
+
   const compute = (values: InitialValuesType, input: string) => {
     if (input) {
       try {
@@ -148,7 +164,7 @@ export default function CsvToJson({ title }: ToolComponentProps) {
       setInput={setInput}
       initialValues={initialValues}
       compute={compute}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
       inputComponent={
         <ToolTextInput
           title={t('csvToJson.inputTitle')}

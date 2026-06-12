@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 import React, { useState } from 'react';
 import ToolContent from '@components/ToolContent';
 import ToolTextInput from '@components/input/ToolTextInput';
@@ -25,10 +27,18 @@ const initialValues: InitialValuesType = {
   skipEmptyLines: true
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Basic CSV to XML',
-    description: 'Convert a simple CSV file into an XML format.',
+    title: 'csvToXml.examples.basic.title',
+    description: 'csvToXml.examples.basic.description',
     sampleText: 'name,age,city\nJohn,30,New York\nAlice,25,London',
     sampleResult: `<root>
   <row>
@@ -50,8 +60,16 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
 ];
 
 export default function CsvToXml({ title }: ToolComponentProps) {
+  const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (values: InitialValuesType, input: string) => {
     if (input) {
@@ -59,11 +77,11 @@ export default function CsvToXml({ title }: ToolComponentProps) {
         const xmlResult = convertCsvToXml(input, values);
         setResult(xmlResult);
       } catch (error) {
-        setResult(
-          `Error: ${
-            error instanceof Error ? error.message : 'Invalid CSV format'
-          }`
-        );
+        const message =
+          error instanceof Error
+            ? error.message
+            : t('csvToXml.invalidCsvFormat');
+        setResult(`${t('csvToXml.errorPrefix')}: ${message}`);
       }
     }
   };
@@ -75,30 +93,38 @@ export default function CsvToXml({ title }: ToolComponentProps) {
       setInput={setInput}
       initialValues={initialValues}
       compute={compute}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
       inputComponent={
-        <ToolTextInput title="Input CSV" value={input} onChange={setInput} />
+        <ToolTextInput
+          title={t('common.inputCsv')}
+          value={input}
+          onChange={setInput}
+        />
       }
       resultComponent={
-        <ToolTextResult title="Output XML" value={result} extension={'xml'} />
+        <ToolTextResult
+          title={t('common.outputXml')}
+          value={result}
+          extension={'xml'}
+        />
       }
       getGroups={({ values, updateField }) => [
         {
-          title: 'Input CSV Format',
+          title: t('common.inputCsvFormat'),
           component: (
             <Box>
               <TextFieldWithDesc
-                description="Column Separator"
+                description={t('common.columnSeparator')}
                 value={values.delimiter}
                 onOwnChange={(val) => updateField('delimiter', val)}
               />
               <TextFieldWithDesc
-                description="Field Quote"
+                description={t('common.fieldQuote')}
                 onOwnChange={(val) => updateField('quote', val)}
                 value={values.quote}
               />
               <TextFieldWithDesc
-                description="Comment Symbol"
+                description={t('common.commentSymbol')}
                 value={values.comment}
                 onOwnChange={(val) => updateField('comment', val)}
               />
@@ -106,20 +132,20 @@ export default function CsvToXml({ title }: ToolComponentProps) {
           )
         },
         {
-          title: 'Conversion Options',
+          title: t('common.conversionOptions'),
           component: (
             <Box>
               <CheckboxWithDesc
                 checked={values.useHeaders}
                 onChange={(value) => updateField('useHeaders', value)}
-                title="Use Headers"
-                description="First row is treated as column headers"
+                title={t('common.useHeaders')}
+                description={t('common.firstRowColumnHeaders')}
               />
               <CheckboxWithDesc
                 checked={values.skipEmptyLines}
                 onChange={(value) => updateField('skipEmptyLines', value)}
-                title="Skip Empty Lines"
-                description="Don't process empty lines in the CSV"
+                title={t('common.skipEmptyLines')}
+                description={t('common.skipEmptyLinesDescription')}
               />
             </Box>
           )

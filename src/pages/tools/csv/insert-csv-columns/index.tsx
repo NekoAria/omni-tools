@@ -12,6 +12,7 @@ import { CardExampleType } from '@components/examples/ToolExamples';
 import { ToolComponentProps } from '@tools/defineTool';
 import { getCsvHeaders } from '@utils/csv';
 import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 
 const initialValues: InitialValuesType = {
   csvToInsert: '',
@@ -26,11 +27,18 @@ const initialValues: InitialValuesType = {
   rowNumber: 1
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Insert a single column by position',
-    description:
-      'In this example, we insert a single column "city" at position 1 in the CSV data. The input CSV has data about cars, including the "Brand" and "Model" of the car. We now add a "city" column at position 1. To do this, we enter the city data in the comma-separated format in the "New Column" option, and to quickly add the new column at position 1, then we specify the position number.',
+    title: 'insertCsvColumns.examples.singleColumn.title',
+    description: 'insertCsvColumns.examples.singleColumn.description',
     sampleText: `Brand,Model
 Toyota,Camry
 Ford,Mustang
@@ -57,9 +65,8 @@ houston`,
     }
   },
   {
-    title: 'Append Multiple columns by header Name',
-    description:
-      'In this example, we append two data columns to the end of CSV data. The input CSV has data about cars, including the "Brand" and "Model" of the car. We now add two more columns at the end: "Year" and "Price". To do this, we enter these two data columns in the comma-separated format in the "New Column" option, and to quickly add the new columns to the end of the CSV, then we specify the name of the header they should be put after.',
+    title: 'insertCsvColumns.examples.appendByHeader.title',
+    description: 'insertCsvColumns.examples.appendByHeader.description',
     sampleText: `Brand,Model
 Toyota,Camry
 Ford,Mustang
@@ -88,9 +95,8 @@ Chevrolet,Malibu,2021,28000`,
     }
   },
   {
-    title: 'Append Multiple columns',
-    description:
-      'In this example, we append two data columns to the end of CSV data. The input CSV has data about cars, including the "Brand" and "Model" of the car. We now add two more columns at the end: "Year" and "Price". To do this, we enter these two data columns in the comma-separated format in the "New Column" option, and to quickly add the new columns to the end of the CSV, then we select append.',
+    title: 'insertCsvColumns.examples.appendMultiple.title',
+    description: 'insertCsvColumns.examples.appendMultiple.description',
     sampleText: `Brand,Model
 Toyota,Camry
 Ford,Mustang
@@ -126,6 +132,13 @@ export default function InsertCsvColumns({
   const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (values: InitialValuesType, input: string) => {
     setResult(main(input, values));
@@ -304,7 +317,7 @@ export default function InsertCsvColumns({
         title: t('insertCsvColumns.toolInfo.title'),
         description: t('insertCsvColumns.toolInfo.description')
       }}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
     />
   );
 }

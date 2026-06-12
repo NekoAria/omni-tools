@@ -1,4 +1,6 @@
 import { Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 import React, { useState } from 'react';
 import ToolContent from '@components/ToolContent';
 import { ToolComponentProps } from '@tools/defineTool';
@@ -21,11 +23,18 @@ const initialValues: InitialValuesType = {
   OutputQuoteCharacter: '"'
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Change the CSV Delimiter to a Semicolon',
-    description:
-      'In this example, we change the column separator to the semicolon separator in a CSV file containing data about countries, their populations, and population densities. As you can see, the input CSV file uses the standard commas as separators. After specifying this delimiter in the source CSV options, we set a new CSV delimiter for the output file to a semicolon, resulting in a new CSV file that now uses semicolons ";" in the output. Such CSV files with semicolons are called SSV files (semicolon-separated values files)',
+    title: 'changeCsvSeparator.examples.semicolon.title',
+    description: 'changeCsvSeparator.examples.semicolon.description',
     sampleText: `country,population,density
 China,1412,152
 India,1408,428
@@ -51,9 +60,8 @@ Brazil;214;26`,
     }
   },
   {
-    title: 'Restore a CSV File to the Standard Format',
-    description:
-      'In this example, a data scientist working with flowers was given an unusual CSV file that uses the vertical bar symbol as the field separator (such files are called PSV files – pipe-separated values files). To transform the file back to the standard comma-separated values (CSV) file, in the options, she set the input delimiter to "|" and the new delimiter to ",". She also wrapped the output fields in single quotes, enabled the option to remove empty lines from the input, and discarded comment lines starting with the "#" symbol.',
+    title: 'changeCsvSeparator.examples.standard.title',
+    description: 'changeCsvSeparator.examples.standard.description',
     sampleText: `species|height|days|temperature
 
 Sunflower|50cm|30|25°C
@@ -81,9 +89,8 @@ Brazil,214,26`,
     }
   },
   {
-    title: 'Plants vs. Zombies CSV',
-    description:
-      'In this example, we import CSV data with zombie characters from the game Plants vs. Zombies. The data includes zombies names, the level at which they first appear in the game, their health, damage, and speed. The data follows the standard CSV format, with commas serving as field separators. To change the readability of the file, we replace the usual comma delimiter with a slash symbol, creating a slash-separated values file.',
+    title: 'changeCsvSeparator.examples.zombies.title',
+    description: 'changeCsvSeparator.examples.zombies.description',
     sampleText: `zombie_name,first_seen,health,damage,speed
 Normal Zombie,Level 1-1,181,100,4.7
 Conehead Zombie,Level 1-3,551,100,4.7
@@ -119,8 +126,16 @@ export default function ChangeCsvDelimiter({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (values: InitialValuesType, input: string) => {
     setResult(changeCsvSeparator(input, values));
@@ -131,63 +146,55 @@ export default function ChangeCsvDelimiter({
     updateField
   }) => [
     {
-      title: 'Adjust CSV input options',
+      title: t('common.adjustCsvInputOptions'),
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.inputSeparator}
             onOwnChange={(val) => updateField('inputSeparator', val)}
-            description={
-              'Enter the character used to delimit columns in the CSV input file.'
-            }
+            description={t('common.csvSeparatorDescriptionInput')}
           />
           <TextFieldWithDesc
             value={values.inputQuoteCharacter}
             onOwnChange={(val) => updateField('inputQuoteCharacter', val)}
-            description={
-              'Enter the quote character used to quote the CSV input fields.'
-            }
+            description={t('common.quoteCharacterDescriptionInput')}
           />
           <TextFieldWithDesc
             value={values.commentCharacter}
             onOwnChange={(val) => updateField('commentCharacter', val)}
-            description={
-              'Enter the character indicating the start of a comment line. Lines starting with this symbol will be skipped.'
-            }
+            description={t('common.commentCharacterDescription')}
           />
           <CheckboxWithDesc
             checked={values.emptyLines}
             onChange={(value) => updateField('emptyLines', value)}
-            title="Delete Lines with No Data"
-            description="Remove empty lines from CSV input file."
+            title={t('common.deleteLinesWithNoData')}
+            description={t('common.deleteLinesWithNoDataDescription')}
           />
         </Box>
       )
     },
     {
-      title: 'Output options',
+      title: t('common.outputOptions'),
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.outputSeparator}
             onOwnChange={(val) => updateField('outputSeparator', val)}
-            description={
-              'Enter the character used to delimit columns in the CSV output file.'
-            }
+            description={t('common.csvSeparatorDescriptionOutput')}
           />
           <CheckboxWithDesc
             checked={values.outputQuoteAll}
             onChange={(value) => updateField('outputQuoteAll', value)}
-            title="Quote All Output Fields"
-            description="Wrap all fields of the output CSV file in quotes"
+            title={t('changeCsvSeparator.options.quoteAllOutputFields')}
+            description={t(
+              'changeCsvSeparator.options.quoteAllOutputFieldsDescription'
+            )}
           />
           {values.outputQuoteAll && (
             <TextFieldWithDesc
               value={values.OutputQuoteCharacter}
               onOwnChange={(val) => updateField('OutputQuoteCharacter', val)}
-              description={
-                'Enter the quote character used to quote the CSV output fields.'
-              }
+              description={t('common.quoteCharacterDescriptionOutput')}
             />
           )}
         </Box>
@@ -199,15 +206,24 @@ export default function ChangeCsvDelimiter({
       title={title}
       input={input}
       inputComponent={
-        <ToolTextInput title={'Input CSV'} value={input} onChange={setInput} />
+        <ToolTextInput
+          title={t('common.inputCsv')}
+          value={input}
+          onChange={setInput}
+        />
       }
-      resultComponent={<ToolTextResult title={'Output CSV'} value={result} />}
+      resultComponent={
+        <ToolTextResult title={t('common.outputCsv')} value={result} />
+      }
       initialValues={initialValues}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('common.toolInfoTitle', { title }),
+        description: longDescription
+      }}
     />
   );
 }

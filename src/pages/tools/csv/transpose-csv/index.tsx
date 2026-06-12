@@ -1,4 +1,6 @@
 import { Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { ParseKeys } from 'i18next';
 import React, { useState } from 'react';
 import ToolContent from '@components/ToolContent';
 import { ToolComponentProps } from '@tools/defineTool';
@@ -19,11 +21,18 @@ const initialValues: InitialValuesType = {
   quoteChar: '"'
 };
 
-const exampleCards: CardExampleType<InitialValuesType>[] = [
+type ExampleCardConfig = Omit<
+  CardExampleType<InitialValuesType>,
+  'title' | 'description'
+> & {
+  title: ParseKeys<'csv'>;
+  description: ParseKeys<'csv'>;
+};
+
+const exampleCards: ExampleCardConfig[] = [
   {
-    title: 'Transpose a 2x3 CSV',
-    description:
-      'This example transposes a CSV with 2 rows and 3 columns. The tool splits the input data by the comma character, creating a 2 by 3 matrix. It then exchanges elements, turning columns into rows and vice versa. The output is a transposed CSV with flipped dimensions',
+    title: 'transposeCsv.examples.twoByThree.title',
+    description: 'transposeCsv.examples.twoByThree.description',
     sampleText: `foo,bar,baz
 val1,val2,val3`,
     sampleResult: `foo,val1
@@ -38,9 +47,8 @@ baz,val3`,
     }
   },
   {
-    title: 'Transpose a Long CSV',
-    description:
-      'In this example, we flip a vertical single-column CSV file containing a list of our favorite fruits and their emojis. This single column is transformed into a single-row CSV file and the rows length matches the height of the original CSV.',
+    title: 'transposeCsv.examples.longCsv.title',
+    description: 'transposeCsv.examples.longCsv.description',
     sampleText: `Tasty Fruit
 🍑 peaches
 🍒 cherries
@@ -64,9 +72,8 @@ baz,val3`,
     }
   },
   {
-    title: 'Clean and Transpose CSV Data',
-    description:
-      'In this example, we perform three tasks simultaneously: transpose a CSV file, remove comments and empty lines, and fix missing data. The transposition operation is the same as flipping a matrix across its diagonal and it is done automatically by the program. Additionally, the program automatically removes all empty lines as they cannot be transposed. The comments are removed by specifying the "#" symbol in the options. The program also fixes missing data using a custom bullet symbol "•", which is specified in the options.',
+    title: 'transposeCsv.examples.cleanAndTranspose.title',
+    description: 'transposeCsv.examples.cleanAndTranspose.description',
     sampleText: `Fish Type,Color,Habitat
 Goldfish,Gold,Freshwater
 
@@ -91,8 +98,16 @@ export default function TransposeCsv({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('csv');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
+
+  const translatedExampleCards: CardExampleType<InitialValuesType>[] =
+    exampleCards.map(({ title: exampleTitle, description, ...example }) => ({
+      ...example,
+      title: t(exampleTitle),
+      description: t(description)
+    }));
 
   const compute = (values: InitialValuesType, input: string) => {
     setResult(transposeCSV(input, values));
@@ -103,56 +118,46 @@ export default function TransposeCsv({
     updateField
   }) => [
     {
-      title: 'Csv input Options',
+      title: t('common.csvInputOptions'),
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.separator}
             onOwnChange={(val) => updateField('separator', val)}
-            description={
-              'Enter the character used to delimit columns in the CSV input file.'
-            }
+            description={t('common.csvSeparatorDescriptionInput')}
           />
           <TextFieldWithDesc
             value={values.quoteChar}
             onOwnChange={(val) => updateField('quoteChar', val)}
-            description={
-              'Enter the quote character used to quote the CSV input fields.'
-            }
+            description={t('common.quoteCharacterDescriptionInput')}
           />
           <TextFieldWithDesc
             value={values.commentCharacter}
             onOwnChange={(val) => updateField('commentCharacter', val)}
-            description={
-              'Enter the character indicating the start of a comment line. Lines starting with this symbol will be skipped.'
-            }
+            description={t('common.commentCharacterDescription')}
           />
         </Box>
       )
     },
     {
-      title: 'Fixing CSV Options',
+      title: t('transposeCsv.options.fixingCsvOptions'),
       component: (
         <Box>
           <SelectWithDesc
             selected={values.customFill}
             options={[
-              { label: 'Fill With Empty Values', value: false },
-              { label: 'Fill with Custom Values', value: true }
+              { label: t('common.fillWithEmptyValues'), value: false },
+              { label: t('common.fillWithCustomValues'), value: true }
             ]}
             onChange={(value) => updateField('customFill', value)}
-            description={
-              'Insert empty fields or custom values where the CSV data is missing (not empty).'
-            }
+            description={t('transposeCsv.options.customFillDescription')}
           />
 
           {values.customFill && (
             <TextFieldWithDesc
               value={values.customFillValue}
               onOwnChange={(val) => updateField('customFillValue', val)}
-              description={
-                'Enter the character used to fill missing values in the CSV input file.'
-              }
+              description={t('transposeCsv.options.customFillValueDescription')}
             />
           )}
         </Box>
@@ -164,15 +169,24 @@ export default function TransposeCsv({
       title={title}
       input={input}
       inputComponent={
-        <ToolTextInput title="Input CSV" value={input} onChange={setInput} />
+        <ToolTextInput
+          title={t('common.inputCsv')}
+          value={input}
+          onChange={setInput}
+        />
       }
-      resultComponent={<ToolTextResult title="Transposed CSV" value={result} />}
+      resultComponent={
+        <ToolTextResult title={t('common.transposedCsv')} value={result} />
+      }
       initialValues={initialValues}
-      exampleCards={exampleCards}
+      exampleCards={translatedExampleCards}
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('common.toolInfoTitle', { title }),
+        description: longDescription
+      }}
     />
   );
 }
