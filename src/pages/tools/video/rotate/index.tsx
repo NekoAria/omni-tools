@@ -23,9 +23,9 @@ export const validationSchema = Yup.object({
 });
 
 const angleOptions: { value: RotationAngle; label: string }[] = [
-  { value: 90, label: '90° Clockwise' },
-  { value: 180, label: '180° (Upside down)' },
-  { value: 270, label: '270° (90° Counter-clockwise)' }
+  { value: 90, label: 'video:rotate.90Degrees' },
+  { value: 180, label: 'video:rotate.180Degrees' },
+  { value: 270, label: 'video:rotate.270Degrees' }
 ];
 export default function RotateVideo({ title }: ToolComponentProps) {
   const { t } = useTranslation('video');

@@ -7,11 +7,13 @@ import { ToolComponentProps } from '@tools/defineTool';
 import ToolImageInput from '@components/input/ToolImageInput';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { fetchFile } from '@ffmpeg/util';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   newSpeed: 2
 };
 export default function ChangeSpeed({ title }: ToolComponentProps) {
+  const { t } = useTranslation('video');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
 
@@ -102,12 +104,12 @@ export default function ChangeSpeed({ title }: ToolComponentProps) {
           value={input}
           onChange={setInput}
           accept={['image/gif']}
-          title={'Input GIF'}
+          title={t('gif.changeSpeed.inputTitle')}
         />
       }
       resultComponent={
         <ToolFileResult
-          title={'Output GIF with new speed'}
+          title={t('gif.changeSpeed.resultTitle')}
           value={result}
           extension={'gif'}
         />
@@ -115,13 +117,13 @@ export default function ChangeSpeed({ title }: ToolComponentProps) {
       initialValues={initialValues}
       getGroups={({ values, updateField }) => [
         {
-          title: 'New GIF speed',
+          title: t('gif.changeSpeed.newGifSpeed'),
           component: (
             <Box>
               <TextFieldWithDesc
                 value={values.newSpeed}
                 onOwnChange={(val) => updateField('newSpeed', Number(val))}
-                description={'Default multiplier: 2 means 2x faster'}
+                description={t('gif.changeSpeed.defaultMultiplier')}
                 type={'number'}
               />
             </Box>

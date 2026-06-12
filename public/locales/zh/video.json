@@ -23,7 +23,18 @@
     "resultTitle": "压缩视频",
     "shortDescription": "通过缩放到不同的分辨率来压缩视频",
     "title": "压缩视频",
-    "worst": "最差"
+    "worst": "最差",
+    "presets": {
+      "ultrafast": "超快速（最低质量，最小文件）",
+      "superfast": "极快",
+      "veryfast": "非常快",
+      "faster": "较快",
+      "fast": "快速",
+      "medium": "中等（平衡）",
+      "slow": "慢速",
+      "slower": "较慢",
+      "veryslow": "非常慢（最高质量，最大文件）"
+    }
   },
   "cropVideo": {
     "cropCoordinates": "裁剪坐标",
@@ -67,7 +78,11 @@
     "changeSpeed": {
       "description": "更改 GIF 动画的播放速度。在保持动画流畅的情况下，加快或减慢 GIF 的速度。",
       "shortDescription": "更改 GIF 动画速度",
-      "title": "更改 GIF 速度"
+      "title": "更改 GIF 速度",
+      "inputTitle": "输入 GIF",
+      "resultTitle": "变速后的输出 GIF",
+      "newGifSpeed": "新的 GIF 速度",
+      "defaultMultiplier": "默认倍数：2 表示快 2 倍"
     }
   },
   "loop": {
@@ -88,7 +103,13 @@
     "description": "将多个视频文件合并为一个连续的视频。",
     "longDescription": "此工具允许您将多个视频文件合并或附加为一个连续的视频。只需上传您的视频文件，按所需顺序排列，然后将它们合并为一个文件，即可轻松共享或编辑。",
     "shortDescription": "轻松附加和合并视频。",
-    "title": "合并视频"
+    "title": "合并视频",
+    "inputTitle": "输入视频",
+    "mergingVideos": "正在合并视频...",
+    "resultTitle": "合并后的视频",
+    "toolInfo": {
+      "title": "什么是 {{title}}？"
+    }
   },
   "rotate": {
     "180Degrees": "180°（上下颠倒）",
@@ -115,7 +136,23 @@
   "videoToGif": {
     "description": "将视频文件转换为 GIF 动画格式。提取特定时间范围并创建可共享的动画图像。",
     "shortDescription": "将视频转换为动画 GIF",
-    "title": "视频转GIF"
+    "title": "视频转GIF",
+    "inputTitle": "输入视频",
+    "resultTitle": "转换后的 GIF",
+    "convertingToGif": "正在转换为 GIF",
+    "setQuality": "设置质量",
+    "quality": {
+      "low": "低",
+      "mid": "中",
+      "high": "高",
+      "ultra": "超高"
+    },
+    "timestamps": "时间戳",
+    "startTime": "开始时间",
+    "endTime": "结束时间",
+    "toolInfo": {
+      "title": "什么是 {{title}}？"
+    }
   },
   "addAudio": {
     "audioFile": "音频文件",

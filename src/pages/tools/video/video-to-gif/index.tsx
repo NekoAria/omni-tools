@@ -12,6 +12,7 @@ import ToolFileResult from '@components/result/ToolFileResult';
 import SimpleRadio from '@components/options/SimpleRadio';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { fetchFile } from '@ffmpeg/util';
+import { useTranslation } from 'react-i18next';
 
 const initialValues: InitialValuesType = {
   quality: 'mid',
@@ -33,6 +34,7 @@ export default function VideoToGif({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('video');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -123,11 +125,11 @@ export default function VideoToGif({
     updateField
   }) => [
     {
-      title: 'Set Quality',
+      title: t('videoToGif.setQuality'),
       component: (
         <Box>
           <SimpleRadio
-            title="Low"
+            title={t('videoToGif.quality.low')}
             onClick={() => {
               updateField('quality', 'low');
               updateField('fps', '5');
@@ -136,7 +138,7 @@ export default function VideoToGif({
             checked={values.quality === 'low'}
           />
           <SimpleRadio
-            title="Mid"
+            title={t('videoToGif.quality.mid')}
             onClick={() => {
               updateField('quality', 'mid');
               updateField('fps', '10');
@@ -145,7 +147,7 @@ export default function VideoToGif({
             checked={values.quality === 'mid'}
           />
           <SimpleRadio
-            title="High"
+            title={t('videoToGif.quality.high')}
             onClick={() => {
               updateField('quality', 'high');
               updateField('fps', '15');
@@ -154,7 +156,7 @@ export default function VideoToGif({
             checked={values.quality === 'high'}
           />
           <SimpleRadio
-            title="Ultra"
+            title={t('videoToGif.quality.ultra')}
             onClick={() => {
               updateField('quality', 'ultra');
               updateField('fps', '15');
@@ -166,7 +168,7 @@ export default function VideoToGif({
       )
     },
     {
-      title: 'Timestamps',
+      title: t('videoToGif.timestamps'),
       component: (
         <Box>
           <TextFieldWithDesc
@@ -174,7 +176,7 @@ export default function VideoToGif({
               updateNumberField(value, 'start', updateField)
             }
             value={values.start}
-            label="Start Time"
+            label={t('videoToGif.startTime')}
             sx={{ mb: 2, backgroundColor: 'background.paper' }}
           />
           <TextFieldWithDesc
@@ -182,7 +184,7 @@ export default function VideoToGif({
               updateNumberField(value, 'end', updateField)
             }
             value={values.end}
-            label="End Time"
+            label={t('videoToGif.endTime')}
           />
         </Box>
       )
@@ -198,7 +200,7 @@ export default function VideoToGif({
           <ToolVideoInput
             value={input}
             onChange={setInput}
-            title={'Input Video'}
+            title={t('videoToGif.inputTitle')}
             showTrimControls={true}
             onTrimChange={(start, end) => {
               setFieldValue('start', start);
@@ -212,13 +214,13 @@ export default function VideoToGif({
       resultComponent={
         loading ? (
           <ToolFileResult
-            title="Converting to Gif"
+            title={t('videoToGif.convertingToGif')}
             value={null}
             loading={true}
           />
         ) : (
           <ToolFileResult
-            title="Converted to Gif"
+            title={t('videoToGif.resultTitle')}
             value={result}
             extension="gif"
           />
@@ -228,7 +230,10 @@ export default function VideoToGif({
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('videoToGif.toolInfo.title', { title }),
+        description: longDescription
+      }}
     />
   );
 }

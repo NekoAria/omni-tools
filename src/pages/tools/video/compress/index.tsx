@@ -57,15 +57,15 @@ const resolutionOptions: { value: VideoResolution; label: string }[] = [
 ];
 
 const presetOptions = [
-  { value: 'ultrafast', label: 'Ultrafast (Lowest Quality, Smallest Size)' },
-  { value: 'superfast', label: 'Superfast' },
-  { value: 'veryfast', label: 'Very Fast' },
-  { value: 'faster', label: 'Faster' },
-  { value: 'fast', label: 'Fast' },
-  { value: 'medium', label: 'Medium (Balanced)' },
-  { value: 'slow', label: 'Slow' },
-  { value: 'slower', label: 'Slower' },
-  { value: 'veryslow', label: 'Very Slow (Highest Quality, Largest Size)' }
+  { value: 'ultrafast', label: 'video:compress.presets.ultrafast' },
+  { value: 'superfast', label: 'video:compress.presets.superfast' },
+  { value: 'veryfast', label: 'video:compress.presets.veryfast' },
+  { value: 'faster', label: 'video:compress.presets.faster' },
+  { value: 'fast', label: 'video:compress.presets.fast' },
+  { value: 'medium', label: 'video:compress.presets.medium' },
+  { value: 'slow', label: 'video:compress.presets.slow' },
+  { value: 'slower', label: 'video:compress.presets.slower' },
+  { value: 'veryslow', label: 'video:compress.presets.veryslow' }
 ];
 
 export default function CompressVideo({ title }: ToolComponentProps) {

@@ -36,22 +36,22 @@ export default function PdfToEpub({ title }: ToolComponentProps) {
           value={input}
           onChange={(file) => setInput(file)}
           accept={['application/pdf']}
-          title={'Input PDF'}
+          title={'pdf:pdfToEpub.inputTitle'}
         />
       }
       getGroups={null}
       resultComponent={
         <ToolFileResult
-          title={'EPUB Output'}
+          title={'pdf:pdfToEpub.resultTitle'}
           value={result}
           extension={'epub'}
           loading={isProcessing}
-          loadingText={'Converting PDF to EPUB...'}
+          loadingText={'pdf:pdfToEpub.loadingText'}
         />
       }
       toolInfo={{
-        title: 'How to Use PDF to EPUB?',
-        description: `Upload a PDF file and this tool will convert it into an EPUB format, suitable for most e-reader devices.`
+        title: 'pdf:pdfToEpub.toolInfo.title',
+        description: 'pdf:pdfToEpub.toolInfo.description'
       }}
     />
   );

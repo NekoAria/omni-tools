@@ -19,7 +19,21 @@
     "pages": "页数",
     "resultTitle": "压缩 PDF",
     "shortDescription": "在浏览器中安全地压缩 PDF 文件",
-    "title": "压缩PDF"
+    "title": "压缩PDF",
+    "examples": {
+      "low": {
+        "title": "低压缩",
+        "description": "质量损失最小，文件大小略有减小"
+      },
+      "medium": {
+        "title": "中等压缩",
+        "description": "在文件大小和质量之间取得平衡"
+      },
+      "high": {
+        "title": "高压缩",
+        "description": "最大程度减小文件大小，但会有一些质量损失"
+      }
+    }
   },
   "convertToPdf": {
     "description": "将各种图像格式（PNG, GIF, JPG, TIF, PSD, SVG, WEBP, HEIC, RAW）转换为 PDF，并可调整图像大小和页面方向。",
@@ -41,7 +55,10 @@
   "editor": {
     "description": "高级 PDF 编辑器，具备注释、表单填写、高亮显示和导出功能。您可以使用专业级工具（包括文本插入、绘图、高亮显示、签名和表单填写）直接在浏览器中编辑 PDF。",
     "shortDescription": "使用高级注释、签名和编辑工具编辑 PDF",
-    "title": "PDF编辑器"
+    "title": "PDF编辑器",
+    "toolInfo": {
+      "description": "完全在浏览器中编辑、注释、高亮、填写表单并导出 PDF。使用这款强大的在线编辑器为 PDF 文档添加文本、绘图、签名等内容。"
+    }
   },
   "merge": {
     "inputTitle": "输入 PDF",
@@ -72,18 +89,45 @@
   "pdfToEpub": {
     "description": "将 PDF 文档转换为 EPUB 文件，以实现更好的电子阅读器兼容性。",
     "shortDescription": "将 PDF 文件转换为 EPUB 格式",
-    "title": "PDF 转 EPUB"
+    "title": "PDF 转 EPUB",
+    "inputTitle": "输入 PDF",
+    "resultTitle": "EPUB 输出",
+    "loadingText": "正在将 PDF 转换为 EPUB...",
+    "toolInfo": {
+      "title": "如何使用 PDF 转 EPUB？",
+      "description": "上传 PDF 文件，此工具会将其转换为 EPUB 格式，适用于大多数电子阅读器设备。"
+    }
   },
   "pdfToPng": {
     "description": "将 PDF 文档转换为 PNG 面板。",
     "longDescription": "上传 PDF 后，直接在浏览器中将每个页面转换为高质量的 PNG 图像。此工具非常适合提取视觉内容或分享单个页面。无需上传数据，所有操作均在本地运行。",
     "shortDescription": "将 PDF 转换为 PNG 图像",
-    "title": "PDF 转 PNG"
+    "title": "PDF 转 PNG",
+    "inputTitle": "上传 PDF",
+    "resultTitle": "转换后的 PNG 页面",
+    "loadingText": "正在转换 PDF 页面",
+    "toolInfo": {
+      "title": "将 PDF 页面转换为 PNG 图像",
+      "description": "上传 PDF，并将每一页渲染为高质量 PNG。您可以预览、单独下载，或将所有图像打包为 ZIP。"
+    }
   },
   "protectPdf": {
     "description": "在浏览器中安全地为 PDF 文件添加密码保护",
     "shortDescription": "使用密码安全地保护 PDF 文件",
-    "title": "保护 PDF"
+    "title": "保护 PDF",
+    "inputTitle": "输入 PDF",
+    "resultTitle": "受保护的 PDF",
+    "protectingPdf": "正在保护 PDF",
+    "passwordSettings": "密码设置",
+    "password": "密码",
+    "passwordDescription": "输入用于保护 PDF 的密码",
+    "passwordPlaceholder": "输入密码",
+    "confirmPassword": "确认密码",
+    "confirmPasswordDescription": "再次输入密码以确认",
+    "confirmPasswordPlaceholder": "确认密码",
+    "passwordsDoNotMatch": "密码不匹配",
+    "passwordCannotBeEmpty": "密码不能为空",
+    "failedToProtectPdf": "保护 PDF 失败：{{error}}"
   },
   "rotatePdf": {
     "allPagesWillBeRotated": "全部 {{count}} 页面将会旋转",
@@ -109,6 +153,20 @@
     "toolInfo": {
       "description": "此工具允许您旋转 PDF 文档中的页面。您可以旋转所有页面，也可以指定单个页面进行旋转。选择旋转角度：顺时针 90°、上下 180° 或逆时针 270°。要旋转特定页面，请取消勾选“应用于所有页面”，并输入页码或以逗号分隔的范围（例如，1,3,5-7）。",
       "title": "如何使用旋转 PDF 工具"
+    },
+    "examples": {
+      "rotateAll90": {
+        "title": "将所有页面旋转 90°",
+        "description": "将 PDF 中的所有页面顺时针旋转 90 度"
+      },
+      "rotateSpecific180": {
+        "title": "将指定页面旋转 180°",
+        "description": "将第 1 页和第 3 页旋转 180 度"
+      },
+      "rotateRange270": {
+        "title": "将页面范围旋转 270°",
+        "description": "将第 2 页到第 5 页旋转 270 度"
+      }
     }
   },
   "splitPdf": {
@@ -126,6 +184,20 @@
     "toolInfo": {
       "description": "此工具允许您从 PDF 文档中提取特定页面。您可以指定要提取的单个页面或页面范围。",
       "title": "拆分 PDF"
+    },
+    "examples": {
+      "specificPages": {
+        "title": "提取指定页面",
+        "description": "从 PDF 文档中提取第 1、5、6、7 和 8 页。"
+      },
+      "firstAndLast": {
+        "title": "提取第一页和最后一页",
+        "description": "仅从 PDF 文档中提取第一页和最后一页。"
+      },
+      "pageRange": {
+        "title": "提取页面范围",
+        "description": "从 PDF 文档中提取连续的页面范围。"
+      }
     }
   },
   "extractImagesFromPdf": {

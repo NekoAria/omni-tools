@@ -13,7 +13,13 @@
     "useSpaces": "Use Spaces",
     "useSpacesDescription": "Indent output with spaces",
     "useTabs": "Use Tabs",
-    "useTabsDescription": "Indent output with tabs."
+    "useTabsDescription": "Indent output with tabs.",
+    "examples": {
+      "basic": {
+        "title": "Beautify XML",
+        "description": "Beautify a compact XML string for readability."
+      }
+    }
   },
   "xmlValidator": {
     "description": "Validate XML syntax and structure.",
@@ -23,6 +29,16 @@
     "toolInfo": {
       "description": "This tool allows you to validate XML syntax and structure. It checks if the XML is well-formed and provides detailed error messages for any issues found.",
       "title": "XML Validator"
+    },
+    "examples": {
+      "valid": {
+        "title": "Validate XML",
+        "description": "Check if an XML string is well-formed."
+      },
+      "invalid": {
+        "title": "Invalid XML",
+        "description": "Example of malformed XML."
+      }
     }
   },
   "xmlViewer": {

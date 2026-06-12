@@ -13,15 +13,15 @@ const initialValues: InitialValuesType = {};
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Validate XML',
-    description: 'Check if an XML string is well-formed.',
+    title: 'xml:xmlValidator.examples.valid.title',
+    description: 'xml:xmlValidator.examples.valid.description',
     sampleText: '<root><item>1</item><item>2</item></root>',
     sampleResult: 'Valid XML',
     sampleOptions: {}
   },
   {
-    title: 'Invalid XML',
-    description: 'Example of malformed XML.',
+    title: 'xml:xmlValidator.examples.invalid.title',
+    description: 'xml:xmlValidator.examples.invalid.description',
     sampleText: '<root><item>1</item><item>2</root>',
     sampleResult: 'Invalid XML: ...',
     sampleOptions: {}

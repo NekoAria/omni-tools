@@ -19,8 +19,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Low Compression',
-    description: 'Minimal quality loss with slight file size reduction',
+    title: 'pdf:compressPdf.examples.low.title',
+    description: 'pdf:compressPdf.examples.low.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {
@@ -28,8 +28,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Medium Compression',
-    description: 'Balance between file size and quality',
+    title: 'pdf:compressPdf.examples.medium.title',
+    description: 'pdf:compressPdf.examples.medium.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {
@@ -37,8 +37,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'High Compression',
-    description: 'Maximum file size reduction with some quality loss',
+    title: 'pdf:compressPdf.examples.high.title',
+    description: 'pdf:compressPdf.examples.high.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {

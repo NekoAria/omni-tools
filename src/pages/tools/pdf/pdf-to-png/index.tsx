@@ -4,6 +4,7 @@ import ToolPdfInput from '@components/input/ToolPdfInput';
 import { ToolComponentProps } from '@tools/defineTool';
 import { convertPdfToPngImages } from './service';
 import ToolMultiFileResult from '@components/result/ToolMultiFileResult';
+import { useTranslation } from 'react-i18next';
 
 type ImagePreview = {
   blob: Blob;
@@ -12,6 +13,7 @@ type ImagePreview = {
 };
 
 export default function PdfToPng({ title }: ToolComponentProps) {
+  const { t } = useTranslation('pdf');
   const [input, setInput] = useState<File | null>(null);
   const [images, setImages] = useState<ImagePreview[]>([]);
   const [zipBlob, setZipBlob] = useState<File | null>(null);
@@ -45,25 +47,24 @@ export default function PdfToPng({ title }: ToolComponentProps) {
           value={input}
           onChange={setInput}
           accept={['application/pdf']}
-          title="Upload a PDF"
+          title={t('pdfToPng.inputTitle')}
         />
       }
       resultComponent={
         <ToolMultiFileResult
-          title="Converted PNG Pages"
+          title={t('pdfToPng.resultTitle')}
           value={images.map((img) => {
             return new File([img.blob], img.filename, { type: 'image/png' });
           })}
           zipFile={zipBlob}
           loading={loading}
-          loadingText="Converting PDF pages"
+          loadingText={t('pdfToPng.loadingText')}
         />
       }
       getGroups={null}
       toolInfo={{
-        title: 'Convert PDF pages into PNG images',
-        description:
-          'Upload your PDF and get each page rendered as a high-quality PNG. You can preview, download individually, or get all images in a ZIP.'
+        title: t('pdfToPng.toolInfo.title'),
+        description: t('pdfToPng.toolInfo.description')
       }}
     />
   );

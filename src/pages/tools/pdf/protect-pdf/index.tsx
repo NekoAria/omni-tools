@@ -8,6 +8,7 @@ import { InitialValuesType } from './types';
 import { protectPdf } from './service';
 import TextFieldWithDesc from '@components/options/TextFieldWithDesc';
 import { CustomSnackBarContext } from '../../../../contexts/CustomSnackBarContext';
+import { useTranslation } from 'react-i18next';
 
 const initialValues: InitialValuesType = {
   password: '',
@@ -18,6 +19,7 @@ export default function ProtectPdf({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('pdf');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -29,13 +31,13 @@ export default function ProtectPdf({
     try {
       // Validate passwords match
       if (values.password !== values.confirmPassword) {
-        showSnackBar('Passwords do not match', 'error');
+        showSnackBar(t('protectPdf.passwordsDoNotMatch'), 'error');
         return;
       }
 
       // Validate password is not empty
       if (!values.password) {
-        showSnackBar('Password cannot be empty', 'error');
+        showSnackBar(t('protectPdf.passwordCannotBeEmpty'), 'error');
         return;
       }
 
@@ -45,9 +47,9 @@ export default function ProtectPdf({
     } catch (error) {
       console.error('Error protecting PDF:', error);
       showSnackBar(
-        `Failed to protect PDF: ${
-          error instanceof Error ? error.message : String(error)
-        }`,
+        t('protectPdf.failedToProtectPdf', {
+          error: error instanceof Error ? error.message : String(error)
+        }),
         'error'
       );
       setResult(null);
@@ -68,35 +70,35 @@ export default function ProtectPdf({
           value={input}
           onChange={setInput}
           accept={['application/pdf']}
-          title={'Input PDF'}
+          title={t('protectPdf.inputTitle')}
         />
       }
       resultComponent={
         <ToolFileResult
-          title={'Protected PDF'}
+          title={t('protectPdf.resultTitle')}
           value={result}
           extension={'pdf'}
           loading={isProcessing}
-          loadingText={'Protecting PDF'}
+          loadingText={t('protectPdf.protectingPdf')}
         />
       }
       getGroups={({ values, updateField }) => [
         {
-          title: 'Password Settings',
+          title: t('protectPdf.passwordSettings'),
           component: (
             <Box>
               <TextFieldWithDesc
-                title="Password"
-                description="Enter a password to protect your PDF"
-                placeholder="Enter password"
+                title={t('protectPdf.password')}
+                description={t('protectPdf.passwordDescription')}
+                placeholder={t('protectPdf.passwordPlaceholder')}
                 type="password"
                 value={values.password}
                 onOwnChange={(value) => updateField('password', value)}
               />
               <TextFieldWithDesc
-                title="Confirm Password"
-                description="Re-enter your password to confirm"
-                placeholder="Confirm password"
+                title={t('protectPdf.confirmPassword')}
+                description={t('protectPdf.confirmPasswordDescription')}
+                placeholder={t('protectPdf.confirmPasswordPlaceholder')}
                 type="password"
                 value={values.confirmPassword}
                 onOwnChange={(value) => updateField('confirmPassword', value)}

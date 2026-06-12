@@ -12,8 +12,8 @@ const initialValues: InitialValuesType = {};
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Beautify XML',
-    description: 'Beautify a compact XML string for readability.',
+    title: 'xml:xmlBeautifier.examples.basic.title',
+    description: 'xml:xmlBeautifier.examples.basic.description',
     sampleText: '<root><item>1</item><item>2</item></root>',
     sampleResult: `<root>\n  <item>1</item>\n  <item>2</item>\n</root>`,
     sampleOptions: {}

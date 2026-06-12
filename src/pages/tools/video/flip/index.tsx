@@ -26,8 +26,8 @@ export const validationSchema = Yup.object({
 });
 
 const orientationOptions: { value: FlipOrientation; label: string }[] = [
-  { value: 'horizontal', label: 'Horizontal (Mirror)' },
-  { value: 'vertical', label: 'Vertical (Upside Down)' }
+  { value: 'horizontal', label: 'video:flip.horizontalLabel' },
+  { value: 'vertical', label: 'video:flip.verticalLabel' }
 ];
 
 export default function FlipVideo({ title }: ToolComponentProps) {

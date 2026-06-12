@@ -8,6 +8,7 @@ import ToolMultipleVideoInput, {
 } from '@components/input/ToolMultipleVideoInput';
 import { mergeVideos } from './service';
 import { InitialValuesType } from './types';
+import { useTranslation } from 'react-i18next';
 
 const initialValues: InitialValuesType = {};
 
@@ -15,6 +16,7 @@ export default function MergeVideo({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('video');
   const [input, setInput] = useState<MultiVideoInput[]>([]);
   const [result, setResult] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -52,14 +54,18 @@ export default function MergeVideo({
             setInput(newInput);
           }}
           accept={['video/*', '.mp4', '.avi', '.mov', '.mkv']}
-          title="Input Videos"
+          title={t('mergeVideo.inputTitle')}
           type="video"
         />
       }
       resultComponent={
         <ToolFileResult
           value={result}
-          title={loading ? 'Merging Videos...' : 'Merged Video'}
+          title={
+            loading
+              ? t('mergeVideo.mergingVideos')
+              : t('mergeVideo.resultTitle')
+          }
           loading={loading}
           extension={'mp4'}
         />
@@ -68,7 +74,10 @@ export default function MergeVideo({
       getGroups={null}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('mergeVideo.toolInfo.title', { title }),
+        description: longDescription
+      }}
     />
   );
 }

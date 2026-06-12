@@ -17,9 +17,8 @@ export default function PdfEditor({ title }: ToolComponentProps) {
         </Box>
       }
       toolInfo={{
-        title: 'PDF Editor',
-        description:
-          'Edit, annotate, highlight, fill forms, and export your PDFs entirely in the browser. Add text, drawings, signatures, and more to your PDF documents with this powerful online editor.'
+        title: 'pdf:editor.title',
+        description: 'pdf:editor.toolInfo.description'
       }}
       compute={() => {
         /* no background compute required */

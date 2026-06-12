@@ -20,8 +20,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Rotate All Pages 90°',
-    description: 'Rotate all pages in the PDF by 90 degrees clockwise',
+    title: 'pdf:rotatePdf.examples.rotateAll90.title',
+    description: 'pdf:rotatePdf.examples.rotateAll90.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {
@@ -31,8 +31,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Rotate Specific Pages 180°',
-    description: 'Rotate pages 1 and 3 by 180 degrees',
+    title: 'pdf:rotatePdf.examples.rotateSpecific180.title',
+    description: 'pdf:rotatePdf.examples.rotateSpecific180.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {
@@ -42,8 +42,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Rotate Page Range 270°',
-    description: 'Rotate pages 2 through 5 by 270 degrees',
+    title: 'pdf:rotatePdf.examples.rotateRange270.title',
+    description: 'pdf:rotatePdf.examples.rotateRange270.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {

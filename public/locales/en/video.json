@@ -52,7 +52,18 @@
     "resultTitle": "Compressed Video",
     "shortDescription": "Compress videos by scaling to different resolutions",
     "title": "Compress Video",
-    "worst": "Worst"
+    "worst": "Worst",
+    "presets": {
+      "ultrafast": "Ultrafast (Lowest Quality, Smallest Size)",
+      "superfast": "Superfast",
+      "veryfast": "Very Fast",
+      "faster": "Faster",
+      "fast": "Fast",
+      "medium": "Medium (Balanced)",
+      "slow": "Slow",
+      "slower": "Slower",
+      "veryslow": "Very Slow (Highest Quality, Largest Size)"
+    }
   },
   "cropVideo": {
     "cropCoordinates": "Crop Coordinates",
@@ -96,7 +107,11 @@
     "changeSpeed": {
       "description": "Change the playback speed of GIF animations. Speed up or slow down GIFs while maintaining smooth animation.",
       "shortDescription": "Change GIF animation speed",
-      "title": "Change GIF Speed"
+      "title": "Change GIF Speed",
+      "inputTitle": "Input GIF",
+      "resultTitle": "Output GIF with new speed",
+      "newGifSpeed": "New GIF speed",
+      "defaultMultiplier": "Default multiplier: 2 means 2x faster"
     }
   },
   "loop": {
@@ -117,7 +132,13 @@
     "description": "Combine multiple video files into one continuous video.",
     "longDescription": "This tool allows you to merge or append multiple video files into a single continuous video. Simply upload your video files, arrange them in the desired order, and merge them into one file for easy sharing or editing.",
     "shortDescription": "Append and merge videos easily.",
-    "title": "Merge videos"
+    "title": "Merge videos",
+    "inputTitle": "Input Videos",
+    "mergingVideos": "Merging Videos...",
+    "resultTitle": "Merged Video",
+    "toolInfo": {
+      "title": "What is a {{title}}?"
+    }
   },
   "rotate": {
     "180Degrees": "180° (Upside down)",
@@ -144,6 +165,22 @@
   "videoToGif": {
     "description": "Convert video files to animated GIF format. Extract specific time ranges and create shareable animated images.",
     "shortDescription": "Convert video to animated GIF",
-    "title": "Video to GIF"
+    "title": "Video to GIF",
+    "inputTitle": "Input Video",
+    "resultTitle": "Converted to Gif",
+    "convertingToGif": "Converting to Gif",
+    "setQuality": "Set Quality",
+    "quality": {
+      "low": "Low",
+      "mid": "Mid",
+      "high": "High",
+      "ultra": "Ultra"
+    },
+    "timestamps": "Timestamps",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "toolInfo": {
+      "title": "What is a {{title}}?"
+    }
   }
 }

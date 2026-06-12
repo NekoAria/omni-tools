@@ -20,8 +20,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Extract Specific Pages',
-    description: 'Extract pages 1, 5, 6, 7, and 8 from a PDF document.',
+    title: 'pdf:splitPdf.examples.specificPages.title',
+    description: 'pdf:splitPdf.examples.specificPages.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {
@@ -29,8 +29,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Extract First and Last Pages',
-    description: 'Extract only the first and last pages from a PDF document.',
+    title: 'pdf:splitPdf.examples.firstAndLast.title',
+    description: 'pdf:splitPdf.examples.firstAndLast.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {
@@ -38,8 +38,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Extract a Range of Pages',
-    description: 'Extract a continuous range of pages from a PDF document.',
+    title: 'pdf:splitPdf.examples.pageRange.title',
+    description: 'pdf:splitPdf.examples.pageRange.description',
     sampleText: '',
     sampleResult: '',
     sampleOptions: {
