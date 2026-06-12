@@ -12,10 +12,10 @@
     }
   },
   "baseFileInput": {
-    "copyFailed": "复制失败： {{error}}",
-    "dropFileHere": "放下你的 {{type}} 这里",
+    "copyFailed": "复制失败：{{error}}",
+    "dropFileHere": "将 {{type}} 拖放到这里",
     "fileCopied": "文件已复制",
-    "selectFileDescription": "单击此处选择一个 {{type}} 在您的设备上，按 Ctrl+V 使用 {{type}} 从剪贴板中，或从桌面拖放文件"
+    "selectFileDescription": "点击此处从设备中选择一个 {{type}}，按 Ctrl+V 使用剪贴板中的 {{type}}，或从桌面拖放文件"
   },
   "categories": {
     "audio": {
@@ -32,7 +32,7 @@
     },
     "gif": {
       "description": "处理 GIF 动画的工具 - 创建透明 GIF、提取 GIF 帧、向 GIF 添加文本、裁剪、旋转、反转 GIF 等等。",
-      "title": "GIF工具"
+      "title": "GIF 工具"
     },
     "image-generic": {
       "description": "处理图片的工具——压缩、调整大小、裁剪、转换为 JPG、旋转、删除背景等等。",
