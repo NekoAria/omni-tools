@@ -4,6 +4,7 @@ import { CustomSnackBarContext } from '../../contexts/CustomSnackBarContext';
 import InputHeader from '../InputHeader';
 import InputFooter from './InputFooter';
 import { useTranslation } from 'react-i18next';
+import { translateMaybe } from '@utils/i18n';
 
 export default function ToolTextInput({
   value,
@@ -54,7 +55,11 @@ export default function ToolTextInput({
         fullWidth
         multiline
         rows={10}
-        placeholder={placeholder || t('toolTextInput.placeholder')}
+        placeholder={
+          placeholder
+            ? translateMaybe(t, placeholder)
+            : t('toolTextInput.placeholder')
+        }
         sx={{
           '&.MuiTextField-root': {
             backgroundColor: 'background.paper'

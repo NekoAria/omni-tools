@@ -3,6 +3,8 @@ import { Field, useFormikContext } from 'formik';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import { globalDescriptionFontSize } from '../../config/uiConfig';
+import { useTranslation } from 'react-i18next';
+import { translateMaybe } from '@utils/i18n';
 
 interface SimpleRadioProps {
   title: string;
@@ -17,6 +19,7 @@ const SimpleRadio: React.FC<SimpleRadioProps> = ({
   description,
   checked
 }) => {
+  const { t } = useTranslation();
   return (
     <Box>
       <Stack
@@ -26,11 +29,11 @@ const SimpleRadio: React.FC<SimpleRadioProps> = ({
         onClick={onClick}
       >
         <Radio checked={checked} onClick={onClick} />
-        <Typography>{title}</Typography>
+        <Typography>{translateMaybe(t, title)}</Typography>
       </Stack>
       {description && (
         <Typography ml={2} fontSize={globalDescriptionFontSize}>
-          {description}
+          {translateMaybe(t, description)}
         </Typography>
       )}
     </Box>

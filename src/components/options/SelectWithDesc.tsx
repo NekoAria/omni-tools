@@ -6,6 +6,8 @@ import {
   SelectChangeEvent,
   Typography
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { translateMaybe } from '@utils/i18n';
 
 interface Option<T extends string | boolean> {
   label: string;
@@ -23,6 +25,7 @@ const SelectWithDesc = <T extends string | boolean>({
   onChange: (value: T) => void;
   description: string;
 }) => {
+  const { t } = useTranslation();
   const handleChange = (event: SelectChangeEvent<T>) => {
     const newValue =
       typeof selected === 'boolean'
@@ -36,12 +39,12 @@ const SelectWithDesc = <T extends string | boolean>({
       <Select displayEmpty value={selected} onChange={handleChange}>
         {options.map((option) => (
           <MenuItem key={option.label} value={option.value.toString()}>
-            {option.label}
+            {translateMaybe(t, option.label)}
           </MenuItem>
         ))}
       </Select>
       <Typography fontSize={12} mt={1}>
-        {description}
+        {translateMaybe(t, description)}
       </Typography>
     </Box>
   );

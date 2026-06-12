@@ -4,6 +4,7 @@ import React from 'react';
 import { GetGroupsType } from '@components/options/ToolOptions';
 import { useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { translateMaybe } from '@utils/i18n';
 
 export type CardExampleType<T> = Omit<
   ExampleCardProps<T>,
@@ -53,8 +54,8 @@ export default function ToolExamples<T>({
           {exampleCards.map((card, index) => (
             <Grid item xs={12} md={6} lg={4} key={index}>
               <ExampleCard
-                title={card.title}
-                description={card.description}
+                title={translateMaybe(t, card.title)}
+                description={translateMaybe(t, card.description)}
                 sampleText={card.sampleText}
                 sampleResult={card.sampleResult}
                 sampleOptions={card.sampleOptions}

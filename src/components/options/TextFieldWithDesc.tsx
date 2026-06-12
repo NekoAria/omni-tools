@@ -1,6 +1,8 @@
 import { Box, TextField, TextFieldProps } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { translateMaybe } from '@utils/i18n';
 
 type OwnProps = {
   description?: string;
@@ -15,10 +17,11 @@ const TextFieldWithDesc = ({
   placeholder,
   ...props
 }: TextFieldProps & OwnProps) => {
+  const { t } = useTranslation();
   return (
     <Box mb={3}>
       <TextField
-        placeholder={placeholder}
+        placeholder={translateMaybe(t, placeholder)}
         sx={{ backgroundColor: 'background.paper' }}
         value={value}
         onChange={(event) => onOwnChange(event.target.value)}
@@ -26,7 +29,7 @@ const TextFieldWithDesc = ({
       />
       {description && (
         <Typography fontSize={12} mt={1}>
-          {description}
+          {translateMaybe(t, description)}
         </Typography>
       )}
     </Box>

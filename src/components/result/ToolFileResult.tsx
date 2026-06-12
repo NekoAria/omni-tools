@@ -6,6 +6,7 @@ import { globalInputHeight } from '../../config/uiConfig';
 import ResultFooter from './ResultFooter';
 import { CustomSnackBarContext } from '../../contexts/CustomSnackBarContext';
 import { useTranslation } from 'react-i18next';
+import { translateMaybe } from '@utils/i18n';
 
 export default function ToolFileResult({
   title = 'Result',
@@ -116,7 +117,9 @@ export default function ToolFileResult({
           >
             <CircularProgress />
             <Typography variant="body2" sx={{ mt: 2 }}>
-              {loadingText || t('toolFileResult.loading')}
+              {loadingText
+                ? translateMaybe(t, loadingText)
+                : t('toolFileResult.loading')}
             </Typography>
           </Box>
         ) : (

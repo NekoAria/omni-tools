@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { translateMaybe } from '@utils/i18n';
 
 const CheckboxWithDesc = ({
   title,
@@ -14,6 +16,7 @@ const CheckboxWithDesc = ({
   onChange: (value: boolean) => void;
   disabled?: boolean;
 }) => {
+  const { t } = useTranslation();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.checked);
   };
@@ -28,11 +31,11 @@ const CheckboxWithDesc = ({
             disabled={disabled}
           />
         }
-        label={title}
+        label={translateMaybe(t, title)}
       />
       {description && (
         <Typography fontSize={12} mt={1}>
-          {description}
+          {translateMaybe(t, description)}
         </Typography>
       )}
     </Box>
