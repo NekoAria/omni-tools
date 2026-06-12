@@ -133,9 +133,12 @@ export default function RandomPortGenerator({
           <Box
             sx={{ mt: 2, p: 2, bgcolor: 'background.paper', borderRadius: 1 }}
           >
-            <strong>{getPortRangeInfo(values.portRange).name}</strong>
+            <strong>
+              {portOptions.find((option) => option.value === values.portRange)
+                ?.label ?? getPortRangeInfo(values.portRange).name}
+            </strong>
             <br />
-            {getPortRangeInfo(values.portRange).description}
+            {t(getPortRangeInfo(values.portRange).description as never)}
           </Box>
         </Box>
       )

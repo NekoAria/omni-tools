@@ -9,6 +9,7 @@ import { CardExampleType } from '@components/examples/ToolExamples';
 import { convertTimeToDecimal } from './service';
 import { InitialValuesType } from './types';
 import TextFieldWithDesc from '@components/options/TextFieldWithDesc';
+import { useTranslation } from 'react-i18next';
 
 const initialValues: InitialValuesType = {
   decimalPlaces: '6'
@@ -16,9 +17,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Convert time to decimal',
-    description:
-      'This example shows how to convert a formatted time (HH:MM:SS) to a decimal version.',
+    title: 'time:convertTimeToDecimal.examples.basic.title',
+    description: 'time:convertTimeToDecimal.examples.basic.description',
     sampleText: '31:23:59',
     sampleResult: `31.399722`,
     sampleOptions: {
@@ -30,6 +30,7 @@ export default function ConvertTimeToDecimal({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('time');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
 
@@ -42,11 +43,11 @@ export default function ConvertTimeToDecimal({
     updateField
   }) => [
     {
-      title: 'Decimal places',
+      title: t('convertTimeToDecimal.decimalPlaces'),
       component: (
         <Box>
           <TextFieldWithDesc
-            description={'How many decimal places should the result contain?'}
+            description={t('convertTimeToDecimal.decimalPlacesDescription')}
             value={values.decimalPlaces}
             onOwnChange={(val) => updateField('decimalPlaces', val)}
             type={'text'}
@@ -66,7 +67,10 @@ export default function ConvertTimeToDecimal({
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('convertTimeToDecimal.toolInfo.title', { title }),
+        description: longDescription
+      }}
     />
   );
 }

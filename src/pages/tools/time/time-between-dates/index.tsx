@@ -50,7 +50,7 @@ const validationSchema = Yup.object({
 });
 
 const timezoneOptions = [
-  { value: 'local', label: 'Local Time' },
+  { value: 'local', label: 'time:timeBetweenDates.localTime' },
   ...Array.from(
     new Map(
       Intl.supportedValuesOf('timeZone').map((tz) => {
@@ -80,8 +80,8 @@ const timezoneOptions = [
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'One Year Difference',
-    description: 'Calculate the time between dates that are one year apart',
+    title: 'time:timeBetweenDates.examples.oneYear.title',
+    description: 'time:timeBetweenDates.examples.oneYear.description',
     sampleOptions: {
       startDate: '2023-01-01',
       startTime: '12:00',
@@ -93,8 +93,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleResult: '1 year'
   },
   {
-    title: 'Different Timezones',
-    description: 'Calculate the time difference between New York and London',
+    title: 'time:timeBetweenDates.examples.timezones.title',
+    description: 'time:timeBetweenDates.examples.timezones.description',
     sampleOptions: {
       startDate: '2023-01-01',
       startTime: '12:00',
@@ -106,8 +106,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleResult: '5 hours'
   },
   {
-    title: 'Detailed Time Breakdown',
-    description: 'Show a detailed breakdown of a time difference',
+    title: 'time:timeBetweenDates.examples.detailed.title',
+    description: 'time:timeBetweenDates.examples.detailed.description',
     sampleOptions: {
       startDate: '2023-01-01',
       startTime: '09:30',

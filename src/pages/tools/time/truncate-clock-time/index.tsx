@@ -19,9 +19,8 @@ const initialValues = {
 type InitialValuesType = typeof initialValues;
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Truncate Seconds',
-    description:
-      'In this example, we get rid of the seconds part from several timer values. We select the "Truncate Only Seconds" mode and get a list of timer values consisting only of hours and minutes in format "hh:mm" (the ":ss" part is removed).',
+    title: 'time:truncateClockTime.examples.truncateSeconds.title',
+    description: 'time:truncateClockTime.examples.truncateSeconds.description',
     sampleText: `01:28:06
 07:39:56
 02:12:41
@@ -33,9 +32,9 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: { onlySecond: true, zeroPrint: false, zeroPadding: true }
   },
   {
-    title: 'Truncate Minutes and Seconds',
+    title: 'time:truncateClockTime.examples.truncateMinutesAndSeconds.title',
     description:
-      'This example truncates five clock times to an hour. It drops the minutes and seconds parts and only outputs the hours with zero padding.',
+      'time:truncateClockTime.examples.truncateMinutesAndSeconds.description',
     sampleText: `04:42:03
 07:09:59
 11:29:16
@@ -49,9 +48,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: { onlySecond: false, zeroPrint: false, zeroPadding: true }
   },
   {
-    title: 'Set Seconds to Zero',
-    description:
-      'In this example, we set the seconds part of each time to zero by first truncating the time to minutes and then appending a zero at the end in place of the truncated seconds. To do this, we switch on the seconds-truncation mode and activate the option to print-zero-time-parts. We also turn off the padding option and get the output time in format "h:m:s", where the seconds are always zero so the final format is "h:m:0".',
+    title: 'time:truncateClockTime.examples.setSecondsToZero.title',
+    description: 'time:truncateClockTime.examples.setSecondsToZero.description',
     sampleText: `17:25:55
 10:16:07
 12:02:09

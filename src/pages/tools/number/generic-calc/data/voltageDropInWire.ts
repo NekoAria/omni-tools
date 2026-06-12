@@ -15,7 +15,7 @@ const voltageDropInWire: GenericCalcType = {
   },
   presets: [
     {
-      title: 'Material',
+      title: 'number:voltageDropInWire.fields.material',
       source: material_electrical_properties,
       default: 'Copper',
       bind: {
@@ -24,7 +24,7 @@ const voltageDropInWire: GenericCalcType = {
     },
 
     {
-      title: 'Wire Gauge',
+      title: 'number:voltageDropInWire.fields.wireGauge',
       source: wire_gauge,
       default: '24 AWG',
       bind: {
@@ -35,12 +35,12 @@ const voltageDropInWire: GenericCalcType = {
 
   extraOutputs: [
     {
-      title: 'Total Resistance',
+      title: 'number:voltageDropInWire.fields.totalResistance',
       formula: '((p * L) / (A/10**6))*2',
       unit: 'Ω'
     },
     {
-      title: 'Total Power Dissipated',
+      title: 'number:voltageDropInWire.fields.totalPowerDissipated',
       formula: 'I**2 * (((p * L) / (A/10**6))*2)',
       unit: 'W'
     }
@@ -48,33 +48,33 @@ const voltageDropInWire: GenericCalcType = {
   variables: [
     {
       name: 'L',
-      title: 'Length',
+      title: 'number:voltageDropInWire.fields.length',
       unit: 'meter',
       default: 1
     },
     {
       name: 'A',
-      title: 'Wire Area',
+      title: 'number:voltageDropInWire.fields.wireArea',
       unit: 'mm2',
       default: 1
     },
 
     {
       name: 'I',
-      title: 'Current',
+      title: 'number:voltageDropInWire.fields.current',
       unit: 'A',
       default: 1
     },
     {
       name: 'p',
-      title: 'Resistivity',
+      title: 'number:voltageDropInWire.fields.resistivity',
       unit: 'Ω/m3',
       default: 1,
       defaultPrefix: 'n'
     },
     {
       name: 'x',
-      title: 'Voltage Drop',
+      title: 'number:voltageDropInWire.fields.voltageDrop',
       unit: 'V'
     }
   ]

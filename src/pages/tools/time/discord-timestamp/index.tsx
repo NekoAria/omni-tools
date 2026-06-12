@@ -19,9 +19,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Convert a single datetime',
-    description:
-      "In this example, we convert a single datetime into a Discord timestamp using the Long Date & Time format (F). The input is an ISO 8601 datetime string and the output is a Discord timestamp that will display the full date and time in each viewer's local timezone.",
+    title: 'time:discordTimestamp.examples.single.title',
+    description: 'time:discordTimestamp.examples.single.description',
     sampleText: `2025-03-15T10:00:00`,
     sampleResult: `<t:1742032800:F>`,
     sampleOptions: {
@@ -30,9 +29,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Convert multiple datetimes',
-    description:
-      'In this example, we convert multiple datetimes at once — one per line. Blank lines are preserved in the output. Each valid datetime is converted to a Discord timestamp using the Short Date & Time format (f).',
+    title: 'time:discordTimestamp.examples.multiple.title',
+    description: 'time:discordTimestamp.examples.multiple.description',
     sampleText: `2025-03-15T10:00:00
 2025-07-20T18:45:00
 
@@ -47,9 +45,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Relative timestamps',
-    description:
-      'In this example, we use the Relative format (R) which displays how long ago or how far in the future a datetime is — for example "2 hours ago" or "in 3 days". This format is useful for countdowns or activity feeds and updates dynamically in Discord.',
+    title: 'time:discordTimestamp.examples.relative.title',
+    description: 'time:discordTimestamp.examples.relative.description',
     sampleText: `2025-03-15T10:00:00
 2025-07-20T18:45:00
 2025-11-05T08:15:00`,

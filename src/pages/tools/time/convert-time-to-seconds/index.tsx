@@ -11,9 +11,8 @@ const initialValues = {};
 type InitialValuesType = typeof initialValues;
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Multiple Clock Times',
-    description:
-      'In this example, we convert multiple clock times to seconds. Each clock time is listed on a new line and the spacing between input times is preserved in the output.',
+    title: 'time:convertTimeToSeconds.examples.multiple.title',
+    description: 'time:convertTimeToSeconds.examples.multiple.description',
     sampleText: `00:00:00
 
 00:00:01
@@ -39,9 +38,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: {}
   },
   {
-    title: 'Partial Clock Times',
-    description:
-      'This example finds how many seconds there are in clock times that are partially written. Some of the clock times contain just the hours and some others contain just hours and minutes.',
+    title: 'time:convertTimeToSeconds.examples.partial.title',
+    description: 'time:convertTimeToSeconds.examples.partial.description',
     sampleText: `1
 1:10
 14:44
@@ -53,9 +51,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: {}
   },
   {
-    title: 'Time Beyond 24 Hours',
-    description:
-      'In this example, we go beyond the regular 24-hour clock. In fact, we even go beyond 60 minutes and 60 seconds.',
+    title: 'time:convertTimeToSeconds.examples.beyond24Hours.title',
+    description: 'time:convertTimeToSeconds.examples.beyond24Hours.description',
     sampleText: `24:00:01
 48:00:00
 72

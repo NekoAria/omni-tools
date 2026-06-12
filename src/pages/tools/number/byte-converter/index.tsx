@@ -19,9 +19,8 @@ const initialValues: InitialValuesType = {
 
 export const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Convert Gigabytes to Megabytes',
-    description:
-      'This example converts a list of storage values in Gigabytes (GB) into Megabytes (MB) using the SI system. Each line represents a different storage size. The output shows the same values converted to MB with the specified precision.',
+    title: 'number:byteConverter.examples.gbToMb.title',
+    description: 'number:byteConverter.examples.gbToMb.description',
     sampleText: `1
 2.5
 10
@@ -39,9 +38,8 @@ export const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Convert MiB to GiB (IEC System)',
-    description:
-      'This example converts values in Mebibytes (MiB) to Gibibytes (GiB) using the IEC binary system. Each line of input represents a different memory size, and the output shows the conversion rounded to 2 decimal places.',
+    title: 'number:byteConverter.examples.mibToGib.title',
+    description: 'number:byteConverter.examples.mibToGib.description',
     sampleText: `1024
 2048
 5120
@@ -59,9 +57,8 @@ export const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Cross-System Conversion: GB to GiB',
-    description:
-      'This example demonstrates a cross-system conversion from SI units (GB) to IEC units (GiB). Since GB and GiB are slightly different, the output shows fractional values with high precision. This is useful when comparing storage reported by operating systems vs manufacturers.',
+    title: 'number:byteConverter.examples.gbToGib.title',
+    description: 'number:byteConverter.examples.gbToGib.description',
     sampleText: `1
 5
 10
@@ -79,9 +76,8 @@ export const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Convert Bytes to Bits',
-    description:
-      'This example converts values from Bytes (B) to Bits (b). Since 1 Byte = 8 Bits, each input value is multiplied by 8. The precision is set to 0 because the result is always an integer.',
+    title: 'number:byteConverter.examples.bytesToBits.title',
+    description: 'number:byteConverter.examples.bytesToBits.description',
     sampleText: `1
 5
 10

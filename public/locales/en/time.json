@@ -16,6 +16,20 @@
     "addHoursName": "Add Hours Name",
     "addHoursNameDescription": "Append the string hours to output values",
     "description": "Convert days to hours with customizable options.",
+    "examples": {
+      "fractionalDays": {
+        "description": "In this example, we convert five decimal fraction day values to hours. Conversion of partial days is similar to the conversion of full days – they are all multiplied by 24. We turn off the option that appends the \"hours\" string after the converted values and get only the numerical hour values in the output.",
+        "title": "Fractional Days to Hours"
+      },
+      "fullDays": {
+        "description": "This example calculates how many hours there are in 1 day, in one week (7 days), in one month (30 days), and in even longer time periods. To see all the results at once, we enter each individual day value on a new line. We also use the \"days\" suffix in the input and add the \"hours\" suffix to the output.",
+        "title": "Full Days to Hours"
+      },
+      "yearHours": {
+        "description": "In the modern Gregorian calendar, a common year has 365 days and a leap year has 366 days. This makes the true average length of a year to be 365.242199 days. In this example, we load this number in the input field and convert it to the hours. It turns out that there 8765.812776 hours in an average year.",
+        "title": "Number of Hours in a Year"
+      }
+    },
     "hoursName": "Hours Name",
     "shortDescription": "Convert days to hours",
     "title": "Convert Days to Hours",
@@ -27,19 +41,53 @@
   "convertHoursToDays": {
     "addDaysName": "Add Days Name",
     "addDaysNameDescription": "Append the string days to output values",
+    "appendDaysPostfix": "Append Days Postfix",
+    "appendDaysPostfixDescription": "Display numeric day values with the postfix \"days\".",
+    "dayValueAccuracy": "Day Value Accuracy",
+    "dayValueAccuracyDescription": "If the calculated days is a decimal number, then how many digits should be left after the decimal point?",
     "daysName": "Days Name",
+    "daysPostfix": "Days Postfix",
     "description": "Convert hours to days with customizable options.",
+    "examples": {
+      "decimalDays": {
+        "description": "In this example, we convert five decimal fraction day values to hours. Conversion of partial days is similar to the conversion of full days – they are all multiplied by 24. We turn off the option that appends the \"hours\" string after the converted values and get only the numerical hour values in the output.",
+        "title": "Decimal Days"
+      },
+      "integerDays": {
+        "description": "In this example, we convert ten hour values to ten day values. Each input hour is divisible by 24 without a remainder, so all converted output values are full days. To better communicate the time units, we use the word \"hours\" in the input data and also add the word \"days\" to the output data.",
+        "title": "Hours to Integer Days"
+      },
+      "partialHours": {
+        "description": "In the modern Gregorian calendar, a common year has 365 days and a leap year has 366 days. This makes the true average length of a year to be 365.242199 days. In this example, we load this number in the input field and convert it to the hours. It turns out that there 8765.812776 hours in an average year.",
+        "title": "Partial Hours"
+      }
+    },
     "shortDescription": "Convert hours to days",
     "title": "Convert Hours to Days",
     "toolInfo": {
       "description": "This tool allows you to convert hours to days. You can input hours as numbers or with units, and the tool will convert them to days. You can also choose to append the 'days' suffix to the output values.",
-      "title": "Convert Hours to Days"
+      "title": "Convert Hours to Days",
+      "whatIsTitle": "What is a {{title}}?"
     }
   },
   "convertSecondsToTime": {
     "addPadding": "Add Padding",
     "addPaddingDescription": "Add zero padding to hours, minutes, and seconds.",
     "description": "Convert seconds to a readable time format (hours:minutes:seconds). Enter the number of seconds to get the formatted time.",
+    "examples": {
+      "basic": {
+        "description": "In this example, we convert 1 second, 60 seconds, and 3600 seconds to clock format. We don't use the zero-padding option and get three simple output values – 0:0:1 for 1 second, 0:1:0 for 60 seconds (1 minute), and 1:0:0 for 3600 seconds (1 hour).",
+        "title": "1 Second, 1 Minute, 1 Hour"
+      },
+      "digitalClock": {
+        "description": "In this example, we enable the padding option and output digital clock time in the format HH:MM:SS. The first two integer timestamps don't contain a full minute and the third timestamp doesn't contain a full hour, there we get zeros in the minutes or hours positions in output.",
+        "title": "HH:MM:SS Digital Clock"
+      },
+      "moreThanDay": {
+        "description": "The values of all input seconds in this example are greater than the number of seconds in a day (86400 seconds). As our algorithm doesn't limit the time to just 23:59:59 hours, it can find the exact number of hours in large inputs.",
+        "title": "More Than a Day"
+      }
+    },
     "shortDescription": "Convert seconds to time format",
     "timePadding": "Time Padding",
     "title": "Convert Seconds to Time",
@@ -48,13 +96,38 @@
     }
   },
   "convertTimeToDecimal": {
+    "decimalPlaces": "Decimal places",
+    "decimalPlacesDescription": "How many decimal places should the result contain?",
     "description": "Convert a formatted time duration (HH:MM:SS) into a decimal hour value.",
+    "examples": {
+      "basic": {
+        "description": "This example shows how to convert a formatted time (HH:MM:SS) to a decimal version.",
+        "title": "Convert time to decimal"
+      }
+    },
     "longDescription": "Convert a formatted time string (HH:MM:SS or HH:MM) into its decimal-hour equivalent. Hours can be any positive number, while minutes and seconds accept values from 0-59 and can be single or double digits (e.g., '12:5' or '12:05'). This function interprets hours, minutes, and seconds, then calculates the total duration as a single decimal value. It is useful for productivity tracking, payroll calculations, time-based billing, data analysis, or any workflow that requires converting human-readable time into a numerical format that can be easily summed, compared, or processed. For example, '03:26:00' becomes 3.43 hours, and '12:5' becomes 12.08 hours.",
     "shortDescription": "Convert human time to decimal time",
-    "title": "Convert time to decimal"
+    "title": "Convert time to decimal",
+    "toolInfo": {
+      "title": "What is a {{title}}?"
+    }
   },
   "convertTimeToSeconds": {
     "description": "Convert formatted time (HH:MM:SS) to seconds.",
+    "examples": {
+      "beyond24Hours": {
+        "description": "In this example, we go beyond the regular 24-hour clock. In fact, we even go beyond 60 minutes and 60 seconds.",
+        "title": "Time Beyond 24 Hours"
+      },
+      "multiple": {
+        "description": "In this example, we convert multiple clock times to seconds. Each clock time is listed on a new line and the spacing between input times is preserved in the output.",
+        "title": "Multiple Clock Times"
+      },
+      "partial": {
+        "description": "This example finds how many seconds there are in clock times that are partially written. Some of the clock times contain just the hours and some others contain just hours and minutes.",
+        "title": "Partial Clock Times"
+      }
+    },
     "inputTitle": "Input time",
     "resultTitle": "Seconds",
     "shortDescription": "Convert time format to seconds",
@@ -68,6 +141,24 @@
     "addUtcLabel": "Add 'UTC' suffix",
     "addUtcLabelDescription": "Append 'UTC' after the converted date (available only in UTC mode)",
     "description": "Convert Unix timestamps to readable dates and convert dates back to Unix timestamps.",
+    "examples": {
+      "dateToUnix": {
+        "description": "In this example, a plain human-readable timeframe is converted into a Unix timestamp. The UTC offset is treated as +00:00.",
+        "title": "Basic Date to Unix"
+      },
+      "unixToDate": {
+        "description": "This example shows how Unix timestamps are converted into human-readable dates. Each timestamp represents the number of seconds that have elapsed since January 1, 1970 (UTC).",
+        "title": "Basic Unix Time to Date"
+      },
+      "withoutUtcSuffix": {
+        "description": "In this example, the UTC suffix is removed from the output. This might be useful for embedding timestamps into other formats or for cleaner display.",
+        "title": "Without UTC Suffix"
+      },
+      "withUtcOffset": {
+        "description": "In this example, the UTC offset is provided after stating the timeframe with a space.",
+        "title": "With UTC Offset Provided"
+      }
+    },
     "shortDescription": "Convert Unix timestamps and dates in both directions.",
     "title": "Convert Unix ↔ Date",
     "toolInfo": {
@@ -85,8 +176,30 @@
   "crontabGuru": {
     "title": "Crontab Guru",
     "description": "Parse and explain cron expressions in plain English. Instantly understand what any cron schedule does, validate syntax, and process multiple expressions at once.",
+    "examples": {
+      "everyFiveMinutes": {
+        "description": "Runs every 5 minutes.",
+        "title": "Every 5 minutes (English)"
+      },
+      "everyMinute": {
+        "description": "Runs every minute.",
+        "title": "Every minute (English)"
+      },
+      "monthlyNoon": {
+        "description": "Runs at noon on the first day of each month.",
+        "title": "At 12:00 PM on the 1st of every month (English)"
+      },
+      "weekdays": {
+        "description": "At 16:35 on every day-of-week from Sunday through Friday.",
+        "title": "Every day at 16:35, Sunday to Friday (English)"
+      }
+    },
+    "inputPlaceholder": "e.g. 35 16 * * 0-5",
     "shortDescription": "Parse and explain cron expressions in plain English",
-    "longDescription": "Crontab Guru is a cron expression parser and validator that translates complex cron syntax into plain, human-readable descriptions. Whether you're scheduling automated backups, system maintenance tasks, or CI/CD pipelines, this tool helps you understand exactly when your jobs will run. Supports standard 5-field cron expressions, validates syntax in real time, and processes multiple expressions at once — one per line. Available in English, French, Spanish, German, Japanese, Chinese, Portuguese, Dutch, and Russian."
+    "longDescription": "Crontab Guru is a cron expression parser and validator that translates complex cron syntax into plain, human-readable descriptions. Whether you're scheduling automated backups, system maintenance tasks, or CI/CD pipelines, this tool helps you understand exactly when your jobs will run. Supports standard 5-field cron expressions, validates syntax in real time, and processes multiple expressions at once — one per line. Available in English, French, Spanish, German, Japanese, Chinese, Portuguese, Dutch, and Russian.",
+    "toolInfo": {
+      "title": "What is a {{title}}?"
+    }
   },
   "timeBetweenDates": {
     "description": "Calculate the time difference between two dates. Get the exact duration in days, hours, minutes, and seconds.",
@@ -94,6 +207,21 @@
     "endDateTime": "End Date & Time",
     "endTime": "End Time",
     "endTimezone": "End Timezone",
+    "examples": {
+      "detailed": {
+        "description": "Show a detailed breakdown of a time difference",
+        "title": "Detailed Time Breakdown"
+      },
+      "oneYear": {
+        "description": "Calculate the time between dates that are one year apart",
+        "title": "One Year Difference"
+      },
+      "timezones": {
+        "description": "Calculate the time difference between New York and London",
+        "title": "Different Timezones"
+      }
+    },
+    "localTime": "Local Time",
     "shortDescription": "Calculate time between two dates",
     "startDate": "Start Date",
     "startDateTime": "Start Date & Time",
@@ -107,6 +235,20 @@
   },
   "truncateClockTime": {
     "description": "Truncate clock time to remove seconds or minutes. Round time to the nearest hour, minute, or custom interval.",
+    "examples": {
+      "setSecondsToZero": {
+        "description": "In this example, we set the seconds part of each time to zero by first truncating the time to minutes and then appending a zero at the end in place of the truncated seconds. To do this, we switch on the seconds-truncation mode and activate the option to print-zero-time-parts. We also turn off the padding option and get the output time in format \"h:m:s\", where the seconds are always zero so the final format is \"h:m:0\".",
+        "title": "Set Seconds to Zero"
+      },
+      "truncateMinutesAndSeconds": {
+        "description": "This example truncates five clock times to an hour. It drops the minutes and seconds parts and only outputs the hours with zero padding.",
+        "title": "Truncate Minutes and Seconds"
+      },
+      "truncateSeconds": {
+        "description": "In this example, we get rid of the seconds part from several timer values. We select the \"Truncate Only Seconds\" mode and get a list of timer values consisting only of hours and minutes in format \"hh:mm\" (the \":ss\" part is removed).",
+        "title": "Truncate Seconds"
+      }
+    },
     "printDroppedComponents": "Print Dropped Components",
     "shortDescription": "Truncate clock time to specified precision",
     "timePadding": "Time Padding",
@@ -127,6 +269,20 @@
   "discordTimestamp": {
     "name": "Discord Timestamp Generator",
     "description": "Convert dates and times into Discord's special timestamp format that automatically adapts to each user's local timezone and language",
+    "examples": {
+      "multiple": {
+        "description": "In this example, we convert multiple datetimes at once — one per line. Blank lines are preserved in the output. Each valid datetime is converted to a Discord timestamp using the Short Date & Time format (f).",
+        "title": "Convert multiple datetimes"
+      },
+      "relative": {
+        "description": "In this example, we use the Relative format (R) which displays how long ago or how far in the future a datetime is — for example \"2 hours ago\" or \"in 3 days\". This format is useful for countdowns or activity feeds and updates dynamically in Discord.",
+        "title": "Relative timestamps"
+      },
+      "single": {
+        "description": "In this example, we convert a single datetime into a Discord timestamp using the Long Date & Time format (F). The input is an ISO 8601 datetime string and the output is a Discord timestamp that will display the full date and time in each viewer's local timezone.",
+        "title": "Convert a single datetime"
+      }
+    },
     "shortDescription": "Generate Discord timestamps from dates",
     "inputTitle": "Input Datetimes",
     "outputTitle": "Discord Timestamps",

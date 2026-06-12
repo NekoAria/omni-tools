@@ -14,8 +14,22 @@
   },
   "convertDaysToHours": {
     "addHoursName": "添加营业时间名称",
-    "addHoursNameDescription": "将字符串 hours 附加到输出值",
+    "addHoursNameDescription": "在输出值后追加表示小时的后缀",
     "description": "使用可自定义的选项将天数转换为小时数。",
+    "examples": {
+      "fractionalDays": {
+        "description": "此示例将五个小数天数值转换为小时。部分天数的转换与完整天数类似，都会乘以 24。我们关闭在转换值后附加 \"hours\" 字符串的选项，因此输出中只显示数值形式的小时数。",
+        "title": "小数天数转小时"
+      },
+      "fullDays": {
+        "description": "此示例计算 1 天、1 周（7 天）、1 个月（30 天）以及更长时间段包含多少小时。为了同时查看所有结果，我们将每个天数值单独放在新行中。输入中使用 \"days\" 后缀，并在输出中添加 \"hours\" 后缀。",
+        "title": "完整天数转小时"
+      },
+      "yearHours": {
+        "description": "在现代公历中，平年有 365 天，闰年有 366 天。因此一年的真实平均长度为 365.242199 天。在此示例中，我们将这个数字输入并转换为小时，结果显示平均一年有 8765.812776 小时。",
+        "title": "一年包含的小时数"
+      }
+    },
     "hoursName": "营业时间名称",
     "shortDescription": "将天数转换为小时数",
     "title": "将天数转换为小时数",
@@ -26,20 +40,54 @@
   },
   "convertHoursToDays": {
     "addDaysName": "添加日期名称",
-    "addDaysNameDescription": "将字符串 days 附加到输出值",
+    "addDaysNameDescription": "在输出值后追加表示天数的后缀",
+    "appendDaysPostfix": "附加天数后缀",
+    "appendDaysPostfixDescription": "在数值天数后显示天数后缀。",
+    "dayValueAccuracy": "天数值精度",
+    "dayValueAccuracyDescription": "如果计算出的天数是小数，应保留小数点后多少位？",
     "daysName": "日期名称",
+    "daysPostfix": "天数后缀",
     "description": "使用可自定义的选项将小时转换为天。",
+    "examples": {
+      "decimalDays": {
+        "description": "此示例将五个小数形式的小时值转换为天数。部分小时的转换与完整小时类似，都会除以 24。输出会按指定精度显示转换后的天数。",
+        "title": "小数天数"
+      },
+      "integerDays": {
+        "description": "此示例将十个小时值转换为十个天数值。每个输入小时数都能被 24 整除，没有余数，因此所有转换结果都是完整天数。为了更清楚地表示时间单位，输入数据中使用 \"hours\"，输出数据中也添加 \"days\"。",
+        "title": "小时转整数天"
+      },
+      "partialHours": {
+        "description": "此示例将不足一天的小时数转换为天数，并以较高精度显示结果，适合查看很短时长对应的天数。",
+        "title": "部分小时"
+      }
+    },
     "shortDescription": "将小时转换为天",
     "title": "将小时转换为天",
     "toolInfo": {
       "description": "此工具可让您将小时转换为天。您可以输入数字或单位形式的小时，该工具会将其转换为天。您还可以选择在输出值后附加“天”后缀。",
-      "title": "将小时转换为天"
+      "title": "将小时转换为天",
+      "whatIsTitle": "什么是 {{title}}？"
     }
   },
   "convertSecondsToTime": {
     "addPadding": "添加填充",
     "addPaddingDescription": "在小时、分钟和秒后添加零填充。",
     "description": "将秒转换为可读的时间格式（小时:分钟:秒）。输入秒数即可获取格式化的时间。",
+    "examples": {
+      "basic": {
+        "description": "此示例将 1 秒、60 秒和 3600 秒转换为时钟格式。我们不使用补零选项，因此得到三个简单的输出值：1 秒为 0:0:1，60 秒（1 分钟）为 0:1:0，3600 秒（1 小时）为 1:0:0。",
+        "title": "1 秒、1 分钟、1 小时"
+      },
+      "digitalClock": {
+        "description": "此示例启用补零选项，并以 HH:MM:SS 格式输出数字时钟时间。前两个整数时间戳不满 1 分钟，第三个时间戳不满 1 小时，因此输出中的分钟或小时位置会补零。",
+        "title": "HH:MM:SS 数字时钟"
+      },
+      "moreThanDay": {
+        "description": "此示例中的所有输入秒数都大于一天的秒数（86400 秒）。由于算法不会将时间限制在 23:59:59 以内，因此可以计算大输入值对应的确切小时数。",
+        "title": "超过一天"
+      }
+    },
     "shortDescription": "将秒数转换为时间格式",
     "timePadding": "时间填充",
     "title": "将秒转换为时间",
@@ -48,13 +96,38 @@
     }
   },
   "convertTimeToDecimal": {
+    "decimalPlaces": "小数位数",
+    "decimalPlacesDescription": "结果应包含多少位小数？",
     "description": "将格式化的时间长度（HH:MM:SS）转换为小数小时值。",
+    "examples": {
+      "basic": {
+        "description": "此示例演示如何将格式化时间（HH:MM:SS）转换为小数形式。",
+        "title": "时间转小数"
+      }
+    },
     "longDescription": "将格式化的时间字符串（HH:MM:SS 或 HH:MM）转换为其等效的小数小时值。小时可以是任意正数，而分钟和秒接受 0-59 之间的值，可以是一位或两位数字（例如，'12:5' 或 '12:05'）。此函数解析小时、分钟和秒，然后将总时长计算为单一小数值。它适用于生产力追踪、薪资计算、按时计费、数据分析，或任何需要将人类可读时间转换为易于求和、比较或处理的数值格式的工作流程。例如，'03:26:00' 转换为 3.43 小时，'12:5' 转换为 12.08 小时。",
     "shortDescription": "把时段转化为小数小时值",
-    "title": "把时间转换至十进制格式"
+    "title": "把时间转换至十进制格式",
+    "toolInfo": {
+      "title": "什么是 {{title}}？"
+    }
   },
   "convertTimeToSeconds": {
     "description": "将格式化的时间（HH：MM：SS）转换为秒。",
+    "examples": {
+      "beyond24Hours": {
+        "description": "在此示例中，我们超出了常规的 24 小时时钟范围。事实上，我们还会超出 60 分钟和 60 秒的常规范围。",
+        "title": "超过 24 小时的时间"
+      },
+      "multiple": {
+        "description": "此示例将多个时钟时间转换为秒。每个时钟时间单独列在新行中，输入中的行间距会在输出中保留。",
+        "title": "多个时钟时间"
+      },
+      "partial": {
+        "description": "此示例计算部分书写的时钟时间包含多少秒。有些时钟时间只包含小时，另一些只包含小时和分钟。",
+        "title": "部分时钟时间"
+      }
+    },
     "inputTitle": "输入时间",
     "resultTitle": "秒",
     "shortDescription": "将时间格式转换为秒",
@@ -69,6 +142,24 @@
     "addUtcLabelDescription": "在转换的日期后显示 \"UTC\"（仅限 UTC 模式）",
     "date-to-unix": "日期 → Unix",
     "description": "将 Unix 时间戳转换为可读日期，并将格式化日期转换回 Unix 时间戳（双向转换）。",
+    "examples": {
+      "dateToUnix": {
+        "description": "此示例将普通的人类可读时间转换为 Unix 时间戳。UTC 偏移按 +00:00 处理。",
+        "title": "基础日期转 Unix"
+      },
+      "unixToDate": {
+        "description": "此示例展示如何将 Unix 时间戳转换为人类可读日期。每个时间戳表示自 1970 年 1 月 1 日（UTC）以来经过的秒数。",
+        "title": "基础 Unix 时间转日期"
+      },
+      "withoutUtcSuffix": {
+        "description": "此示例会从输出中移除 UTC 后缀。这在将时间戳嵌入其他格式或需要更简洁显示时可能很有用。",
+        "title": "不带 UTC 后缀"
+      },
+      "withUtcOffset": {
+        "description": "此示例在时间后通过空格提供 UTC 偏移。",
+        "title": "提供 UTC 偏移"
+      }
+    },
     "optionsTitle": "转换模式",
     "shortDescription": "双向转换 Unix 时间戳和日期。",
     "title": "转换 Unix ↔ 日期",
@@ -85,11 +176,47 @@
   "crontabGuru": {
     "title": "Crontab Guru",
     "description": "用中文解析和解释 cron 表达式。即时了解任何 cron 计划的作用，验证语法，并一次处理多个表达式。",
+    "examples": {
+      "everyFiveMinutes": {
+        "description": "每 5 分钟运行一次。",
+        "title": "每 5 分钟运行一次（英文）"
+      },
+      "everyMinute": {
+        "description": "每分钟运行一次。",
+        "title": "每分钟运行一次（英文）"
+      },
+      "monthlyNoon": {
+        "description": "在每月第 1 天的中午运行。",
+        "title": "每月 1 日中午 12:00 运行（英文）"
+      },
+      "weekdays": {
+        "description": "周日至周五每天 16:35 运行。",
+        "title": "周日至周五每天 16:35 运行（英文）"
+      }
+    },
+    "inputPlaceholder": "例如：35 16 * * 0-5",
     "shortDescription": "用简单语言解析和解释 cron 表达式",
-    "longDescription": "Crontab Guru 是一个 cron 表达式解析器和验证器，可将复杂的 cron 语法转换为清晰易读的描述。无论您是在安排自动备份、系统维护任务还是 CI/CD 流水线，此工具都能帮助您准确了解您的任务何时运行。支持标准的 5 字段 cron 表达式，实时验证语法，并一次处理多个表达式——每行一个。支持英语、法语、西班牙语、德语、日语、中文、葡萄牙语、荷兰语和俄语。"
+    "longDescription": "Crontab Guru 是一个 cron 表达式解析器和验证器，可将复杂的 cron 语法转换为清晰易读的描述。无论您是在安排自动备份、系统维护任务还是 CI/CD 流水线，此工具都能帮助您准确了解您的任务何时运行。支持标准的 5 字段 cron 表达式，实时验证语法，并一次处理多个表达式——每行一个。支持英语、法语、西班牙语、德语、日语、中文、葡萄牙语、荷兰语和俄语。",
+    "toolInfo": {
+      "title": "什么是 {{title}}？"
+    }
   },
   "discordTimestamp": {
     "description": "将日期和时间转换为 Discord 的特殊时间戳格式，自动适应每位用户的本地时区和语言",
+    "examples": {
+      "multiple": {
+        "description": "此示例一次转换多个日期时间，每行一个。输出中会保留空行。每个有效日期时间都会使用短日期和时间格式（f）转换为 Discord 时间戳。",
+        "title": "转换多个日期时间"
+      },
+      "relative": {
+        "description": "此示例使用相对格式（R），它会显示某个日期时间距离现在多久以前或多久以后，例如 \"2 hours ago\" 或 \"in 3 days\"。此格式适用于倒计时或动态活动信息流，并会在 Discord 中动态更新。",
+        "title": "相对时间戳"
+      },
+      "single": {
+        "description": "此示例使用长日期和时间格式（F）将单个日期时间转换为 Discord 时间戳。输入是 ISO 8601 日期时间字符串，输出是会按照每位查看者本地时区显示完整日期和时间的 Discord 时间戳。",
+        "title": "转换单个日期时间"
+      }
+    },
     "formats": {
       "description": "选择时间戳在 Discord 中的显示方式 — 悬停在每个选项上可查看示例",
       "long_date": "长日期（例：2025年1月1日）",
@@ -121,6 +248,21 @@
     "endDateTime": "结束日期和时间",
     "endTime": "结束时间",
     "endTimezone": "结束时区",
+    "examples": {
+      "detailed": {
+        "description": "显示时间差的详细分解",
+        "title": "详细时间分解"
+      },
+      "oneYear": {
+        "description": "计算相隔一年的两个日期之间的时间",
+        "title": "一年差值"
+      },
+      "timezones": {
+        "description": "计算纽约和伦敦之间的时差",
+        "title": "不同时区"
+      }
+    },
+    "localTime": "本地时间",
     "shortDescription": "计算两个日期之间的时间",
     "startDate": "开始日期",
     "startDateTime": "开始日期和时间",
@@ -134,6 +276,20 @@
   },
   "truncateClockTime": {
     "description": "截断时钟时间以删除秒数或分钟数。将时间四舍五入到最接近的小时数、分钟数或自定义间隔。",
+    "examples": {
+      "setSecondsToZero": {
+        "description": "此示例先将时间截断到分钟，再在截断秒数的位置附加 0，从而将每个时间的秒数部分设为零。为此，我们开启秒数截断模式，并启用打印零值时间部分选项。我们还关闭补零选项，使输出时间格式为 \"h:m:s\"；由于秒数始终为零，最终格式为 \"h:m:0\"。",
+        "title": "将秒数设为零"
+      },
+      "truncateMinutesAndSeconds": {
+        "description": "此示例将五个时钟时间截断到小时。它会丢弃分钟和秒部分，并只输出带零填充的小时。",
+        "title": "截断分钟和秒"
+      },
+      "truncateSeconds": {
+        "description": "此示例从多个计时器值中去掉秒数部分。我们选择 \"仅截断秒数\" 模式，得到仅包含小时和分钟、格式为 \"hh:mm\" 的时间列表（移除 \":ss\" 部分）。",
+        "title": "截断秒数"
+      }
+    },
     "printDroppedComponents": "打印掉落的组件",
     "shortDescription": "将时钟时间截断为指定的精度",
     "timePadding": "时间填充",

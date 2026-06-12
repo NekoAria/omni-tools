@@ -9,6 +9,7 @@ import { CardExampleType } from '@components/examples/ToolExamples';
 import CheckboxWithDesc from '@components/options/CheckboxWithDesc';
 import TextFieldWithDesc from '@components/options/TextFieldWithDesc';
 import { convertHoursToDays } from './service';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   daysFlag: false,
@@ -17,9 +18,8 @@ const initialValues = {
 type InitialValuesType = typeof initialValues;
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Hours to Integer Days',
-    description:
-      'In this example, we convert ten hour values to ten day values. Each input hour is divisible by 24 without a remainder, so all converted output values are full days. To better communicate the time units, we use the word "hours" in the input data and also add the word "days" to the output data.',
+    title: 'time:convertHoursToDays.examples.integerDays.title',
+    description: 'time:convertHoursToDays.examples.integerDays.description',
     sampleText: `24 hours
 48 hours
 72 hours
@@ -43,9 +43,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: { daysFlag: true, accuracy: '2' }
   },
   {
-    title: 'Decimal Days',
-    description:
-      'In this example, we convert five decimal fraction day values to hours. Conversion of partial days is similar to the conversion of full days – they are all multiplied by 24. We turn off the option that appends the "hours" string after the converted values and get only the numerical hour values in the output.',
+    title: 'time:convertHoursToDays.examples.decimalDays.title',
+    description: 'time:convertHoursToDays.examples.decimalDays.description',
     sampleText: `1 hr
 100 hr
 9999 hr
@@ -59,9 +58,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: { daysFlag: true, accuracy: '4' }
   },
   {
-    title: 'Partial Hours',
-    description:
-      'In the modern Gregorian calendar, a common year has 365 days and a leap year has 366 days. This makes the true average length of a year to be 365.242199 days. In this example, we load this number in the input field and convert it to the hours. It turns out that there 8765.812776 hours in an average year.',
+    title: 'time:convertHoursToDays.examples.partialHours.title',
+    description: 'time:convertHoursToDays.examples.partialHours.description',
     sampleText: `0.5
 0.01
 0.99`,
@@ -76,6 +74,7 @@ export default function ConvertDaysToHours({
   title,
   longDescription
 }: ToolComponentProps) {
+  const { t } = useTranslation('time');
   const [input, setInput] = useState<string>('');
   const [result, setResult] = useState<string>('');
 
@@ -90,13 +89,11 @@ export default function ConvertDaysToHours({
     updateField
   }) => [
     {
-      title: 'Day Value Accuracy',
+      title: t('convertHoursToDays.dayValueAccuracy'),
       component: (
         <Box>
           <TextFieldWithDesc
-            description={
-              'If the calculated days is a decimal number, then how many digits should be left after the decimal point?.'
-            }
+            description={t('convertHoursToDays.dayValueAccuracyDescription')}
             value={values.accuracy}
             onOwnChange={(val) => updateField('accuracy', val)}
             type={'text'}
@@ -105,14 +102,14 @@ export default function ConvertDaysToHours({
       )
     },
     {
-      title: 'Days Postfix',
+      title: t('convertHoursToDays.daysPostfix'),
       component: (
         <Box>
           <CheckboxWithDesc
             onChange={(val) => updateField('daysFlag', val)}
             checked={values.daysFlag}
-            title={'Append Days Postfix'}
-            description={'Display numeric day values with the postfix "days".'}
+            title={t('convertHoursToDays.appendDaysPostfix')}
+            description={t('convertHoursToDays.appendDaysPostfixDescription')}
           />
         </Box>
       )
@@ -129,7 +126,10 @@ export default function ConvertDaysToHours({
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: t('convertHoursToDays.toolInfo.whatIsTitle', { title }),
+        description: longDescription
+      }}
       exampleCards={exampleCards}
     />
   );

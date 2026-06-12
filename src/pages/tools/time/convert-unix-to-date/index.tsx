@@ -20,9 +20,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Basic Unix Time to Date',
-    description:
-      'This example shows how Unix timestamps are converted into human-readable dates. Each timestamp represents the number of seconds that have elapsed since January 1, 1970 (UTC).',
+    title: 'time:convertUnixToDate.examples.unixToDate.title',
+    description: 'time:convertUnixToDate.examples.unixToDate.description',
     sampleText: `0
 1721287227
 2147483647`,
@@ -36,9 +35,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Without UTC Suffix',
-    description:
-      'In this example, the UTC suffix is removed from the output. This might be useful for embedding timestamps into other formats or for cleaner display.',
+    title: 'time:convertUnixToDate.examples.withoutUtcSuffix.title',
+    description: 'time:convertUnixToDate.examples.withoutUtcSuffix.description',
     sampleText: `1234567890
 1672531199`,
     sampleResult: `2009-02-13 23:31:30
@@ -50,9 +48,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Basic Date to Unix',
-    description:
-      'In this example, a plain human-readable timeframe is converted into a Unix timestamp. The UTC offset is treated as +00:00. ',
+    title: 'time:convertUnixToDate.examples.dateToUnix.title',
+    description: 'time:convertUnixToDate.examples.dateToUnix.description',
     sampleText: `1990-03-17 14:23:00
 2012-12-21 00:00:00`,
     sampleResult: `637654980
@@ -64,9 +61,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'With UTC Offset Provided',
-    description:
-      'In this example, the UTC offset is provided after stating the timeframe with a space.',
+    title: 'time:convertUnixToDate.examples.withUtcOffset.title',
+    description: 'time:convertUnixToDate.examples.withUtcOffset.description',
     sampleText: `1985-06-15 12:00:00 +00:00
 2025-04-04 10:00:00 +08:00`,
     sampleResult: `487684800

@@ -16,9 +16,8 @@ const initialValues = {
 type InitialValuesType = typeof initialValues;
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: '1 Second, 1 Minute, 1 Hour',
-    description:
-      "In this example, we convert 1 second, 60 seconds, and 3600 seconds to clock format. We don't use the zero-padding option and get three simple output values – 0:0:1 for 1 second, 0:1:0 for 60 seconds (1 minute), and 1:0:0 for 3600 seconds (1 hour).",
+    title: 'time:convertSecondsToTime.examples.basic.title',
+    description: 'time:convertSecondsToTime.examples.basic.description',
     sampleText: `1
 60
 3600`,
@@ -28,9 +27,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: { paddingFlag: false }
   },
   {
-    title: 'HH:MM:SS Digital Clock',
-    description:
-      "In this example, we enable the padding option and output digital clock time in the format HH:MM:SS. The first two integer timestamps don't contain a full minute and the third timestamp doesn't contain a full hour, there we get zeros in the minutes or hours positions in output.",
+    title: 'time:convertSecondsToTime.examples.digitalClock.title',
+    description: 'time:convertSecondsToTime.examples.digitalClock.description',
     sampleText: `0
 46
 890
@@ -46,9 +44,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: { paddingFlag: true }
   },
   {
-    title: 'More Than a Day',
-    description:
-      "The values of all input seconds in this example are greater than the number of seconds in a day (86400 seconds). As our algorithm doesn't limit the time to just 23:59:59 hours, it can find the exact number of hours in large inputs.",
+    title: 'time:convertSecondsToTime.examples.moreThanDay.title',
+    description: 'time:convertSecondsToTime.examples.moreThanDay.description',
     sampleText: `86401
 123456
 2159999

@@ -6,28 +6,25 @@ export const PORT_RANGES: Record<string, PortRange> = {
     name: 'Well-Known Ports',
     min: 1,
     max: 1023,
-    description:
-      'System ports (1-1023) - Reserved for common services like HTTP, HTTPS, SSH, etc.'
+    description: 'randomPortGenerator.ranges.wellKnown.description'
   },
   registered: {
     name: 'Registered Ports',
     min: 1024,
     max: 49151,
-    description:
-      'User ports (1024-49151) - Available for applications and services'
+    description: 'randomPortGenerator.ranges.registered.description'
   },
   dynamic: {
     name: 'Dynamic Ports',
     min: 49152,
     max: 65535,
-    description:
-      'Private ports (49152-65535) - Available for temporary or private use'
+    description: 'randomPortGenerator.ranges.dynamic.description'
   },
   custom: {
     name: 'Custom Range',
     min: 1,
     max: 65535,
-    description: 'Custom port range - Specify your own min and max values'
+    description: 'randomPortGenerator.ranges.custom.description'
   }
 };
 

@@ -35,9 +35,8 @@ const validationSchema = Yup.object({
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Basic Arithmetic Sequence',
-    description:
-      'Generate a sequence starting at 1, increasing by 2, for 5 terms',
+    title: 'number:arithmeticSequence.examples.basic.title',
+    description: 'number:arithmeticSequence.examples.basic.description',
     sampleOptions: {
       firstTerm: '1',
       commonDifference: '2',
@@ -47,8 +46,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleResult: '1, 3, 5, 7, 9'
   },
   {
-    title: 'Negative Sequence',
-    description: 'Generate a decreasing sequence starting at 10',
+    title: 'number:arithmeticSequence.examples.negative.title',
+    description: 'number:arithmeticSequence.examples.negative.description',
     sampleOptions: {
       firstTerm: '10',
       commonDifference: '-3',
@@ -58,8 +57,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleResult: '10 → 7 → 4 → 1'
   },
   {
-    title: 'Decimal Sequence',
-    description: 'Generate a sequence with decimal numbers',
+    title: 'number:arithmeticSequence.examples.decimal.title',
+    description: 'number:arithmeticSequence.examples.decimal.description',
     sampleOptions: {
       firstTerm: '0.5',
       commonDifference: '0.5',

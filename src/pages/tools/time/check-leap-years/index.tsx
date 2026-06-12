@@ -14,9 +14,8 @@ type InitialValuesType = typeof initialValues;
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Find Birthdays on February 29',
-    description:
-      "One of our friends was born on a leap year on February 29th and as a consequence, she has a birthday only once every 4 years. As we can never really remember when her birthday is, we are using our program to create a reminder list of the upcoming leap years. To create a list of her next birthdays, we load a sequence of years from 2025 to 2040 into the input and get the status of each year. If the program says that it's a leap year, then we know that we'll be invited to a birthday party on February 29th.",
+    title: 'time:checkLeapYears.exampleTitle',
+    description: 'time:checkLeapYears.exampleDescription',
     sampleText: `2025
 2026
 2027

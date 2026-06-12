@@ -2,6 +2,20 @@
   "arithmeticSequence": {
     "commonDifferenceDescription": "Common difference between terms (d)",
     "description": "Generate arithmetic sequences with customizable parameters.",
+    "examples": {
+      "basic": {
+        "description": "Generate a sequence starting at 1, increasing by 2, for 5 terms",
+        "title": "Basic Arithmetic Sequence"
+      },
+      "decimal": {
+        "description": "Generate a sequence with decimal numbers",
+        "title": "Decimal Sequence"
+      },
+      "negative": {
+        "description": "Generate a decreasing sequence starting at 10",
+        "title": "Negative Sequence"
+      }
+    },
     "firstTermDescription": "First term of the sequence (a₁)",
     "numberOfTermsDescription": "Number of terms to generate (n)",
     "outputFormat": "Output Format",
@@ -17,6 +31,24 @@
   },
   "byteConverter": {
     "description": "Convert data values between different byte units, supporting both SI (decimal) and IEC (binary) systems. It supports multiple lines conversion.",
+    "examples": {
+      "bytesToBits": {
+        "description": "This example converts values from Bytes (B) to Bits (b). Since 1 Byte = 8 Bits, each input value is multiplied by 8. The precision is set to 0 because the result is always an integer.",
+        "title": "Convert Bytes to Bits"
+      },
+      "gbToGib": {
+        "description": "This example demonstrates a cross-system conversion from SI units (GB) to IEC units (GiB). Since GB and GiB are slightly different, the output shows fractional values with high precision. This is useful when comparing storage reported by operating systems vs manufacturers.",
+        "title": "Cross-System Conversion: GB to GiB"
+      },
+      "gbToMb": {
+        "description": "This example converts a list of storage values in Gigabytes (GB) into Megabytes (MB) using the SI system. Each line represents a different storage size. The output shows the same values converted to MB with the specified precision.",
+        "title": "Convert Gigabytes to Megabytes"
+      },
+      "mibToGib": {
+        "description": "This example converts values in Mebibytes (MiB) to Gibibytes (GiB) using the IEC binary system. Each line of input represents a different memory size, and the output shows the conversion rounded to 2 decimal places.",
+        "title": "Convert MiB to GiB (IEC System)"
+      }
+    },
     "inputTitle": "Input Values",
     "outputTitle": "Converted Output",
     "shortDescription": "Quickly convert values between byte units",
@@ -27,6 +59,14 @@
       "title": "Conversion Options",
       "to": "Select the unit you want the input values to be converted into."
     }
+  },
+  "genericCalc": {
+    "extraOutputs": "Extra outputs",
+    "preset": "Preset",
+    "presets": "Presets",
+    "selectSolveForVariable": "Please select a solve for variable",
+    "solveFor": "Solve For",
+    "variables": "Variables"
   },
   "generate": {
     "arithmeticSequenceOption": "Arithmetic sequence option",
@@ -107,6 +147,20 @@
       "title": "What is a Random Port Generator?"
     },
     "longDescription": "Generate random network ports within specified ranges (well-known, registered, dynamic, or custom). Perfect for development, testing, and network configuration. Includes port service identification for common ports.",
+    "ranges": {
+      "custom": {
+        "description": "Custom port range - Specify your own min and max values"
+      },
+      "dynamic": {
+        "description": "Private ports (49152-65535) - Available for temporary or private use"
+      },
+      "registered": {
+        "description": "User ports (1024-49151) - Available for applications and services"
+      },
+      "wellKnown": {
+        "description": "System ports (1-1023) - Reserved for common services like HTTP, HTTPS, SSH, etc."
+      }
+    },
     "options": {
       "generation": {
         "allowDuplicates": {
@@ -198,6 +252,17 @@
   },
   "voltageDropInWire": {
     "description": "Calculates round trip voltage and power loss in a 2 conductor cable",
+    "fields": {
+      "current": "Current",
+      "length": "Length",
+      "material": "Material",
+      "resistivity": "Resistivity",
+      "totalPowerDissipated": "Total Power Dissipated",
+      "totalResistance": "Total Resistance",
+      "voltageDrop": "Voltage Drop",
+      "wireArea": "Wire Area",
+      "wireGauge": "Wire Gauge"
+    },
     "longDescription": "This calculator helps determine the voltage drop and power loss in a two-conductor electrical cable. It takes into account the cable length, wire gauge (cross-sectional area), material resistivity, and current flow. The tool calculates the round-trip voltage drop, total resistance of the cable, and the power dissipated as heat. This is particularly useful for electrical engineers, electricians, and hobbyists when designing electrical systems to ensure voltage levels remain within acceptable limits at the load.",
     "shortDescription": "Calculate voltage drop and power loss in electrical cables based on length, material, and current",
     "title": "Round trip voltage drop in cable"

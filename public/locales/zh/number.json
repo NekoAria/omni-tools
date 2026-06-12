@@ -1,12 +1,26 @@
 {
   "arithmeticSequence": {
-    "commonDifferenceDescription": "术语之间的共同差异（d）",
+    "commonDifferenceDescription": "各项之间的公差（d）",
     "description": "生成具有可定制参数的算术序列。",
+    "examples": {
+      "basic": {
+        "description": "生成一个从 1 开始、每项递增 2、共 5 项的序列",
+        "title": "基础等差序列"
+      },
+      "decimal": {
+        "description": "生成包含小数的序列",
+        "title": "小数序列"
+      },
+      "negative": {
+        "description": "生成一个从 10 开始递减的序列",
+        "title": "递减序列"
+      }
+    },
     "firstTermDescription": "序列的第一项 (a₁)",
-    "numberOfTermsDescription": "生成的术语数（n）",
+    "numberOfTermsDescription": "要生成的项数（n）",
     "outputFormat": "输出格式",
     "resultTitle": "生成的序列",
-    "separatorDescription": "术语之间的分隔符",
+    "separatorDescription": "各项之间的分隔符",
     "sequenceParameters": "序列参数",
     "shortDescription": "生成等差序列",
     "title": "等差序列",
@@ -14,6 +28,14 @@
       "description": "等差数列是指一系列连续数列中，各连续项之间的差为常数。这个常数差称为公差。给定第一项 (a₁) 和公差 (d)，可以通过将公差加到前一项来求出每一项。",
       "title": "什么是等差序列？"
     }
+  },
+  "genericCalc": {
+    "extraOutputs": "额外输出",
+    "preset": "预设",
+    "presets": "预设",
+    "selectSolveForVariable": "请选择要求解的变量",
+    "solveFor": "求解变量",
+    "variables": "变量"
   },
   "generate": {
     "arithmeticSequenceOption": "算术序列选项",
@@ -25,7 +47,7 @@
     "shortDescription": "生成指定范围内的随机数",
     "startSequenceDescription": "从该数字开始序列。",
     "stepDescription": "将每个元素增加此量",
-    "title": "产生",
+    "title": "生成",
     "toolInfo": {
       "description": "此工具允许您生成具有可自定义参数的数字序列。您可以指定起始值、步长和元素数量。",
       "title": "生成数字"
@@ -75,7 +97,7 @@
       }
     },
     "result": {
-      "count": "数数",
+      "count": "数量",
       "hasDuplicates": "包含重复项",
       "isSorted": "已排序",
       "range": "范围",
@@ -94,6 +116,20 @@
       "title": "什么是随机端口生成器？"
     },
     "longDescription": "在指定范围内（知名、注册、动态或自定义）生成随机网络端口。非常适合开发、测试和网络配置。包含常用端口的端口服务识别。",
+    "ranges": {
+      "custom": {
+        "description": "自定义端口范围 - 指定自己的最小值和最大值"
+      },
+      "dynamic": {
+        "description": "动态端口（49152-65535）- 可用于临时或私有用途"
+      },
+      "registered": {
+        "description": "注册端口（1024-49151）- 可供应用程序和服务使用"
+      },
+      "wellKnown": {
+        "description": "系统端口（1-1023）- 为 HTTP、HTTPS、SSH 等常用服务保留"
+      }
+    },
     "options": {
       "generation": {
         "allowDuplicates": {
@@ -122,7 +158,7 @@
       }
     },
     "result": {
-      "count": "数数",
+      "count": "数量",
       "hasDuplicates": "包含重复项",
       "isSorted": "已排序",
       "portDetails": "端口详细信息",
@@ -151,10 +187,10 @@
     "title": "球体的体积"
   },
   "sum": {
-    "description": "计算一串数字的总和。输入以逗号或换行符分隔的数字，即可计算出它们的总和。",
+    "description": "计算一组数字的总和。输入以逗号或换行符分隔的数字，即可计算出它们的总和。",
     "example1Description": "在此示例中，我们计算十个正整数的和。这些整数列成一列，它们的总和等于 19494。",
     "example1Title": "十个正数之和",
-    "example2Description": "此示例反转一列二十个三音节名词，并从下到上打印所有单词。为了分隔列表项，它使用 \\n 字符作为输入项分隔符，这意味着每个项都独占一行。",
+    "example2Description": "在此示例中，我们会统计一段关于城市中央公园植树情况的文本中的树木数量。工具会自动提取文本中的数字，并计算总数。",
     "example2Title": "数一数公园里的树木",
     "example3Description": "在这个例子中，我们将 90 个不同的值相加——正数、负数、整数和小数。我们将输入分隔符设置为逗号，将它们全部相加后，输出结果为 0。",
     "example3Title": "整数和小数之和",
@@ -167,30 +203,59 @@
       },
       "smart": {
         "description": "自动检测输入中的数字。",
-        "title": "智能总和"
+        "title": "智能求和"
       }
     },
     "inputTitle": "输入",
     "numberExtraction": "数字提取",
     "printRunningSum": "打印运行总和",
     "printRunningSumDescription": "显示逐步计算的总和。",
-    "resultTitle": "全部的",
-    "runningSum": "运行总和",
+    "resultTitle": "总和",
+    "runningSum": "累计和",
     "shortDescription": "计算数字之和",
-    "title": "和",
+    "title": "求和",
     "toolInfo": {
       "description": "这是一个基于浏览器的在线实用程序，用于计算一组数字的总和。您可以输入用逗号、空格或任何其他字符（包括换行符）分隔的数字。您也可以直接粘贴一段包含要求和的数值的文本数据，该实用程序会提取这些数据并计算总和。",
-      "title": "什么是数字总和计算器？"
+      "title": "什么是数字求和计算器？"
     }
   },
   "voltageDropInWire": {
     "description": "计算双芯电缆的往返电压和功率损耗",
+    "fields": {
+      "current": "电流",
+      "length": "长度",
+      "material": "材料",
+      "resistivity": "电阻率",
+      "totalPowerDissipated": "总耗散功率",
+      "totalResistance": "总电阻",
+      "voltageDrop": "电压降",
+      "wireArea": "导线面积",
+      "wireGauge": "线规"
+    },
     "longDescription": "这款计算器可帮助计算双芯电缆的电压降和功率损耗。它考虑了电缆长度、线规（横截面积）、材料电阻率和电流。该工具可计算往返电压降、电缆总电阻以及以热量形式耗散的功率。这对于电气工程师、电工和业余爱好者在设计电气系统时尤其有用，可确保负载下的电压水平保持在可接受的范围内。",
     "shortDescription": "根据长度、材料和电流计算电缆的电压降和功率损耗",
     "title": "电缆往返电压降"
   },
   "byteConverter": {
     "description": "在不同字节单位之间转换数据值，支持 SI（十进制）和 IEC（二进制）系统，并支持多行转换。",
+    "examples": {
+      "bytesToBits": {
+        "description": "此示例将数值从字节（B）转换为比特（b）。由于 1 字节 = 8 比特，每个输入值都会乘以 8。精度设置为 0，因为结果始终是整数。",
+        "title": "将字节转换为比特"
+      },
+      "gbToGib": {
+        "description": "此示例演示从 SI 单位（GB）到 IEC 单位（GiB）的跨体系转换。由于 GB 和 GiB 略有不同，输出会以较高精度显示小数值。这在比较操作系统和制造商报告的存储容量时很有用。",
+        "title": "跨体系转换：GB 到 GiB"
+      },
+      "gbToMb": {
+        "description": "此示例使用 SI 体系将一组以 GB（吉字节）表示的存储值转换为 MB（兆字节）。每一行代表不同的存储大小。输出会按照指定精度显示转换后的 MB 值。",
+        "title": "将 GB 转换为 MB"
+      },
+      "mibToGib": {
+        "description": "此示例使用 IEC 二进制体系将 MiB（二进制兆字节）转换为 GiB（二进制吉字节）。每一行输入代表不同的内存大小，输出会显示四舍五入到 2 位小数的转换结果。",
+        "title": "将 MiB 转换为 GiB（IEC 体系）"
+      }
+    },
     "inputTitle": "输入值",
     "outputTitle": "转换结果",
     "shortDescription": "快速在字节单位之间转换数值",
