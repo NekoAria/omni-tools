@@ -26,9 +26,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Rotate text to the right',
-    description:
-      'This example shows how to rotate text to the right by 2 positions.',
+    title: 'string:rotate.ui.title1',
+    description: 'string:rotate.ui.description1',
     sampleText: 'abcdef',
     sampleResult: 'efabcd',
     sampleOptions: {
@@ -38,9 +37,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Rotate text to the left',
-    description:
-      'This example shows how to rotate text to the left by 2 positions.',
+    title: 'string:rotate.ui.title2',
+    description: 'string:rotate.ui.description2',
     sampleText: 'abcdef',
     sampleResult: 'cdefab',
     sampleOptions: {
@@ -50,9 +48,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Rotate multi-line text',
-    description:
-      'This example shows how to rotate each line of a multi-line text.',
+    title: 'string:rotate.ui.title3',
+    description: 'string:rotate.ui.description3',
     sampleText: 'abcdef\nghijkl',
     sampleResult: 'fabcde\nlghijk',
     sampleOptions: {

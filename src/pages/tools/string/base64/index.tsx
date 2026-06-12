@@ -17,16 +17,15 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Encode data in UTF-8 with Base64',
-    description: 'This example shows how to encode a simple text using Base64.',
+    title: 'string:base64.ui.title1',
+    description: 'string:base64.ui.description1',
     sampleText: 'Hello, World!',
     sampleResult: 'SGVsbG8sIFdvcmxkIQ==',
     sampleOptions: { mode: 'encode' }
   },
   {
-    title: 'Decode Base64-encoded data to UTF-8',
-    description:
-      'This example shows how to decode data that was encoded with Base64.',
+    title: 'string:base64.ui.title2',
+    description: 'string:base64.ui.description2',
     sampleText: 'SGVsbG8sIFdvcmxkIQ==',
     sampleResult: 'Hello, World!',
     sampleOptions: { mode: 'decode' }

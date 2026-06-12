@@ -13,17 +13,15 @@ const initialValues: InitialValuesType = {};
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Encode a message with ROT13',
-    description:
-      'This example shows how to encode a simple message using ROT13 cipher.',
+    title: 'string:rot13.ui.title1',
+    description: 'string:rot13.ui.description1',
     sampleText: 'Hello, World!',
     sampleResult: 'Uryyb, Jbeyq!',
     sampleOptions: {}
   },
   {
-    title: 'Decode a ROT13 message',
-    description:
-      'This example shows how to decode a message that was encoded with ROT13.',
+    title: 'string:rot13.ui.title2',
+    description: 'string:rot13.ui.description2',
     sampleText: 'Uryyb, Jbeyq!',
     sampleResult: 'Hello, World!',
     sampleOptions: {}

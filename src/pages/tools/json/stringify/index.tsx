@@ -25,8 +25,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Simple Object to JSON',
-    description: 'Convert a basic JavaScript object into a JSON string.',
+    title: 'json:stringify.ui.title1',
+    description: 'json:stringify.ui.description1',
     sampleText: `{ name: "John", age: 30 }`,
     sampleResult: `{
   "name": "John",
@@ -39,9 +39,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Array with Mixed Types',
-    description:
-      'Convert an array containing different types of values into JSON.',
+    title: 'json:stringify.ui.title2',
+    description: 'json:stringify.ui.description2',
     sampleText: `[1, "hello", true, null, { x: 10 }]`,
     sampleResult: `[
     1,
@@ -59,8 +58,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'HTML-Escaped JSON',
-    description: 'Convert an object to JSON with HTML characters escaped.',
+    title: 'json:stringify.ui.title3',
+    description: 'json:stringify.ui.description3',
     sampleText: `{
   html: "<div>Hello & Welcome</div>",
   message: "Special chars: < > & ' \\""
@@ -104,14 +103,18 @@ export default function StringifyJson({ title }: ToolComponentProps) {
       exampleCards={exampleCards}
       inputComponent={
         <ToolCodeInput
-          title="JavaScript Object/Array"
+          title="json:stringify.ui.title4"
           value={input}
           onChange={setInput}
           language="json"
         />
       }
       resultComponent={
-        <ToolTextResult title="JSON String" value={result} extension={'json'} />
+        <ToolTextResult
+          title="json:stringify.ui.title5"
+          value={result}
+          extension={'json'}
+        />
       }
       getGroups={({ values, updateField }) => [
         {
@@ -120,9 +123,9 @@ export default function StringifyJson({ title }: ToolComponentProps) {
             <Box>
               <RadioWithTextField
                 checked={values.indentationType === 'space'}
-                title="Use Spaces"
+                title="json:stringify.ui.title6"
                 fieldName="indentationType"
-                description="Indent output with spaces"
+                description="json:stringify.ui.description4"
                 value={values.spacesCount.toString()}
                 onRadioClick={() => updateField('indentationType', 'space')}
                 onTextChange={(val) =>
@@ -132,8 +135,8 @@ export default function StringifyJson({ title }: ToolComponentProps) {
               <SimpleRadio
                 onClick={() => updateField('indentationType', 'tab')}
                 checked={values.indentationType === 'tab'}
-                description="Indent output with tabs"
-                title="Use Tabs"
+                description="json:stringify.ui.description5"
+                title="json:stringify.ui.title7"
               />
             </Box>
           )
@@ -144,16 +147,15 @@ export default function StringifyJson({ title }: ToolComponentProps) {
             <CheckboxWithDesc
               checked={values.escapeHtml}
               onChange={(value) => updateField('escapeHtml', value)}
-              title="Escape HTML Characters"
-              description="Convert HTML special characters to their entity references"
+              title="json:stringify.ui.title8"
+              description="json:stringify.ui.description6"
             />
           )
         }
       ]}
       toolInfo={{
-        title: 'What Is JSON Stringify?',
-        description:
-          'JSON Stringify is a tool that converts JavaScript objects and arrays into their JSON string representation. It properly formats the output with customizable indentation and offers the option to escape HTML special characters, making it safe for web usage. This tool is particularly useful when you need to serialize data structures for storage or transmission, or when you need to prepare JSON data for HTML embedding.'
+        title: 'json:stringify.ui.title9',
+        description: 'json:stringify.ui.description7'
       }}
     />
   );

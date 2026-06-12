@@ -16,8 +16,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Slug (lowercase)',
-    description: 'Convert a title into a URL-friendly slug',
+    title: 'string:slugGenerator.ui.title1',
+    description: 'string:slugGenerator.ui.description1',
     sampleText: 'Hello World! This is a test.',
     sampleResult: 'hello-world-this-is-a-test',
     sampleOptions: {
@@ -25,9 +25,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Slug (case preserved)',
-    description:
-      'Convert a title into a URL-friendly slug without any case change',
+    title: 'string:slugGenerator.ui.title2',
+    description: 'string:slugGenerator.ui.description2',
     sampleText: 'Hello World! This is a test.',
     sampleResult: 'Hello-World-This-is-a-test',
     sampleOptions: {
@@ -35,8 +34,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Slugs (multi lines processing)',
-    description: 'Convert titles on each lines into a URL-friendly slugs',
+    title: 'string:slugGenerator.ui.title3',
+    description: 'string:slugGenerator.ui.description3',
     sampleText: 'Hello World! This is a test.\nMultiples lines are processed',
     sampleResult: 'Hello-World-This-is-a-test\nMultiples-lines-are-processed',
     sampleOptions: {
@@ -92,7 +91,10 @@ export default function SlugGenerator({
       getGroups={getGroups}
       setInput={setInput}
       compute={compute}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: 'string:slugGenerator.ui.title4',
+        description: longDescription
+      }}
     />
   );
 }

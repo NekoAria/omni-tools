@@ -20,9 +20,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Sort by name ascending',
-    description:
-      'Sort a JSON array of objects alphabetically by the "name" key.',
+    title: 'json:sortJson.ui.title1',
+    description: 'json:sortJson.ui.description1',
     sampleText: `[{"name":"Charlie","age":30},{"name":"Alice","age":25},{"name":"Bob","age":35}]`,
     sampleResult: `[
   {
@@ -41,9 +40,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: { mode: 'value', key: 'name', order: 'asc' }
   },
   {
-    title: 'Sort object keys alphabetically',
-    description:
-      'Sort the keys of a JSON object alphabetically in ascending order.',
+    title: 'json:sortJson.ui.title2',
+    description: 'json:sortJson.ui.description2',
     sampleText: `{"zebra":1,"apple":2,"mango":3}`,
     sampleResult: `{
   "apple": 2,
@@ -106,7 +104,7 @@ export default function SortJson({
             <SelectWithDesc
               selected={values.key}
               options={[
-                { label: 'Please select a key', value: '' },
+                { label: 'json:sortJson.ui.label1', value: '' },
                 ...keyOptions
               ]}
               onChange={(value) => updateField('key', value)}
@@ -157,7 +155,10 @@ export default function SortJson({
       input={input}
       setInput={setInput}
       exampleCards={exampleCards}
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: 'json:sortJson.ui.title3',
+        description: longDescription
+      }}
     />
   );
 }

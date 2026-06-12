@@ -14,9 +14,10 @@
     }
   },
   "censor": {
-    "description": "Utilitaire de censure de mots dans un texte. Chargez votre texte dans le formulaire de saisie à gauche, spécifiez tous les mots interdits dans les options et vous obtiendrez instantanément le texte censuré dans la zone de sortie. », longDescription: « Avec cet outil en ligne, vous pouvez censurer certains mots dans n'importe quel texte. Vous pouvez spécifier une liste de mots indésirables (tels que des jurons ou des mots secrets) et le programme les remplacera par d'autres mots pour créer un texte lisible. Les mots peuvent être spécifiés dans un champ de texte multiligne dans les options, en saisissant un mot par ligne. », keywords: ['text', 'censor', 'words', 'characters'], component: lazy(() => import('./index')), i18n: { name: 'string:censor.title', description: 'string:censor.description",
+    "description": "Utilitaire de censure de mots dans un texte. Chargez votre texte dans le formulaire de saisie à gauche, spécifiez tous les mots interdits dans les options et vous obtiendrez instantanément le texte censuré dans la zone de sortie.",
     "shortDescription": "Masquez rapidement les gros mots ou remplacez-les par des mots alternatifs.",
-    "title": "Censure de texte"
+    "title": "Censure de texte",
+    "longDescription": "Avec cet outil en ligne, vous pouvez censurer certains mots dans n'importe quel texte. Vous pouvez spécifier une liste de mots indésirables (tels que des jurons ou des mots secrets) et le programme les remplacera par d'autres mots pour créer un texte lisible. Les mots peuvent être spécifiés dans un champ de texte multiligne dans les options, en saisissant un mot par ligne."
   },
   "createPalindrome": {
     "description": "L'utilitaire de navigateur le plus simple au monde pour créer des palindromes à partir de n'importe quel texte. Saisissez du texte et transformez-le instantanément en un palindrome qui se lit de la même manière à l'endroit comme à l'envers. Idéal pour les jeux de mots, la création de motifs de texte symétriques ou l'exploration de curiosités linguistiques.",

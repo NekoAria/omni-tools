@@ -22,9 +22,8 @@ const initialValues = {
 
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Simple Text Reversal',
-    description:
-      'Reverses each character in the text. Perfect for creating mirror text.',
+    title: 'string:reverse.ui.title1',
+    description: 'string:reverse.ui.description1',
     sampleText: 'Hello World',
     sampleResult: 'dlroW olleH',
     sampleOptions: {
@@ -33,9 +32,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Multi-line Reversal',
-    description:
-      'Reverses each line independently while preserving the line breaks.',
+    title: 'string:reverse.ui.title2',
+    description: 'string:reverse.ui.description2',
     sampleText: 'First line\nSecond line\nThird line',
     sampleResult: 'enil tsriF\nenil dnoceS\nenil drihT',
     sampleOptions: {
@@ -44,9 +42,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Clean Reversed Text',
-    description:
-      'Trims whitespace and skips empty lines before reversing the text.',
+    title: 'string:reverse.ui.title3',
+    description: 'string:reverse.ui.description3',
     sampleText: '  Spaces removed  \n\nEmpty line skipped',
     sampleResult: 'devomer secapS\ndeppiks enil ytpmE',
     sampleOptions: {

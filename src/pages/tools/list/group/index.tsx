@@ -31,9 +31,8 @@ const splitOperators: SplitOperatorType[] = ['symbol', 'regex'];
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Group Hexagon Coordinates',
-    description:
-      'In this example, we group the coordinates of a regular hexagon. The input coordinates are given as a space-separated list "x1 y1 x2 y2 x3 y3 …". What we want to do is create vector point pairs such as "(x1, y1); (x2, y2); (x3, y3); …". To do that, we use the space character as the input coordinate separator, and to create vectors, we group them by pairs. We wrap the coordinates in parentheses, put a comma between the x and y group items, and a semicolon between individual groups.',
+    title: 'list:chunk.ui.title1',
+    description: 'list:chunk.ui.description1',
     sampleText: '2.5 9.33 0 5 2.5 0.66 7.5 0.66 10 5 7.5 9.33',
     sampleResult: `(2.5, 9.33); (0, 5); (2.5, 0.66); (7.5, 0.66); (10, 5); (7.5, 9.33)`,
     sampleOptions: {
@@ -50,9 +49,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Chunks of Size 3',
-    description:
-      'This example demonstrates grouping of list items and creates 9 groups of 3 items. The input list contains all alphabet letters (26 letters, separated by a semicolon) and the output is groups of letter trigrams. As the last group is missing one letter, we enable padding and add the underscore symbol as the padding element.',
+    title: 'list:chunk.ui.title2',
+    description: 'list:chunk.ui.description2',
     sampleText: 'a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z',
     sampleResult: `[a, b, c]
 [d, e, f]
@@ -77,9 +75,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Convert a List to a TSV',
-    description:
-      'In this example, we use our list item grouper to convert a food list to tab-separated values (TSV). As spaces are chaotically used between the items of the input list, we use the item separating regular expression "\\s+" to match them. We create a TSV with three columns (three groups), separate them with a tab character, and put newlines between the groups.',
+    title: 'list:chunk.ui.title3',
+    description: 'list:chunk.ui.description3',
     sampleText: `beef	  buns
   cake	 	corn
  crab

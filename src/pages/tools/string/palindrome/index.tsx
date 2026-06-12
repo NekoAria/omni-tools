@@ -25,24 +25,21 @@ const splitOperators: {
   type: SplitOperatorType;
 }[] = [
   {
-    title: 'Use a Symbol for Splitting',
-    description:
-      'Character that will be used to split text into parts for palindrome checking.',
+    title: 'string:palindrome.ui.title1',
+    description: 'string:palindrome.ui.description1',
     type: 'symbol'
   },
   {
-    title: 'Use a Regex for Splitting',
+    title: 'string:palindrome.ui.title2',
     type: 'regex',
-    description:
-      'Regular expression that will be used to split text into parts for palindrome checking.'
+    description: 'string:palindrome.ui.description2'
   }
 ];
 
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Check for Word Palindromes',
-    description:
-      'Checks if each word in the text is a palindrome. Returns "true" for palindromes and "false" for non-palindromes.',
+    title: 'string:palindrome.ui.title3',
+    description: 'string:palindrome.ui.description3',
     sampleText: 'radar level hello anna',
     sampleResult: 'true true false true',
     sampleOptions: {
@@ -51,8 +48,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Check CSV Words',
-    description: 'Checks palindrome status for comma-separated words.',
+    title: 'string:palindrome.ui.title4',
+    description: 'string:palindrome.ui.description4',
     sampleText: 'mom,dad,wow,test',
     sampleResult: 'true true true false',
     sampleOptions: {
@@ -61,9 +58,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Check with Regular Expression',
-    description:
-      'Use a regular expression to split text and check for palindromes.',
+    title: 'string:palindrome.ui.title5',
+    description: 'string:palindrome.ui.description5',
     sampleText: 'level:madam;noon|test',
     sampleResult: 'true true true false',
     sampleOptions: {
@@ -92,7 +88,7 @@ export default function Palindrome({ title }: ToolComponentProps) {
     updateField
   }) => [
     {
-      title: 'Splitting options',
+      title: 'string:palindrome.ui.title6',
       component: splitOperators.map(({ title, description, type }) => (
         <RadioWithTextField
           key={type}
@@ -118,7 +114,7 @@ export default function Palindrome({ title }: ToolComponentProps) {
       setInput={setInput}
       inputComponent={<ToolTextInput value={input} onChange={setInput} />}
       resultComponent={
-        <ToolTextResult title={'Palindrome results'} value={result} />
+        <ToolTextResult title={'string:palindrome.ui.title7'} value={result} />
       }
       exampleCards={exampleCards}
     />

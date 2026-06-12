@@ -28,7 +28,15 @@
       }
     },
     "splitSeparatorDescription": "Delimiter symbol or regular expression used to split input items.",
-    "title": "Chunk List"
+    "title": "Chunk List",
+    "ui": {
+      "title1": "Group Hexagon Coordinates",
+      "description1": "In this example, we group the coordinates of a regular hexagon. The input coordinates are given as a space-separated list \"x1 y1 x2 y2 x3 y3 …\". What we want to do is create vector point pairs such as \"(x1, y1); (x2, y2); (x3, y3); …\". To do that, we use the space character as the input coordinate separator, and to create vectors, we group them by pairs. We wrap the coordinates in parentheses, put a comma between the x and y group items, and a semicolon between individual groups.",
+      "title2": "Chunks of Size 3",
+      "description2": "This example demonstrates grouping of list items and creates 9 groups of 3 items. The input list contains all alphabet letters (26 letters, separated by a semicolon) and the output is groups of letter trigrams. As the last group is missing one letter, we enable padding and add the underscore symbol as the padding element.",
+      "title3": "Convert a List to a TSV",
+      "description3": "In this example, we use our list item grouper to convert a food list to tab-separated values (TSV). As spaces are chaotically used between the items of the input list, we use the item separating regular expression \"\\s+\" to match them. We create a TSV with three columns (three groups), separate them with a tab character, and put newlines between the groups."
+    }
   },
   "duplicate": {
     "concatenate": "Concatenate",
@@ -85,6 +93,16 @@
       "copyRequired": "Number of copies is required",
       "joinSeparatorRequired": "The join separator is required",
       "separatorRequired": "The separator is required"
+    },
+    "ui": {
+      "title1": "Simple duplication",
+      "description1": "This example shows how to duplicate a list of words.",
+      "title2": "Reverse duplication",
+      "description2": "This example shows how to duplicate a list in reverse order.",
+      "title3": "Interweaving items",
+      "description3": "This example shows how to interweave items instead of concatenating them.",
+      "title4": "Fractional duplication",
+      "description4": "This example shows how to duplicate a list with a fractional number of copies."
     }
   },
   "findMostPopular": {
@@ -142,7 +160,13 @@
     "title": "Find unique",
     "trimItems": "Trim List Items",
     "trimItemsDescription": "Remove leading and trailing spaces before comparing items.",
-    "uniqueItemOptions": "Unique Item Options"
+    "uniqueItemOptions": "Unique Item Options",
+    "ui": {
+      "title1": "Use a Symbol for Splitting",
+      "description1": "Delimit input list items with a character.",
+      "title2": "Use a Regex for Splitting",
+      "description2": "Delimit input list items with a regular expression."
+    }
   },
   "listDifference": {
     "title": "List Difference",
@@ -209,12 +233,42 @@
     "toolInfo": {
       "description": "With this utility, you can reverse the order of items in a list. The utility first splits the input list into individual items and then iterates through them from the last item to the first item, printing each item to the output during the iteration. The input list may contain anything that can be represented as textual data, which includes digits, numbers, strings, words, sentences, etc. The input item separator can also be a regular expression. For example, the regex /[;,]/ will allow you to use items that are either comma- or semicolon-separated. The input and output list items delimiters can be customized in the options. By default, both input and output lists are comma-separated. Listabulous!",
       "title": "What Is a List Reverser?"
+    },
+    "ui": {
+      "title1": "Use a Symbol for Splitting",
+      "description1": "Delimit input list items with a character.",
+      "title2": "Use a Regex for Splitting",
+      "description2": "Delimit input list items with a regular expression.",
+      "title3": "Reverse a List of Digits",
+      "description3": "In this example, we load a list of digits in the input. The digits are separated by a mix of dot, comma, and semicolon characters, so we use the regular expression split mode and enter a regular expression that matches all these characters as the input item separator. In the output, we get a reversed list of digits that all use the semicolon as a separator.",
+      "title4": "Reverse a Column of Words",
+      "description4": "This example reverses a column of twenty three-syllable nouns and prints all the words from the bottom to top. To separate the list items, it uses the \n character as input item separator, which means that each item is on its own line..",
+      "title5": "Reverse a Random List",
+      "description5": "In this example, the list elements are random cities, zip codes, and weather conditions. To reverse list elements, we first need to identify them and separate them apart. The input list incorrectly uses the dash symbol to separate the elements but the output list fixes this and uses commas."
     }
   },
   "rotate": {
     "description": "World's simplest browser-based utility for rotating list items. Input your list and specify rotation amount to shift items by a specified number of positions. Perfect for data manipulation, circular shifts, or reordering lists.",
     "shortDescription": "Rotate list items by specified positions",
-    "title": "Rotate"
+    "title": "Rotate",
+    "ui": {
+      "title1": "Use a Symbol for Splitting",
+      "description1": "Delimit input list items with a character.",
+      "title2": "Use a Regex for Splitting",
+      "description2": "Delimit input list items with a regular expression.",
+      "title3": "Rotate forward",
+      "description3": "Rotate list items to the right. (Down if a vertical column list.)",
+      "title4": "Rotate backward",
+      "description4": "Rotate list items to the left. (Up if a vertical column list.)",
+      "title5": "Input list",
+      "title6": "Rotated list",
+      "title7": "Item split mode",
+      "description5": "Set a delimiting symbol or regular expression.",
+      "title8": "Rotation Direction and Count",
+      "description6": "Number of items to rotate",
+      "title9": "Rotated List Joining Symbol",
+      "description7": "Enter the character that goes between items in the rotated list."
+    }
   },
   "shuffle": {
     "delimiterDescription": "Set a delimiting symbol or regular expression.",
@@ -227,7 +281,13 @@
     "shortDescription": "Randomize the order of list items",
     "shuffledListLength": "Shuffled List Length",
     "shuffledListSeparator": "Shuffled List Separator",
-    "title": "Shuffle"
+    "title": "Shuffle",
+    "ui": {
+      "title1": "Use a Symbol for Splitting",
+      "description1": "Delimit input list items with a character.",
+      "title2": "Use a Regex for Splitting",
+      "description2": "Delimit input list items with a regular expression."
+    }
   },
   "sort": {
     "caseSensitive": "Case Sensitive Sort",
@@ -264,17 +324,67 @@
       }
     },
     "splitSeparatorDescription": "Set a delimiting symbol or regular expression.",
-    "title": "Sort"
+    "title": "Sort",
+    "ui": {
+      "title1": "Use a Symbol for Splitting",
+      "description1": "Delimit input list items with a character.",
+      "title2": "Use a Regex for Splitting",
+      "description2": "Delimit input list items with a regular expression."
+    }
   },
   "truncate": {
     "description": "World's simplest browser-based utility for truncating lists. Input your list and specify the maximum number of items to keep. Perfect for data processing, list management, or limiting content length.",
     "shortDescription": "Truncate list to specified number of items",
-    "title": "Truncate"
+    "title": "Truncate",
+    "ui": {
+      "title1": "Keep first 3 items in a list",
+      "description1": "This example shows how to keep only the first 3 items in a comma-separated list.",
+      "title2": "Keep last 2 items in a list",
+      "description2": "This example shows how to keep only the last 2 items in a comma-separated list.",
+      "title3": "Truncate a list with custom separators",
+      "description3": "This example shows how to truncate a list with custom separators.",
+      "title4": "Split Options",
+      "title5": "Split by Symbol",
+      "title6": "Split by Regular Expression",
+      "description4": "Separator to split the list",
+      "description5": "Separator to join the truncated list",
+      "title7": "Truncation Options",
+      "description6": "Number of items to keep",
+      "title8": "Keep items from the beginning",
+      "title9": "Keep items from the end",
+      "title10": "Input List",
+      "title11": "Truncated List",
+      "title12": "List Truncation",
+      "description7": "This tool allows you to truncate a list to a specific number of items. You can choose to keep items from the beginning or the end of the list, and specify custom separators for splitting and joining. It's useful for limiting the size of lists, creating previews, or extracting specific portions of data."
+    }
   },
   "unwrap": {
     "description": "World's simplest browser-based utility for unwrapping list items. Input your wrapped list and specify unwrapping criteria to flatten organized items. Perfect for data processing, text manipulation, or extracting content from structured lists.",
     "shortDescription": "Unwrap list items from structured format",
-    "title": "Unwrap"
+    "title": "Unwrap",
+    "ui": {
+      "title1": "Unwrap quotes from list items",
+      "description1": "This example shows how to remove quotes from each item in a list.",
+      "title2": "Unwrap multiple levels of characters",
+      "description2": "This example shows how to remove multiple levels of the same character from each item.",
+      "title3": "Unwrap and join with custom separator",
+      "description3": "This example shows how to unwrap items and join them with a custom separator.",
+      "title4": "Split Options",
+      "title5": "Split by Symbol",
+      "title6": "Split by Regular Expression",
+      "description4": "Separator to split the list",
+      "description5": "Separator to join the unwrapped list",
+      "title7": "Unwrap Options",
+      "description6": "Characters to remove from the left side",
+      "description7": "Characters to remove from the right side",
+      "title8": "Remove multiple levels of wrapping",
+      "title9": "Trim whitespace from items",
+      "title10": "Remove empty items",
+      "title11": "Input List",
+      "title12": "Unwrapped List",
+      "title13": "List Unwrapping",
+      "description8": "This tool allows you to remove wrapping characters from each item in a list. You can specify characters to remove from the left and right sides, handle multiple levels of wrapping, and control how the list is processed. It's useful for cleaning up data, removing quotes or brackets, and formatting lists."
+    }
   },
   "wrap": {
     "description": "Add text before and after each list item.",
@@ -294,6 +404,14 @@
       "description": "This tool allows you to add text before and after each item in a list. You can specify different text for the left and right sides, and control how the list is processed. It's useful for adding quotes, brackets, or other formatting to list items, preparing data for different formats, or creating structured text.",
       "title": "List Wrapping"
     },
-    "wrapOptions": "Wrap Options"
+    "wrapOptions": "Wrap Options",
+    "ui": {
+      "title1": "Wrap list items with quotes",
+      "description1": "This example shows how to wrap each item in a list with quotes.",
+      "title2": "Wrap list items with brackets",
+      "description2": "This example shows how to wrap each item in a list with brackets.",
+      "title3": "Wrap list items with custom text",
+      "description3": "This example shows how to wrap each item with different text on each side."
+    }
   }
 }

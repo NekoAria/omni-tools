@@ -1,42 +1,103 @@
 {
   "base64": {
-    "decode": "Base64解码",
+    "decode": "Base64 解码",
     "description": "使用 Base64 编码对文本进行编码或解码。",
-    "encode": "Base64编码",
+    "encode": "Base64 编码",
     "inputTitle": "输入数据",
     "optionsTitle": "Base64 选项",
     "resultTitle": "结果",
     "shortDescription": "使用 Base64 对数据进行编码或解码。",
     "title": "Base64 编码器/解码器",
     "toolInfo": {
-      "description": "Base64 是一种编码方案，它将 ASCII 字符串格式的数据转换为 radix-64 表示形式。虽然 Base64 也可以用来编码字符串，但它更常用于编码二进制数据，以便在专门处理文本数据的介质上传输。",
-      "title": "什么是Base64？"
+      "description": "Base64 是一种编码方案，会将 ASCII 字符串格式的数据转换为 64 进制表示形式。虽然 Base64 也可以用来编码字符串，但它更常用于编码二进制数据，以便在专门处理文本数据的介质上传输。",
+      "title": "什么是 Base64？"
+    },
+    "ui": {
+      "title1": "使用 Base64 编码 UTF-8 数据",
+      "description1": "此示例演示如何使用 Base64 编码简单文本。",
+      "title2": "将 Base64 编码的数据解码为 UTF-8",
+      "description2": "此示例演示如何解码使用 Base64 编码的数据。"
     }
   },
   "censor": {
-    "description": "用于审查文本中单词的实用程序。在左侧的输入表单中加载您的文本，并在选项中指定所有脏话，您将立即在输出区域获得已审查的文本。\", longDescription: '使用此在线工具，您可以审查任何文本中的某些单词。您可以指定不想要的单词列表（例如脏话或秘密单词），程序会用替代单词替换它们，并创建可安全阅读的文本。您可以在选项中的多行文本字段中通过每行输入一个单词来指定这些单词。', keywords: ['text', 'censor', 'words', 'characters'], component: lazy(() => import('./index')), i18n: { name: 'string:censor.title', description: 'string:censor.description",
+    "description": "用于审查文本中单词的实用程序。在左侧的输入表单中加载您的文本，并在选项中指定所有脏话，您将立即在输出区域获得已审查的文本。",
     "shortDescription": "快速掩盖脏话或用替代词代替。",
-    "title": "文本审查"
+    "title": "文本审查",
+    "longDescription": "使用此在线工具，您可以审查任何文本中的某些单词。您可以指定不想要的单词列表（例如脏话或秘密单词），程序会用替代单词替换它们，并创建可安全阅读的文本。您可以在选项中的多行文本字段中通过每行输入一个单词来指定这些单词。",
+    "ui": {
+      "title1": "审查引文中的单词",
+      "description1": "在此示例中，我们会隐藏 Jim Rohn 名言中不友好的单词 \"idiot\"。我们在要屏蔽的单词选项中指定该词，并用整洁的笑脸字符 \"☺\" 遮盖它。",
+      "title2": "审查一段摘录",
+      "description2": "在此示例中，我们会屏蔽 Roger Zelazny 小说《The Guns of Avalon》摘录中的多个单词。为此，我们在多行文本选项中列出所有不需要的单词，并选择“使用符号进行屏蔽”模式。我们启用“遮盖每个字母”选项，使每个单词都被与其字母数量相同的方块字符“█”替代。",
+      "title3": "审查代理人姓名",
+      "description3": "在此示例中，我们会隐藏一名 FBI 卧底探员的姓名。我们一次替换两个单词（名和姓），并使用代号“Agent 007”。",
+      "title4": "要审查的词语",
+      "title5": "审查模式",
+      "label1": "按符号审查",
+      "label2": "按单词审查",
+      "description4": "选择审查模式。",
+      "title6": "掩盖每个字母",
+      "description5": "用掩码符号替换被审查词语中的每个字母。",
+      "title7": "输入文本",
+      "title8": "审查后的文本",
+      "description6": "指定所有要在文本中隐藏的不需要词语（每行一个）。",
+      "description7": "用于审查的符号、字符或模式。",
+      "description8": "用此单词替换所有被审查的词语。",
+      "title9": "什么是文本审查器？"
+    }
   },
   "createPalindrome": {
     "description": "世界上最简单的基于浏览器的回文创建工具，可从任何文本创建回文。输入文本即可立即将其转换为正反读相同的回文。非常适合文字游戏、创建对称文本模式或探索语言学知识。",
     "shortDescription": "创建正读和倒读相同的文本",
-    "title": "创建回文"
+    "title": "创建回文",
+    "ui": {
+      "title1": "创建简单回文",
+      "description1": "通过按反向重复文本来创建回文，并包含最后一个字符。",
+      "title2": "创建不重复最后一个字符的回文",
+      "description2": "创建回文时，反向部分不重复最后一个字符。",
+      "title3": "多行回文创建",
+      "description3": "分别为每一行独立创建回文。",
+      "title4": "回文选项",
+      "title5": "包含最后一个字符",
+      "description4": "在反向部分重复最后一个字符",
+      "title6": "处理多行文本",
+      "description5": "分别为每一行创建回文",
+      "title7": "输入文本",
+      "title8": "回文文本",
+      "title9": "什么是字符串回文创建器？"
+    }
   },
   "extractSubstring": {
     "description": "世界上最简单的基于浏览器的文本子字符串提取工具。输入文本并指定起始和终止位置即可提取所需部分。非常适合数据处理、文本分析或从较大文本块中提取特定内容。",
     "shortDescription": "提取指定位置之间的部分文本",
-    "title": "提取子字符串"
+    "title": "提取子字符串",
+    "ui": {
+      "title1": "提取前 5 个字符",
+      "description1": "此示例从文本中提取前 5 个字符。",
+      "title2": "提取中间的单词",
+      "description2": "从第 11 个位置开始提取长度为 10 个字符的子字符串。",
+      "title3": "带反转的多行提取",
+      "description3": "从每一行提取第 1-3 个字符并将其反转。",
+      "title4": "提取选项",
+      "description4": "起始位置（从 1 开始的索引）",
+      "description5": "要提取的字符数",
+      "title5": "处理多行文本",
+      "description6": "分别从每一行提取",
+      "title6": "反转输出",
+      "description7": "反转提取出的子字符串",
+      "title7": "输入文本",
+      "title8": "提取的文本"
+    }
   },
   "hiddenCharacterDetector": {
     "analysisOptions": "分析选项",
     "category": "类别",
     "description": "检测隐藏的 Unicode 字符，尤其是可能用于攻击的 RTL 覆盖字符。",
-    "foundChars": "成立 {{count}} 隐藏角色：",
+    "foundChars": "发现 {{count}} 个隐藏字符：",
     "inputPlaceholder": "输入文本以检查隐藏字符...",
     "inputTitle": "要分析的文本",
-    "invisibleChar": "隐形角色",
-    "invisibleFound": "发现隐形字符",
+    "invisibleChar": "不可见字符",
+    "invisibleFound": "发现不可见字符",
     "longDescription": "此工具可帮助您检测文本中隐藏的 Unicode 字符，尤其是可能用于攻击的从右到左 (RTL) 覆盖字符。它可以识别隐藏字符、零宽度字符以及其他可能隐藏在看似无害的文本中的潜在恶意 Unicode 序列。",
     "noHiddenChars": "文本中未检测到隐藏字符。",
     "optionsDescription": "配置要检测的隐藏字符类型以及如何显示结果。",
@@ -48,7 +109,7 @@
     "shortDescription": "查找文本中隐藏的 Unicode 字符",
     "summary": "分析摘要",
     "title": "隐藏字符检测器",
-    "totalChars": "隐藏角色总数： {{count}}",
+    "totalChars": "隐藏字符总数：{{count}}",
     "unicode": "Unicode",
     "zeroWidthChar": "零宽度字符",
     "zeroWidthFound": "发现零宽度字符"
@@ -62,7 +123,7 @@
     "description": "使用可自定义的分隔符将文本片段连接在一起。",
     "inputTitle": "文本片段",
     "joinCharacterDescription": "连接文本片段的符号。（默认为空格。）",
-    "joinCharacterPlaceholder": "加入角色",
+    "joinCharacterPlaceholder": "连接字符",
     "resultTitle": "连接文本",
     "shortDescription": "使用指定的分隔符连接文本元素",
     "textMergedOptions": "文本合并选项",
@@ -70,12 +131,39 @@
     "toolInfo": {
       "description": "使用此工具，您可以将文本的各个部分连接在一起。它接收一个以换行符分隔的文本值列表，并将它们合并在一起。您可以设置合并文本各部分之间的字符。此外，您还可以忽略所有空行，并删除所有行末的空格和制表符。Textabulous！",
       "title": "什么是文本连接器？"
+    },
+    "ui": {
+      "placeholder1": "连接字符",
+      "title1": "删除空白行",
+      "description1": "删除不包含文本符号的行。",
+      "title2": "删除行尾空格",
+      "description2": "移除行尾的空格和制表符。",
+      "title3": "合并待办事项列表",
+      "description3": "在此示例中，我们将项目符号列表合并为一个句子，并用单词 'and' 分隔每一项。我们还移除所有空行和行尾空格。如果不移除空行，它们会与分隔词一起合并，导致分隔词出现多次。如果不移除行尾的制表符和空格，它们会在合并后的文本中产生额外间距，使结果看起来不美观。",
+      "title4": "逗号分隔列表",
+      "description4": "此示例将一列单词合并为逗号分隔的单词列表。",
+      "title5": "竖排单词转横排",
+      "description5": "此示例将竖排单词旋转为横向排列。为此使用空分隔符。"
     }
   },
   "palindrome": {
     "description": "世界上最简单的基于浏览器的回文检测工具。即时验证文本正读和反读是否一致。非常适合字谜游戏、语言分析或验证对称文本模式。支持各种分隔符和多词回文检测。",
     "shortDescription": "检查文本正读和反读是否相同",
-    "title": "回文"
+    "title": "回文",
+    "ui": {
+      "title1": "使用符号拆分",
+      "description1": "用于将文本拆分为多个部分以进行回文检查的字符。",
+      "title2": "使用正则表达式拆分",
+      "description2": "用于将文本拆分为多个部分以进行回文检查的正则表达式。",
+      "title3": "检查单词回文",
+      "description3": "检查文本中的每个单词是否为回文。回文返回“true”，非回文返回“false”。",
+      "title4": "检查 CSV 单词",
+      "description4": "检查逗号分隔单词的回文状态。",
+      "title5": "使用正则表达式检查",
+      "description5": "使用正则表达式拆分文本并检查回文。",
+      "title6": "拆分选项",
+      "title7": "回文检测结果"
+    }
   },
   "passwordGenerator": {
     "avoidAmbiguous": "避免使用歧义字符（i、I、l、0、O）",
@@ -93,6 +181,14 @@
     "toolInfo": {
       "description": "此工具可根据您选择的条件生成安全的随机密码。您可以自定义长度，包含或排除不同的字符类型，并避免使用模糊字符以提高可读性。非常适合为帐户、应用程序或任何安全需求创建强密码。",
       "title": "关于密码生成器"
+    },
+    "ui": {
+      "title1": "强密码（12 个字符）",
+      "description1": "生成包含符号在内所有字符类型的安全密码。",
+      "title2": "简单密码（8 个字符）",
+      "description2": "生成仅包含字母和数字的基础密码。",
+      "title3": "清晰密码（无易混淆字符）",
+      "description3": "生成不包含易混淆字符（i、I、l、0、O）的密码。"
     }
   },
   "quote": {
@@ -110,17 +206,64 @@
     "toolInfo": {
       "description": "此工具可用于在文本周围添加引号。您可以选择不同的引号字符、处理多行文本以及控制空行的处理方式。它对于准备编程文本、格式化数据或创建风格化文本非常有用。",
       "title": "文字引述者"
+    },
+    "ui": {
+      "title1": "用双引号引用文本",
+      "description1": "此示例演示如何用双引号引用文本。",
+      "title2": "用单引号引用多行文本",
+      "description2": "此示例演示如何用单引号引用多行文本。",
+      "title3": "使用自定义引号引用",
+      "description3": "此示例演示如何用自定义引号引用文本。"
     }
   },
   "randomizeCase": {
     "description": "世界上最简单的基于浏览器的文本大小写随机化工具。输入文本后，即可立即将其转换为随机的大小写字母。非常适合创建独特的文本效果、测试大小写敏感度或生成丰富的文本模式。",
     "shortDescription": "随机化文本中字母的大小写",
-    "title": "随机化案例"
+    "title": "随机化案例",
+    "ui": {
+      "title1": "随机化文本大小写",
+      "description1": "此示例将普通文本转换为随机混合的大写和小写字母。",
+      "title2": "随机化代码大小写",
+      "description2": "用随机大小写转换代码标识符，营造混乱效果。",
+      "title3": "随机化名言大小写",
+      "description3": "为一句知名引文应用独特的随机大小写效果。",
+      "title4": "随机大小写文本"
+    }
   },
   "removeDuplicateLines": {
     "description": "在左侧的输入表单中加载文本，即可立即在输出区域获得无重复行的文本。功能强大、免费且快速。加载文本行 – 获取独特的文本行",
     "shortDescription": "快速删除文本中所有重复的行",
-    "title": "删除重复的行"
+    "title": "删除重复的行",
+    "ui": {
+      "title1": "移除所有重复行",
+      "description1": "如果选择此选项，则从第二次出现开始删除整个文本中的所有重复行。",
+      "title2": "移除连续重复行",
+      "description2": "如果选择此选项，则只删除连续重复的行。",
+      "title3": "只保留绝对唯一的文本行",
+      "description3": "如果选择此选项，则删除所有出现超过一次的行。",
+      "title4": "保留所有换行",
+      "description4": "在输出中保留所有空行。",
+      "title5": "过滤所有换行",
+      "description5": "将换行作为普通行处理。",
+      "title6": "删除所有换行",
+      "description6": "在过滤唯一项之前，删除所有换行。",
+      "title7": "从列表中移除重复项",
+      "description7": "从购物清单中删除重复项，只保留每个项目的第一次出现。",
+      "title8": "清理连续重复项",
+      "description8": "从日志条目中删除连续重复项，这种情况通常发生在系统反复记录相同错误时。",
+      "title9": "仅提取唯一条目",
+      "description9": "过滤列表，只保留恰好出现一次的条目，并完全删除任何重复项。",
+      "title10": "排序并清理数据",
+      "description10": "删除列表中的重复项，修剪空白，并按字母顺序排序结果。",
+      "title11": "去重后的文本",
+      "title12": "操作模式",
+      "title13": "换行、制表符和空格",
+      "title14": "修剪文本行",
+      "description11": "在过滤唯一项之前，删除所有行开头和结尾的制表符与空格。",
+      "title15": "排序行",
+      "title16": "排序输出行",
+      "description12": "删除重复项后，对唯一行进行排序。"
+    }
   },
   "repeat": {
     "delimiterDescription": "输出副本的分隔符。",
@@ -137,6 +280,14 @@
     "toolInfo": {
       "description": "此工具允许您使用可选分隔符多次重复给定的文本。",
       "title": "重复文本"
+    },
+    "ui": {
+      "title1": "重复单词五次",
+      "description1": "不使用任何分隔符，将“Hello!”重复五次。",
+      "title2": "用逗号重复短语",
+      "description2": "将“Good job”重复三次，并用逗号和空格分隔。",
+      "title3": "用空格重复数字",
+      "description3": "将数字“42”重复四次，并用空格分隔。"
     }
   },
   "reverse": {
@@ -151,7 +302,15 @@
     "skipEmptyLinesDescription": "输出中的空行将被删除",
     "title": "反转",
     "trimWhitespace": "修剪空格",
-    "trimWhitespaceDescription": "删除每行的前导和尾随空格"
+    "trimWhitespaceDescription": "删除每行的前导和尾随空格",
+    "ui": {
+      "title1": "简单文本反转",
+      "description1": "反转文本中的每个字符。非常适合创建镜像文本。",
+      "title2": "多行反转",
+      "description2": "在保留换行的同时，分别反转每一行。",
+      "title3": "清理后的反转文本",
+      "description3": "在反转文本前修剪空白并跳过空行。"
+    }
   },
   "rot13": {
     "description": "使用 ROT13 密码对文本进行编码或解码。",
@@ -162,6 +321,12 @@
     "toolInfo": {
       "description": "ROT13（循环 13 位）是一种简单的字母替换密码，会用字母表中该字母后第 13 位的字母替换它。ROT13 是古罗马凯撒密码的一个特例。由于英语字母表有 26 个字母，因此 ROT13 是其自身的逆运算；也就是说，要还原 ROT13，只需应用相同算法，所以同一操作可用于编码和解码。",
       "title": "ROT13 是什么？"
+    },
+    "ui": {
+      "title1": "使用 ROT13 编码消息",
+      "description1": "此示例演示如何使用 ROT13 密码编码简单消息。",
+      "title2": "解码 ROT13 消息",
+      "description2": "此示例演示如何解码使用 ROT13 编码的消息。"
     }
   },
   "rotate": {
@@ -178,6 +343,14 @@
     "toolInfo": {
       "description": "此工具允许您将字符串中的字符旋转指定位数。您可以向左或向右旋转，并通过分别旋转每一行来处理多行文本。字符串旋转对于简单的文本转换、创建模式或实现基本的加密技术非常有用。",
       "title": "字符串旋转"
+    },
+    "ui": {
+      "title1": "向右旋转文本",
+      "description1": "此示例演示如何将文本向右旋转 2 个位置。",
+      "title2": "向左旋转文本",
+      "description2": "此示例演示如何将文本向左旋转 2 个位置。",
+      "title3": "旋转多行文本",
+      "description3": "此示例演示如何旋转多行文本中的每一行。"
     }
   },
   "split": {
@@ -197,7 +370,15 @@
     "splitSeparatorOptions": "拆分分隔符选项",
     "symbolDescription": "用于将文本拆分成多个部分的字符。（默认为空格。）",
     "symbolTitle": "使用符号进行拆分",
-    "title": "分裂"
+    "title": "分裂",
+    "ui": {
+      "title1": "拆分德语数字",
+      "description1": "在此示例中，我们使用两个字符（逗号和空格）将文本拆分成片段。结果会得到一列从 1 到 10 的德语数字。",
+      "title2": "通过正则表达式清理文本",
+      "description2": "在此示例中，我们使用一个巧妙的正则表达式来清理文本。该正则表达式会匹配所有非字母字符，并按这些非字母字符将文本拆分成片段。因此，我们只提取文本中包含拉丁字母和单词的部分。",
+      "title3": "三点输出分隔符",
+      "description3": "此示例按空格拆分文本，然后在单词之间放置三个点。"
+    }
   },
   "statistic": {
     "characterFrequencyAnalysis": "字频分析",
@@ -220,7 +401,15 @@
     "wordDelimitersDescription": "输入自定义正则表达式来计算单词数，或将其留空作为默认值。",
     "wordDelimitersPlaceholder": "例如。 \\s.,;:!?”«»()…",
     "wordFrequencyAnalysis": "词频分析",
-    "wordFrequencyAnalysisDescription": "计算每个单词在文本中出现的频率"
+    "wordFrequencyAnalysisDescription": "计算每个单词在文本中出现的频率",
+    "ui": {
+      "title1": "不带任何标志的文本统计",
+      "description1": "此示例显示不启用任何附加选项时的基础文本统计信息。",
+      "title2": "包含字符频率的文本统计",
+      "description2": "此示例显示包含字符频率的基础文本统计信息。",
+      "title3": "包含字符和单词频率的文本统计",
+      "description3": "此示例显示包含字符和单词频率的基础文本统计信息。"
+    }
   },
   "textReplacer": {
     "description": "用新内容替换文本模式。",
@@ -239,6 +428,14 @@
     "toolInfo": {
       "description": "使用这款基于浏览器的简单工具，轻松替换内容中的特定文本。只需输入文本，设置要替换的文本和替换值，即可立即获取更新版本。",
       "title": "文本替换器"
+    },
+    "ui": {
+      "title1": "替换文本中的指定单词",
+      "description1": "在此示例中，我们会将单词“hello”替换为“hi”。此示例不使用正则表达式。",
+      "title2": "替换文本中的所有数字",
+      "description2": "在此示例中，我们会使用正则表达式将文本中的所有数字替换为 *。输出将得到数字被 * 替换后的文本。",
+      "title3": "替换文本中的所有日期",
+      "description3": "在此示例中，我们会使用正则表达式将 YYYY-MM-DD 格式的所有日期替换为单词 DATE。输出中的所有日期都会被 DATE 替换。"
     }
   },
   "toMorse": {
@@ -274,7 +471,15 @@
       "description": "在左侧的输入表单中加载您的文本，您将自动在右侧获得截断文本。",
       "title": "截断文本"
     },
-    "truncationSide": "截断侧"
+    "truncationSide": "截断侧",
+    "ui": {
+      "title1": "从右侧进行基础截断",
+      "description1": "根据最大长度从右侧截断文本。",
+      "title2": "带指示符的左侧截断",
+      "description2": "从左侧截断文本并添加指示符。",
+      "title3": "带指示符的多行截断",
+      "description3": "逐行截断文本，并为每行添加指示符。"
+    }
   },
   "unicode": {
     "caseOptionsTitle": "大小写选项",
@@ -290,14 +495,30 @@
       "description": "此工具可让您将纯文本转换为 Unicode 转义序列（例如，\\uXXXX），以及将 Unicode 转义序列解码回标准文本。您还可以选择编码时十六进制输出以大写或小写格式显示。",
       "title": "Unicode 编码器 / 解码器"
     },
-    "uppercase": "大写十六进制"
+    "uppercase": "大写十六进制",
+    "ui": {
+      "title1": "编码为 Unicode 转义序列",
+      "description1": "将纯文本编码为 Unicode 转义序列。",
+      "title2": "编码为 Unicode 转义序列（大写）",
+      "description2": "将纯文本编码为大写 Unicode 转义序列。",
+      "title3": "解码 Unicode 转义序列",
+      "description3": "将 Unicode 转义序列解码回纯文本。"
+    }
   },
   "uppercase": {
     "description": "将文本转换为大写字母。",
     "inputTitle": "输入文本",
     "resultTitle": "大写文本",
     "shortDescription": "将文本转换为大写",
-    "title": "转换为大写"
+    "title": "转换为大写",
+    "ui": {
+      "title1": "将文本转换为大写",
+      "description1": "此示例将任意文本转换为全大写格式。",
+      "title2": "大写代码",
+      "description2": "将代码转换为大写格式。请注意，这仅用于显示，不会保持代码功能。",
+      "title3": "混合大小写转大写",
+      "description3": "将混合大小写文本转换为一致的全大写格式。"
+    }
   },
   "urlDecode": {
     "inputTitle": "输入字符串（URL 转义）",
@@ -307,6 +528,12 @@
       "longDescription": "此工具用于对先前 URL 编码的字符串进行 URL 解码。URL 解码是 URL 编码的逆操作。所有百分号编码的字符都会被解码为您可以理解的字符。一些最常用的百分号编码值包括：%20 表示空格，%3a 表示冒号，%2f 表示斜杠，%3f 表示问号。百分号后面的两位数字是该字符的十六进制字符码值。",
       "shortDescription": "快速对字符串进行 URL 转义。",
       "title": "字符串 URL 解码器"
+    },
+    "ui": {
+      "title1": "解码实际 URL",
+      "description1": "此示例将经过 URL 编码的字符串解码回可读的 URL 形式。",
+      "title2": "解码所有字符",
+      "description2": "此示例会解码每个字符都经过 URL 编码的字符串，恢复为原始可读文本。"
     }
   },
   "urlEncode": {
@@ -319,9 +546,15 @@
     "resultTitle": "URL转义字符串",
     "toolInfo": {
       "description": "加载您的字符串，它将自动进行 URL 转义。",
-      "longDescription": "此工具会对字符串进行 URL 编码。特殊 URL 字符会被转换为百分号编码。这种编码之所以称为百分号编码，是因为每个字符的数值都会被转换为百分号，后跟两位十六进制值。十六进制值根据字符的代码点值确定。例如，空格会被转义为 %20，冒号会被转义为 %3a，斜杠会被转义为 %2f。非特殊字符保持不变。如果您还需要将非特殊字符转换为百分号编码，我们还添加了一个额外的选项来实现此目的。选择“encode-non-special-chars”选项即可启用此行为。",
+      "longDescription": "此工具会对字符串进行 URL 编码。特殊 URL 字符会被转换为百分号编码。这种编码之所以称为百分号编码，是因为每个字符的数值都会被转换为百分号，后跟两位十六进制值。十六进制值根据字符的代码点值确定。例如，空格会被转义为 %20，冒号会被转义为 %3a，斜杠会被转义为 %2f。非特殊字符保持不变。如果你还需要将非特殊字符转换为百分号编码，可以启用“编码非特殊字符”选项。",
       "shortDescription": "快速对字符串进行 URL 转义。",
       "title": "字符串 URL 编码器"
+    },
+    "ui": {
+      "title1": "编码实际 URL",
+      "description1": "此示例会对一个同时也是有效网页链接的字符串进行 URL 编码。此示例中的特殊字符包括冒号、斜杠、问号和等号。",
+      "title2": "编码所有字符",
+      "description2": "在此示例中，我们启用了将字符串中所有字符全部转换为 URL 编码的选项。该选项会让字母等非特殊字符也被编码为带百分号前缀的十六进制代码。"
     }
   },
   "slugGenerator": {
@@ -335,7 +568,16 @@
     },
     "resultTitle": "URL Slug",
     "shortDescription": "从文本生成 URL 友好的 slug。",
-    "title": "Slug 生成器"
+    "title": "Slug 生成器",
+    "ui": {
+      "title1": "Slug（小写）",
+      "description1": "将标题转换为 URL 友好的 slug",
+      "title2": "Slug（保留大小写）",
+      "description2": "将标题转换为 URL 友好的 slug，且不改变大小写",
+      "title3": "Slug（多行处理）",
+      "description3": "将每一行标题转换为 URL 友好的 slug",
+      "title4": "什么是 Slug 生成器？"
+    }
   },
   "textCompare": {
     "title": "文本比较",

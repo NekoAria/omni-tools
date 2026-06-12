@@ -10,17 +10,15 @@ const initialValues = {};
 
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Randomize Text Case',
-    description:
-      'This example turns normal text into a random mix of uppercase and lowercase letters.',
+    title: 'string:randomizeCase.ui.title1',
+    description: 'string:randomizeCase.ui.description1',
     sampleText: 'The quick brown fox jumps over the lazy dog.',
     sampleResult: 'tHe qUIcK BrOWn fOx JuMPs ovEr ThE LaZy Dog.',
     sampleOptions: {}
   },
   {
-    title: 'Randomize Code Case',
-    description:
-      'Transform code identifiers with randomized case for a chaotic look.',
+    title: 'string:randomizeCase.ui.title2',
+    description: 'string:randomizeCase.ui.description2',
     sampleText:
       'function calculateTotal(price, quantity) { return price * quantity; }',
     sampleResult:
@@ -28,9 +26,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     sampleOptions: {}
   },
   {
-    title: 'Randomize a Famous Quote',
-    description:
-      'Give a unique randomized case treatment to a well-known quote.',
+    title: 'string:randomizeCase.ui.title3',
+    description: 'string:randomizeCase.ui.description3',
     sampleText: 'To be or not to be, that is the question.',
     sampleResult: 'tO Be oR NoT To bE, ThAt iS ThE QueStIoN.',
     sampleOptions: {}
@@ -58,7 +55,10 @@ export default function RandomizeCase({ title }: ToolComponentProps) {
       setInput={setInput}
       inputComponent={<ToolTextInput value={input} onChange={setInput} />}
       resultComponent={
-        <ToolTextResult title={'Randomized text'} value={result} />
+        <ToolTextResult
+          title={'string:randomizeCase.ui.title4'}
+          value={result}
+        />
       }
       exampleCards={exampleCards}
     />

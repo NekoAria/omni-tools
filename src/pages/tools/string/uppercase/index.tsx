@@ -11,24 +11,22 @@ const initialValues = {};
 
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Convert Text to Uppercase',
-    description: 'This example transforms any text to ALL UPPERCASE format.',
+    title: 'string:uppercase.ui.title1',
+    description: 'string:uppercase.ui.description1',
     sampleText: 'The quick brown fox jumps over the lazy dog.',
     sampleResult: 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.',
     sampleOptions: {}
   },
   {
-    title: 'Uppercase Code',
-    description:
-      'Convert code to uppercase format. Note that this is for display only and would not maintain code functionality.',
+    title: 'string:uppercase.ui.title2',
+    description: 'string:uppercase.ui.description2',
     sampleText: 'function example() { return "hello world"; }',
     sampleResult: 'FUNCTION EXAMPLE() { RETURN "HELLO WORLD"; }',
     sampleOptions: {}
   },
   {
-    title: 'Mixed Case to Uppercase',
-    description:
-      'Transform text with mixed casing to consistent all uppercase format.',
+    title: 'string:uppercase.ui.title3',
+    description: 'string:uppercase.ui.description3',
     sampleText: 'ThIs Is MiXeD CaSe TeXt!',
     sampleResult: 'THIS IS MIXED CASE TEXT!',
     sampleOptions: {}

@@ -9,9 +9,8 @@ import { useTranslation } from 'react-i18next';
 
 const exampleCards: CardExampleType<{}>[] = [
   {
-    title: 'Valid JSON Object',
-    description:
-      'This example shows a correctly formatted JSON object. All property names and string values are enclosed in double quotes, and the overall structure is properly balanced with opening and closing braces.',
+    title: 'json:validateJson.ui.title1',
+    description: 'json:validateJson.ui.description1',
     sampleText: `{
   "name": "John",
   "age": 30,
@@ -21,9 +20,8 @@ const exampleCards: CardExampleType<{}>[] = [
     sampleOptions: {}
   },
   {
-    title: 'Invalid JSON Missing Quotes',
-    description:
-      'This example demonstrates an invalid JSON object where the property names are not enclosed in double quotes. According to the JSON standard, property names must always be enclosed in double quotes. Omitting the quotes will result in a syntax error.',
+    title: 'json:validateJson.ui.title2',
+    description: 'json:validateJson.ui.description2',
     sampleText: `{
   name: "John",
   age: 30,
@@ -33,9 +31,8 @@ const exampleCards: CardExampleType<{}>[] = [
     sampleOptions: {}
   },
   {
-    title: 'Invalid JSON with Trailing Comma',
-    description:
-      'This example shows an invalid JSON object with a trailing comma after the last key-value pair. In JSON, trailing commas are not allowed because they create ambiguity when parsing the data structure.',
+    title: 'json:validateJson.ui.title3',
+    description: 'json:validateJson.ui.description3',
     sampleText: `{
   "name": "John",
   "age": 30,

@@ -17,17 +17,15 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Encode an actual URL',
-    description:
-      'This example URL-encodes a string that also happens to be a valid web link. Special characters in this example are a colon, slash, question mark and equals sign.',
+    title: 'string:urlEncode.ui.title1',
+    description: 'string:urlEncode.ui.description1',
     sampleText: 'https://omnitools.app/',
     sampleResult: 'https%3A%2F%2Fomnitools.app%2F',
     sampleOptions: initialValues
   },
   {
-    title: 'Encode All Characters',
-    description:
-      "In this example, we've enabled the option that encodes absolutely all characters in a string to URL-encoding. This option makes non-special characters, such as letters get encoded to their hex codes prefixed by a percent sign.",
+    title: 'string:urlEncode.ui.title2',
+    description: 'string:urlEncode.ui.description2',
     sampleText: "I can't believe it's not butter!",
     sampleResult:
       '%49%20%63%61%6E%27%74%20%62%65%6C%69%65%76%65%20%69%74%27%73%20%6E%6F%74%20%62%75%74%74%65%72%21',

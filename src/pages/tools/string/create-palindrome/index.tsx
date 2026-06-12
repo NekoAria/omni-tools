@@ -15,9 +15,8 @@ const initialValues = {
 
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Create Simple Palindrome',
-    description:
-      'Creates a palindrome by repeating the text in reverse order, including the last character.',
+    title: 'string:createPalindrome.ui.title1',
+    description: 'string:createPalindrome.ui.description1',
     sampleText: 'level',
     sampleResult: 'levellevel',
     sampleOptions: {
@@ -26,9 +25,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Create Palindrome Without Last Character Duplication',
-    description:
-      'Creates a palindrome without repeating the last character in the reverse part.',
+    title: 'string:createPalindrome.ui.title2',
+    description: 'string:createPalindrome.ui.description2',
     sampleText: 'radar',
     sampleResult: 'radarada',
     sampleOptions: {
@@ -37,8 +35,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Multi-line Palindrome Creation',
-    description: 'Creates palindromes for each line independently.',
+    title: 'string:createPalindrome.ui.title3',
+    description: 'string:createPalindrome.ui.description3',
     sampleText: 'mom\ndad\nwow',
     sampleResult: 'mommom\ndaddad\nwowwow',
     sampleOptions: {
@@ -69,20 +67,20 @@ export default function CreatePalindrome({
     updateField
   }) => [
     {
-      title: 'Palindrome options',
+      title: 'string:createPalindrome.ui.title4',
       component: [
         <CheckboxWithDesc
           key="lastChar"
           checked={values.lastChar}
-          title="Include last character"
-          description="Repeat the last character in the reversed part"
+          title="string:createPalindrome.ui.title5"
+          description="string:createPalindrome.ui.description4"
           onChange={(val) => updateField('lastChar', val)}
         />,
         <CheckboxWithDesc
           key="multiLine"
           checked={values.multiLine}
-          title="Process multi-line text"
-          description="Create palindromes for each line independently"
+          title="string:createPalindrome.ui.title6"
+          description="string:createPalindrome.ui.description5"
           onChange={(val) => updateField('multiLine', val)}
         />
       ]
@@ -98,13 +96,20 @@ export default function CreatePalindrome({
       input={input}
       setInput={setInput}
       inputComponent={
-        <ToolTextInput title={'Input text'} value={input} onChange={setInput} />
+        <ToolTextInput
+          title={'string:createPalindrome.ui.title7'}
+          value={input}
+          onChange={setInput}
+        />
       }
       resultComponent={
-        <ToolTextResult title={'Palindrome text'} value={result} />
+        <ToolTextResult
+          title={'string:createPalindrome.ui.title8'}
+          value={result}
+        />
       }
       toolInfo={{
-        title: 'What Is a String Palindrome Creator?',
+        title: 'string:createPalindrome.ui.title9',
         description: longDescription
       }}
       exampleCards={exampleCards}

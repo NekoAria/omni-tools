@@ -21,8 +21,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Basic JSON to XML',
-    description: 'Convert a simple JSON object into an XML format.',
+    title: 'json:jsonToXml.ui.title1',
+    description: 'json:jsonToXml.ui.description1',
     sampleText: `
 {
   "users": [
@@ -85,54 +85,54 @@ export default function JsonToXml({ title }: ToolComponentProps) {
       exampleCards={exampleCards}
       inputComponent={
         <ToolCodeInput
-          title="Input Json"
+          title="json:jsonToXml.ui.title2"
           value={input}
           onChange={setInput}
           language="json"
         />
       }
       resultComponent={
-        <ToolTextResult title="Output XML" value={result} extension={'xml'} />
+        <ToolTextResult
+          title="json:jsonToXml.ui.title3"
+          value={result}
+          extension={'xml'}
+        />
       }
       getGroups={({ values, updateField }) => [
         {
-          title: 'Output XML Indentation',
+          title: 'json:jsonToXml.ui.title4',
           component: (
             <Box>
               <SimpleRadio
                 checked={values.indentationType === 'space'}
-                title={'Use Spaces for indentation'}
-                description={
-                  'Use spaces to visualize the hierarchical structure of XML.'
-                }
+                title={'json:jsonToXml.ui.title5'}
+                description={'json:jsonToXml.ui.description2'}
                 onClick={() => updateField('indentationType', 'space')}
               />
               <SimpleRadio
                 checked={values.indentationType === 'tab'}
-                title={'Use Tabs for indentation'}
-                description={
-                  'Use tabs to visualize the hierarchical structure of XML.'
-                }
+                title={'json:jsonToXml.ui.title6'}
+                description={'json:jsonToXml.ui.description3'}
                 onClick={() => updateField('indentationType', 'tab')}
               />
               <SimpleRadio
                 checked={values.indentationType === 'none'}
-                title={'No indentation'}
-                description={'Output XML without any indentation.'}
+                title={'json:jsonToXml.ui.title7'}
+                description={'json:jsonToXml.ui.description4'}
                 onClick={() => updateField('indentationType', 'none')}
               />
             </Box>
           )
         },
         {
-          title: 'XML Meta Information',
+          title: 'json:jsonToXml.ui.title8',
           component: (
             <Box>
               <CheckboxWithDesc
                 checked={values.addMetaTag}
                 onChange={(value) => updateField('addMetaTag', value)}
-                title="Add an XML Meta Tag"
-                description="Add a meta tag at the beginning of the XML output."
+                title="json:jsonToXml.ui.title9"
+                description="json:jsonToXml.ui.description5"
               />
             </Box>
           )

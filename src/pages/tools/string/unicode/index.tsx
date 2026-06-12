@@ -19,8 +19,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Encode to Unicode Escape',
-    description: 'Encode plain text to Unicode escape sequences.',
+    title: 'string:unicode.ui.title1',
+    description: 'string:unicode.ui.description1',
     sampleText: 'Hello, World!',
     sampleResult:
       '\\u0048\\u0065\\u006c\\u006c\\u006f\\u002c\\u0020\\u0057\\u006f\\u0072\\u006c\\u0064\\u0021',
@@ -30,8 +30,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Encode to Unicode Escape (Uppercase)',
-    description: 'Encode plain text to uppercase Unicode escape sequences.',
+    title: 'string:unicode.ui.title2',
+    description: 'string:unicode.ui.description2',
     sampleText: 'Hello, World!',
     sampleResult:
       '\\u0048\\u0065\\u006c\\u006c\\u006f\\u002c\\u0020\\u0057\\u006f\\u0072\\u006c\\u0064\\u0021'.toUpperCase(),
@@ -41,8 +41,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Decode Unicode Escape',
-    description: 'Decode Unicode escape sequences back to plain text.',
+    title: 'string:unicode.ui.title3',
+    description: 'string:unicode.ui.description3',
     sampleText:
       '\\u0048\\u0065\\u006c\\u006c\\u006f\\u002c\\u0020\\u0057\\u006f\\u0072\\u006c\\u0064\\u0021',
     sampleResult: 'Hello, World!',

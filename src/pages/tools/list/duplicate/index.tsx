@@ -42,8 +42,8 @@ const validationSchema = Yup.object({
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Simple duplication',
-    description: 'This example shows how to duplicate a list of words.',
+    title: 'list:duplicate.ui.title1',
+    description: 'list:duplicate.ui.description1',
     sampleText: 'Hello World',
     sampleResult: 'Hello World Hello World',
     sampleOptions: {
@@ -56,8 +56,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Reverse duplication',
-    description: 'This example shows how to duplicate a list in reverse order.',
+    title: 'list:duplicate.ui.title2',
+    description: 'list:duplicate.ui.description2',
     sampleText: 'Hello World',
     sampleResult: 'Hello World World Hello',
     sampleOptions: {
@@ -70,9 +70,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Interweaving items',
-    description:
-      'This example shows how to interweave items instead of concatenating them.',
+    title: 'list:duplicate.ui.title3',
+    description: 'list:duplicate.ui.description3',
     sampleText: 'Hello World',
     sampleResult: 'Hello Hello World World',
     sampleOptions: {
@@ -85,9 +84,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Fractional duplication',
-    description:
-      'This example shows how to duplicate a list with a fractional number of copies.',
+    title: 'list:duplicate.ui.title4',
+    description: 'list:duplicate.ui.description4',
     sampleText: 'apple banana cherry',
     sampleResult: 'apple banana cherry apple banana',
     sampleOptions: {

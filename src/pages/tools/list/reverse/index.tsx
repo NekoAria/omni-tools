@@ -23,22 +23,21 @@ const splitOperators: {
   type: SplitOperatorType;
 }[] = [
   {
-    title: 'Use a Symbol for Splitting',
-    description: 'Delimit input list items with a character.',
+    title: 'list:reverse.ui.title1',
+    description: 'list:reverse.ui.description1',
     type: 'symbol'
   },
   {
-    title: 'Use a Regex for Splitting',
+    title: 'list:reverse.ui.title2',
     type: 'regex',
-    description: 'Delimit input list items with a regular expression.'
+    description: 'list:reverse.ui.description2'
   }
 ];
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Reverse a List of Digits',
-    description:
-      'In this example, we load a list of digits in the input. The digits are separated by a mix of dot, comma, and semicolon characters, so we use the regular expression split mode and enter a regular expression that matches all these characters as the input item separator. In the output, we get a reversed list of digits that all use the semicolon as a separator.',
+    title: 'list:reverse.ui.title3',
+    description: 'list:reverse.ui.description3',
     sampleText: `2, 9, 6; 3; 7. 4. 4. 2, 1; 4, 8. 4; 4. 8, 2, 5; 1; 7; 7. 0`,
     sampleResult: `0; 7; 7; 1; 5; 2; 8; 4; 4; 8; 4; 1; 2; 4; 4; 7; 3; 6; 9; 2`,
     sampleOptions: {
@@ -48,9 +47,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Reverse a Column of Words',
-    description:
-      'This example reverses a column of twenty three-syllable nouns and prints all the words from the bottom to top. To separate the list items, it uses the \n character as input item separator, which means that each item is on its own line..',
+    title: 'list:reverse.ui.title4',
+    description: 'list:reverse.ui.description4',
     sampleText: `argument
 pollution
 emphasis
@@ -98,9 +96,8 @@ argument`,
     }
   },
   {
-    title: 'Reverse a Random List',
-    description:
-      'In this example, the list elements are random cities, zip codes, and weather conditions. To reverse list elements, we first need to identify them and separate them apart. The input list incorrectly uses the dash symbol to separate the elements but the output list fixes this and uses commas.',
+    title: 'list:reverse.ui.title5',
+    description: 'list:reverse.ui.description5',
     sampleText: `Hamburg-21334-Dhaka-Sunny-Managua-Rainy-Chongqing-95123-Oakland`,
     sampleResult: `Oakland, 95123, Chongqing, Rainy, Managua, Sunny, Dhaka, 21334, Hamburg`,
     sampleOptions: {

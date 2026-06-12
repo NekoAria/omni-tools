@@ -21,14 +21,14 @@ const splitOperators: {
   type: SplitOperatorType;
 }[] = [
   {
-    title: 'Use a Symbol for Splitting',
-    description: 'Delimit input list items with a character.',
+    title: 'list:shuffle.ui.title1',
+    description: 'list:shuffle.ui.description1',
     type: 'symbol'
   },
   {
-    title: 'Use a Regex for Splitting',
+    title: 'list:shuffle.ui.title2',
     type: 'regex',
-    description: 'Delimit input list items with a regular expression.'
+    description: 'list:shuffle.ui.description2'
   }
 ];
 

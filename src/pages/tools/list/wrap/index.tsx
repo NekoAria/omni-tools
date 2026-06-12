@@ -38,9 +38,8 @@ const validationSchema = Yup.object({
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Wrap list items with quotes',
-    description:
-      'This example shows how to wrap each item in a list with quotes.',
+    title: 'list:wrap.ui.title1',
+    description: 'list:wrap.ui.description1',
     sampleText: 'apple,banana,orange',
     sampleResult: '"apple","banana","orange"',
     sampleOptions: {
@@ -53,9 +52,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Wrap list items with brackets',
-    description:
-      'This example shows how to wrap each item in a list with brackets.',
+    title: 'list:wrap.ui.title2',
+    description: 'list:wrap.ui.description2',
     sampleText: 'item1,item2,item3',
     sampleResult: '[item1],[item2],[item3]',
     sampleOptions: {
@@ -68,9 +66,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Wrap list items with custom text',
-    description:
-      'This example shows how to wrap each item with different text on each side.',
+    title: 'list:wrap.ui.title3',
+    description: 'list:wrap.ui.description3',
     sampleText: 'apple,banana,orange',
     sampleResult:
       'prefix-apple-suffix,prefix-banana-suffix,prefix-orange-suffix',

@@ -38,9 +38,8 @@ const validationSchema = Yup.object({
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Keep first 3 items in a list',
-    description:
-      'This example shows how to keep only the first 3 items in a comma-separated list.',
+    title: 'list:truncate.ui.title1',
+    description: 'list:truncate.ui.description1',
     sampleText: 'apple, pineapple, lemon, orange, mango',
     sampleResult: 'apple,pineapple,lemon',
     sampleOptions: {
@@ -52,9 +51,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Keep last 2 items in a list',
-    description:
-      'This example shows how to keep only the last 2 items in a comma-separated list.',
+    title: 'list:truncate.ui.title2',
+    description: 'list:truncate.ui.description2',
     sampleText: 'apple, pineapple, lemon, orange, mango',
     sampleResult: 'orange,mango',
     sampleOptions: {
@@ -66,9 +64,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Truncate a list with custom separators',
-    description:
-      'This example shows how to truncate a list with custom separators.',
+    title: 'list:truncate.ui.title3',
+    description: 'list:truncate.ui.description3',
     sampleText: 'apple | pineapple | lemon | orange | mango',
     sampleResult: 'apple - pineapple - lemon',
     sampleOptions: {
@@ -114,51 +111,51 @@ export default function Truncate({ title }: ToolComponentProps) {
     updateField
   }) => [
     {
-      title: 'Split Options',
+      title: 'list:truncate.ui.title4',
       component: (
         <Box>
           <SimpleRadio
             onClick={() => updateField('splitOperatorType', 'symbol')}
             checked={values.splitOperatorType === 'symbol'}
-            title={'Split by Symbol'}
+            title={'list:truncate.ui.title5'}
           />
           <SimpleRadio
             onClick={() => updateField('splitOperatorType', 'regex')}
             checked={values.splitOperatorType === 'regex'}
-            title={'Split by Regular Expression'}
+            title={'list:truncate.ui.title6'}
           />
           <TextFieldWithDesc
             value={values.splitSeparator}
             onOwnChange={(val) => updateField('splitSeparator', val)}
-            description={'Separator to split the list'}
+            description={'list:truncate.ui.description4'}
           />
           <TextFieldWithDesc
             value={values.joinSeparator}
             onOwnChange={(val) => updateField('joinSeparator', val)}
-            description={'Separator to join the truncated list'}
+            description={'list:truncate.ui.description5'}
           />
         </Box>
       )
     },
     {
-      title: 'Truncation Options',
+      title: 'list:truncate.ui.title7',
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.length}
             onOwnChange={(val) => updateField('length', val)}
-            description={'Number of items to keep'}
+            description={'list:truncate.ui.description6'}
             type="number"
           />
           <SimpleRadio
             onClick={() => updateField('end', true)}
             checked={values.end}
-            title={'Keep items from the beginning'}
+            title={'list:truncate.ui.title8'}
           />
           <SimpleRadio
             onClick={() => updateField('end', false)}
             checked={!values.end}
-            title={'Keep items from the end'}
+            title={'list:truncate.ui.title9'}
           />
         </Box>
       )
@@ -169,16 +166,21 @@ export default function Truncate({ title }: ToolComponentProps) {
     <ToolContent
       title={title}
       inputComponent={
-        <ToolTextInput title="Input List" value={input} onChange={setInput} />
+        <ToolTextInput
+          title="list:truncate.ui.title10"
+          value={input}
+          onChange={setInput}
+        />
       }
-      resultComponent={<ToolTextResult title="Truncated List" value={result} />}
+      resultComponent={
+        <ToolTextResult title="list:truncate.ui.title11" value={result} />
+      }
       initialValues={initialValues}
       getGroups={getGroups}
       validationSchema={validationSchema}
       toolInfo={{
-        title: 'List Truncation',
-        description:
-          "This tool allows you to truncate a list to a specific number of items. You can choose to keep items from the beginning or the end of the list, and specify custom separators for splitting and joining. It's useful for limiting the size of lists, creating previews, or extracting specific portions of data."
+        title: 'list:truncate.ui.title12',
+        description: 'list:truncate.ui.description7'
       }}
       exampleCards={exampleCards}
       input={input}

@@ -11,22 +11,83 @@
     "toolInfo": {
       "description": "Base64 is an encoding scheme that represents data in an ASCII string format by translating it into a radix-64 representation. Although it can be used to encode strings, it is commonly used to encode binary data for transmission over media that are designed to deal with textual data.",
       "title": "What is Base64?"
+    },
+    "ui": {
+      "title1": "Encode data in UTF-8 with Base64",
+      "description1": "This example shows how to encode a simple text using Base64.",
+      "title2": "Decode Base64-encoded data to UTF-8",
+      "description2": "This example shows how to decode data that was encoded with Base64."
     }
   },
   "censor": {
-    "description": "utility for censoring words in text. Load your text in the input form on the left, specify all the bad words in the options, and you'll instantly get censored text in the output area.\", longDescription: 'With this online tool, you can censor certain words in any text. You can specify a list of unwanted words (such as swear words or secret words) and the program will replace them with alternative words and create a safe-to-read text. The words can be specified in a multi-line text field in the options by entering one word per line.', keywords: ['text', 'censor', 'words', 'characters'], component: lazy(() => import('./index')), i18n: { name: 'string:censor.title', description: 'string:censor.description",
+    "description": "utility for censoring words in text. Load your text in the input form on the left, specify all the bad words in the options, and you'll instantly get censored text in the output area.",
     "shortDescription": "Quickly mask bad words or replace them with alternative words.",
-    "title": "Text Censor"
+    "title": "Text Censor",
+    "longDescription": "With this online tool, you can censor certain words in any text. You can specify a list of unwanted words (such as swear words or secret words) and the program will replace them with alternative words and create a safe-to-read text. The words can be specified in a multi-line text field in the options by entering one word per line.",
+    "ui": {
+      "title1": "Censor a Word in a Quote",
+      "description1": "In this example, we hide the unpleasant word \"idiot\" from Jim Rohn's quote. We specify this word in the words-to-censor option and mask it with a neat smiling face character \"☺\".",
+      "title2": "Censor an Excerpt",
+      "description2": "In this example, we censor multiple words from an excerpt from the novel \"The Guns of Avalon\" by Roger Zelazny. To do this, we write out all unnecessary words in the multi-line text option and select the \"Use a Symbol to Censor\" censoring mode. We activate the \"Mask Each Letter\" option so that in place of each word exactly as many block characters \"█\" appeared as there are letters in that word.",
+      "title3": "Censor Agent's Name",
+      "description3": "In this example, we hide the name of an undercover FBI agent. We replace two words at once (first name and last name) with the code name \"Agent 007\"",
+      "title4": "Words to Censor",
+      "title5": "Censor Mode",
+      "label1": "Censor by Symbol",
+      "label2": "Censor by Word",
+      "description4": "Select the censoring mode.",
+      "title6": "Mask each letter",
+      "description5": "Put a masking symbol in place of each letter of the censored word.",
+      "title7": "Input text",
+      "title8": "Censored text",
+      "description6": "Specify all unwanted words that you want to hide in text (separated by a new line)",
+      "description7": "A symbol, character, or pattern to use for censoring.",
+      "description8": "Replace all censored words with this word.",
+      "title9": "What Is a Text Censor?"
+    }
   },
   "createPalindrome": {
     "description": "World's simplest browser-based utility for creating palindromes from any text. Input text and instantly transform it into a palindrome that reads the same forward and backward. Perfect for word games, creating symmetrical text patterns, or exploring linguistic curiosities.",
     "shortDescription": "Create text that reads the same forward and backward",
-    "title": "Create palindrome"
+    "title": "Create palindrome",
+    "ui": {
+      "title1": "Create Simple Palindrome",
+      "description1": "Creates a palindrome by repeating the text in reverse order, including the last character.",
+      "title2": "Create Palindrome Without Last Character Duplication",
+      "description2": "Creates a palindrome without repeating the last character in the reverse part.",
+      "title3": "Multi-line Palindrome Creation",
+      "description3": "Creates palindromes for each line independently.",
+      "title4": "Palindrome options",
+      "title5": "Include last character",
+      "description4": "Repeat the last character in the reversed part",
+      "title6": "Process multi-line text",
+      "description5": "Create palindromes for each line independently",
+      "title7": "Input text",
+      "title8": "Palindrome text",
+      "title9": "What Is a String Palindrome Creator?"
+    }
   },
   "extractSubstring": {
     "description": "World's simplest browser-based utility for extracting substrings from text. Input your text and specify start and end positions to extract the desired portion. Perfect for data processing, text analysis, or extracting specific content from larger text blocks.",
     "shortDescription": "Extract a portion of text between specified positions",
-    "title": "Extract substring"
+    "title": "Extract substring",
+    "ui": {
+      "title1": "Extract First 5 Characters",
+      "description1": "This example extracts the first 5 characters from the text.",
+      "title2": "Extract Words from the Middle",
+      "description2": "Extract a substring starting from position 11 with a length of 10 characters.",
+      "title3": "Multi-line Extraction with Reversal",
+      "description3": "Extract characters 1-3 from each line and reverse them.",
+      "title4": "Extraction options",
+      "description4": "Start position (1-based index)",
+      "description5": "Number of characters to extract",
+      "title5": "Process multi-line text",
+      "description6": "Extract from each line independently",
+      "title6": "Reverse output",
+      "description7": "Reverse the extracted substring",
+      "title7": "Input text",
+      "title8": "Extracted text"
+    }
   },
   "hiddenCharacterDetector": {
     "analysisOptions": "Analysis Options",
@@ -70,12 +131,39 @@
     "toolInfo": {
       "description": "With this tool you can join parts of the text together. It takes a list of text values, separated by newlines, and merges them together. You can set the character that will be placed between the parts of the combined text. Also, you can ignore all empty lines and remove spaces and tabs at the end of all lines. Textabulous!",
       "title": "What Is a Text Joiner?"
+    },
+    "ui": {
+      "placeholder1": "Join Character",
+      "title1": "Delete Blank Lines",
+      "description1": "Delete lines that don't have\n text symbols.\n",
+      "title2": "Delete Trailing Spaces",
+      "description2": "Remove spaces and tabs at\n the end of the lines.\n",
+      "title3": "Merge a To-Do List",
+      "description3": "In this example, we merge a bullet point list into one sentence, separating each item by the word 'and'. We also remove all empty lines and trailing spaces. If we didn't remove the empty lines, then they'd be joined with the separator word, making the separator word appear multiple times. If we didn't remove the trailing tabs and spaces, then they'd create extra spacing in the joined text and it wouldn't look nice.",
+      "title4": "Comma Separated List",
+      "description4": "This example joins a column of words into a comma separated list of words.",
+      "title5": "Vertical Word to Horizontal",
+      "description5": "This example rotates words from a vertical position to horizontal. An empty separator is used for this purpose."
     }
   },
   "palindrome": {
     "description": "World's simplest browser-based utility for checking if text is a palindrome. Instantly verify if your text reads the same forward and backward. Perfect for word puzzles, linguistic analysis, or validating symmetrical text patterns. Supports various delimiters and multi-word palindrome detection.",
     "shortDescription": "Check if text reads the same forward and backward",
-    "title": "Palindrome"
+    "title": "Palindrome",
+    "ui": {
+      "title1": "Use a Symbol for Splitting",
+      "description1": "Character that will be used to split text into parts for palindrome checking.",
+      "title2": "Use a Regex for Splitting",
+      "description2": "Regular expression that will be used to split text into parts for palindrome checking.",
+      "title3": "Check for Word Palindromes",
+      "description3": "Checks if each word in the text is a palindrome. Returns \"true\" for palindromes and \"false\" for non-palindromes.",
+      "title4": "Check CSV Words",
+      "description4": "Checks palindrome status for comma-separated words.",
+      "title5": "Check with Regular Expression",
+      "description5": "Use a regular expression to split text and check for palindromes.",
+      "title6": "Splitting options",
+      "title7": "Palindrome results"
+    }
   },
   "passwordGenerator": {
     "avoidAmbiguous": "Avoid ambiguous characters (i, I, l, 0, O)",
@@ -93,6 +181,14 @@
     "toolInfo": {
       "description": "This tool generates secure random passwords based on your selected criteria. You can customize the length, include or exclude different character types, and avoid ambiguous characters for better readability. Perfect for creating strong passwords for accounts, applications, or any security needs.",
       "title": "About Password Generator"
+    },
+    "ui": {
+      "title1": "Strong Password (12 characters)",
+      "description1": "Generate a secure password with all character types including symbols.",
+      "title2": "Simple Password (8 characters)",
+      "description2": "Generate a basic password with letters and numbers only.",
+      "title3": "Clear Password (No ambiguous)",
+      "description3": "Generate a password without ambiguous characters (i, I, l, 0, O)."
     }
   },
   "quote": {
@@ -110,17 +206,64 @@
     "toolInfo": {
       "description": "This tool allows you to add quotes around text. You can choose different quote characters, handle multi-line text, and control how empty lines are processed. It's useful for preparing text for programming, formatting data, or creating stylized text.",
       "title": "Text Quoter"
+    },
+    "ui": {
+      "title1": "Quote text with double quotes",
+      "description1": "This example shows how to quote text with double quotes.",
+      "title2": "Quote multi-line text with single quotes",
+      "description2": "This example shows how to quote multi-line text with single quotes.",
+      "title3": "Quote with custom quotes",
+      "description3": "This example shows how to quote text with custom quotes."
     }
   },
   "randomizeCase": {
     "description": "World's simplest browser-based utility for randomizing text case. Input your text and instantly transform it with random upper and lower case letters. Perfect for creating unique text effects, testing case sensitivity, or generating varied text patterns.",
     "shortDescription": "Randomize the case of letters in text",
-    "title": "Randomize case"
+    "title": "Randomize case",
+    "ui": {
+      "title1": "Randomize Text Case",
+      "description1": "This example turns normal text into a random mix of uppercase and lowercase letters.",
+      "title2": "Randomize Code Case",
+      "description2": "Transform code identifiers with randomized case for a chaotic look.",
+      "title3": "Randomize a Famous Quote",
+      "description3": "Give a unique randomized case treatment to a well-known quote.",
+      "title4": "Randomized text"
+    }
   },
   "removeDuplicateLines": {
     "description": "Load your text in the input form on the left and you'll instantly get text with no duplicate lines in the output area. Powerful, free, and fast. Load text lines – get unique text lines",
     "shortDescription": "Quickly delete all repeated lines from text",
-    "title": "Remove duplicate lines"
+    "title": "Remove duplicate lines",
+    "ui": {
+      "title1": "Remove All Duplicate Lines",
+      "description1": "If this option is selected, then all repeated lines across entire text are removed, starting from the second occurrence.",
+      "title2": "Remove Consecutive Duplicate Lines",
+      "description2": "If this option is selected, then only consecutive repeated lines are removed.",
+      "title3": "Leave Absolutely Unique Text Lines",
+      "description3": "If this option is selected, then all lines that appear more than once are removed.",
+      "title4": "Preserve All Newlines",
+      "description4": "Leave all empty lines in the output.",
+      "title5": "Filter All Newlines",
+      "description5": "Process newlines as regular lines.",
+      "title6": "Delete All Newlines",
+      "description6": "Before filtering uniques, remove all newlines.",
+      "title7": "Remove Duplicate Items from List",
+      "description7": "Removes duplicate items from a shopping list, keeping only the first occurrence of each item.",
+      "title8": "Clean Consecutive Duplicates",
+      "description8": "Removes consecutive duplicates from log entries, which often happen when a system repeatedly logs the same error.",
+      "title9": "Extract Unique Entries Only",
+      "description9": "Filters a list to keep only entries that appear exactly once, removing any duplicated items entirely.",
+      "title10": "Sort and Clean Data",
+      "description10": "Removes duplicate items from a list, trims whitespace, and sorts the results alphabetically.",
+      "title11": "Text without duplicates",
+      "title12": "Operation Mode",
+      "title13": "Newlines, Tabs and Spaces",
+      "title14": "Trim Text Lines",
+      "description11": "Before filtering uniques, remove tabs and spaces from the beginning and end of all lines.",
+      "title15": "Sort Lines",
+      "title16": "Sort the Output Lines",
+      "description12": "After removing the duplicates, sort the unique lines."
+    }
   },
   "repeat": {
     "delimiterDescription": "Delimiter for output copies.",
@@ -137,6 +280,14 @@
     "toolInfo": {
       "description": "This tool allows you to repeat a given text multiple times with an optional separator.",
       "title": "Repeat text"
+    },
+    "ui": {
+      "title1": "Repeat word five times",
+      "description1": "Repeats \"Hello!\" five times without any delimiter.",
+      "title2": "Repeat phrase with comma",
+      "description2": "Repeats \"Good job\" three times, separated by commas and spaces.",
+      "title3": "Repeat number with space",
+      "description3": "Repeats the number \"42\" four times, separated by spaces."
     }
   },
   "reverse": {
@@ -151,7 +302,15 @@
     "skipEmptyLinesDescription": "Empty lines will be removed from the output",
     "title": "Reverse",
     "trimWhitespace": "Trim whitespace",
-    "trimWhitespaceDescription": "Remove leading and trailing whitespace from each line"
+    "trimWhitespaceDescription": "Remove leading and trailing whitespace from each line",
+    "ui": {
+      "title1": "Simple Text Reversal",
+      "description1": "Reverses each character in the text. Perfect for creating mirror text.",
+      "title2": "Multi-line Reversal",
+      "description2": "Reverses each line independently while preserving the line breaks.",
+      "title3": "Clean Reversed Text",
+      "description3": "Trims whitespace and skips empty lines before reversing the text."
+    }
   },
   "rot13": {
     "description": "Encode or decode text using ROT13 cipher.",
@@ -162,6 +321,12 @@
     "toolInfo": {
       "description": "ROT13 (rotate by 13 places) is a simple letter substitution cipher that replaces a letter with the 13th letter after it in the alphabet. ROT13 is a special case of the Caesar cipher which was developed in ancient Rome. Because there are 26 letters in the English alphabet, ROT13 is its own inverse; that is, to undo ROT13, the same algorithm is applied, so the same action can be used for encoding and decoding.",
       "title": "What Is ROT13?"
+    },
+    "ui": {
+      "title1": "Encode a message with ROT13",
+      "description1": "This example shows how to encode a simple message using ROT13 cipher.",
+      "title2": "Decode a ROT13 message",
+      "description2": "This example shows how to decode a message that was encoded with ROT13."
     }
   },
   "rotate": {
@@ -178,6 +343,14 @@
     "toolInfo": {
       "description": "This tool allows you to rotate characters in a string by a specified number of positions. You can rotate to the left or right, and process multi-line text by rotating each line separately. String rotation is useful for simple text transformations, creating patterns, or implementing basic encryption techniques.",
       "title": "String Rotation"
+    },
+    "ui": {
+      "title1": "Rotate text to the right",
+      "description1": "This example shows how to rotate text to the right by 2 positions.",
+      "title2": "Rotate text to the left",
+      "description2": "This example shows how to rotate text to the left by 2 positions.",
+      "title3": "Rotate multi-line text",
+      "description3": "This example shows how to rotate each line of a multi-line text."
     }
   },
   "slugGenerator": {
@@ -191,7 +364,16 @@
     },
     "resultTitle": "URL Slugs",
     "shortDescription": "Generate URL-friendly slugs from text.",
-    "title": "Slug Generator"
+    "title": "Slug Generator",
+    "ui": {
+      "title1": "Slug (lowercase)",
+      "description1": "Convert a title into a URL-friendly slug",
+      "title2": "Slug (case preserved)",
+      "description2": "Convert a title into a URL-friendly slug without any case change",
+      "title3": "Slugs (multi lines processing)",
+      "description3": "Convert titles on each lines into a URL-friendly slugs",
+      "title4": "What Is a Slug Generator?"
+    }
   },
   "split": {
     "charAfterChunkDescription": "Character after each chunk",
@@ -210,7 +392,15 @@
     "splitSeparatorOptions": "Split separator options",
     "symbolDescription": "Character that will be used to break text into parts. (Space by default.)",
     "symbolTitle": "Use a Symbol for Splitting",
-    "title": "Split"
+    "title": "Split",
+    "ui": {
+      "title1": "Split German Numbers",
+      "description1": "In this example, we break the text into pieces by two characters – a comma and space. As a result, we get a column of numbers from 1 to 10 in German.",
+      "title2": "Text Cleanup via a Regular Expression",
+      "description2": "In this example, we use a super smart regular expression trick to clean-up the text. This regexp finds all non-alphabetic characters and splits the text into pieces by these non-alphabetic chars. As a result, we extract only those parts of the text that contain Latin letters and words.",
+      "title3": "Three-dot Output Separator",
+      "description3": "This example splits the text by spaces and then places three dots between the words."
+    }
   },
   "statistic": {
     "characterFrequencyAnalysis": "Character Frequency Analysis",
@@ -233,7 +423,15 @@
     "wordDelimitersDescription": "Enter custom Regex to count Words or leave it blank for default.",
     "wordDelimitersPlaceholder": "eg. \\s.,;:!?\"«»()…",
     "wordFrequencyAnalysis": "Word Frequency Analysis",
-    "wordFrequencyAnalysisDescription": "Count how often each word appears in the text"
+    "wordFrequencyAnalysisDescription": "Count how often each word appears in the text",
+    "ui": {
+      "title1": "Text Statistics without any Flag",
+      "description1": "This example shows basic text statistics without any additional flags.",
+      "title2": "Text Statistics with Characters Frequency",
+      "description2": "This example shows basic text statistics with characters frequency.",
+      "title3": "Text Statistics with Characters and Words Frequencies",
+      "description3": "This example shows basic text statistics with characters and words frequencies."
+    }
   },
   "textReplacer": {
     "description": "Replace text patterns with new content.",
@@ -252,6 +450,14 @@
     "toolInfo": {
       "description": "Easily replace specific text in your content with this simple, browser-based tool. Just input your text, set the text you want to replace and the replacement value, and instantly get the updated version.",
       "title": "Text Replacer"
+    },
+    "ui": {
+      "title1": "Replace specific word in text",
+      "description1": "In this example we will replace the word \"hello\" with the word \"hi\". This example doesn't use regular expressions.",
+      "title2": "Replace all numbers in text",
+      "description2": "In this example we will replace all numbers in numbers with * using regexp. In the output we will get text with numbers replaced with *.",
+      "title3": "Replace all dates in text",
+      "description3": "In this example we will replace all dates in the format YYYY-MM-DD with the word DATE using regexp. The output will have all the dates replaced with the word DATE."
     }
   },
   "toMorse": {
@@ -287,7 +493,15 @@
       "description": "Load your text in the input form on the left and you will automatically get truncated text on the right.",
       "title": "Truncate text"
     },
-    "truncationSide": "Truncation Side"
+    "truncationSide": "Truncation Side",
+    "ui": {
+      "title1": "Basic Truncation on the Right",
+      "description1": "Truncate text from the right side based on max length.",
+      "title2": "Truncation on the Left with Indicator",
+      "description2": "Truncate text from the left side and add an indicator.",
+      "title3": "Multi-line Truncation with Indicator",
+      "description3": "Truncate text line by line, adding an indicator to each line."
+    }
   },
   "unicode": {
     "caseOptionsTitle": "Case Options",
@@ -303,14 +517,30 @@
       "description": "This tool lets you convert plain text into Unicode escape sequences (e.g., \\uXXXX) and decode Unicode escape sequences back into standard text. You can also choose whether the hexadecimal output is formatted in uppercase or lowercase when encoding.",
       "title": "Unicode Encoder / Decoder"
     },
-    "uppercase": "Uppercase Hex"
+    "uppercase": "Uppercase Hex",
+    "ui": {
+      "title1": "Encode to Unicode Escape",
+      "description1": "Encode plain text to Unicode escape sequences.",
+      "title2": "Encode to Unicode Escape (Uppercase)",
+      "description2": "Encode plain text to uppercase Unicode escape sequences.",
+      "title3": "Decode Unicode Escape",
+      "description3": "Decode Unicode escape sequences back to plain text."
+    }
   },
   "uppercase": {
     "description": "Convert text to uppercase letters.",
     "inputTitle": "Input text",
     "resultTitle": "Uppercase text",
     "shortDescription": "Convert text to uppercase",
-    "title": "Convert to Uppercase"
+    "title": "Convert to Uppercase",
+    "ui": {
+      "title1": "Convert Text to Uppercase",
+      "description1": "This example transforms any text to ALL UPPERCASE format.",
+      "title2": "Uppercase Code",
+      "description2": "Convert code to uppercase format. Note that this is for display only and would not maintain code functionality.",
+      "title3": "Mixed Case to Uppercase",
+      "description3": "Transform text with mixed casing to consistent all uppercase format."
+    }
   },
   "urlDecode": {
     "inputTitle": "Input String(URL-escaped)",
@@ -320,6 +550,12 @@
       "longDescription": "This tool URL-decodes a previously URL-encoded string. URL-decoding is the inverse operation of URL-encoding. All percent-encoded characters get decoded to characters that you can understand. Some of the most well known percent-encoded values are %20 for a space, %3a for a colon, %2f for a slash, and %3f for a question mark. The two digits following the percent sign are character's char code values in hex.",
       "shortDescription": "Quickly URL-unescape a string.",
       "title": "String URL decoder"
+    },
+    "ui": {
+      "title1": "Decode an actual URL",
+      "description1": "This example decodes a URL-encoded string back to its readable URL form.",
+      "title2": "Decode All Characters",
+      "description2": "This example decodes a string where every character has been URL-encoded, restoring the original readable text."
     }
   },
   "urlEncode": {
@@ -335,6 +571,12 @@
       "longDescription": "This tool URL-encodes a string. Special URL characters get converted to percent-sign encoding. This encoding is called percent-encoding because each character's numeric value gets converted to a percent sign followed by a two-digit hexadecimal value. The hex values are determined based on the character's codepoint value. For example, a space gets escaped to %20, a colon to %3a, a slash to %2f. Characters that are not special stay unchanged. In case you also need to convert non-special characters to percent-encoding, then we've also added an extra option that lets you do that. Select the encode-non-special-chars option to enable this behavior.",
       "shortDescription": "Quickly URL-escape a string.",
       "title": "String URL encoder"
+    },
+    "ui": {
+      "title1": "Encode an actual URL",
+      "description1": "This example URL-encodes a string that also happens to be a valid web link. Special characters in this example are a colon, slash, question mark and equals sign.",
+      "title2": "Encode All Characters",
+      "description2": "In this example, we've enabled the option that encodes absolutely all characters in a string to URL-encoding. This option makes non-special characters, such as letters get encoded to their hex codes prefixed by a percent sign."
     }
   },
   "textCompare": {

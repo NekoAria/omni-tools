@@ -29,8 +29,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Quote text with double quotes',
-    description: 'This example shows how to quote text with double quotes.',
+    title: 'string:quote.ui.title1',
+    description: 'string:quote.ui.description1',
     sampleText: 'Hello World',
     sampleResult: '"Hello World"',
     sampleOptions: {
@@ -42,9 +42,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Quote multi-line text with single quotes',
-    description:
-      'This example shows how to quote multi-line text with single quotes.',
+    title: 'string:quote.ui.title2',
+    description: 'string:quote.ui.description2',
     sampleText: 'Hello\nWorld',
     sampleResult: "'Hello'\n'World'",
     sampleOptions: {
@@ -56,8 +55,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Quote with custom quotes',
-    description: 'This example shows how to quote text with custom quotes.',
+    title: 'string:quote.ui.title3',
+    description: 'string:quote.ui.description3',
     sampleText: 'Hello World',
     sampleResult: '<<Hello World>>',
     sampleOptions: {

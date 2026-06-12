@@ -14,9 +14,10 @@
     }
   },
   "censor": {
-    "description": "Utilidad para censurar palabras en texto. Cargue su texto en el formulario de entrada de la izquierda, especifique todas las palabras incorrectas en las opciones y obtendrá el texto censurado al instante en el área de salida. longDescription: 'Con esta herramienta en línea, puede censurar ciertas palabras en cualquier texto. Puede especificar una lista de palabras no deseadas (como palabras malsonantes o palabras secretas) y el programa las reemplazará con palabras alternativas y creará un texto seguro. Las palabras se pueden especificar en un campo de texto de varias líneas en las opciones, introduciendo una palabra por línea.', keywords: ['text', 'censor', 'words', 'characters'], component: lazy(() => import('./index')), i18n: { name: 'string:censor.title', description: 'string:censor.description'",
+    "description": "Utilidad para censurar palabras en texto. Cargue su texto en el formulario de entrada de la izquierda, especifique todas las palabras incorrectas en las opciones y obtendrá el texto censurado al instante en el área de salida.",
     "shortDescription": "Enmascare rápidamente las malas palabras o reemplácelas con palabras alternativas.",
-    "title": "Censor de texto"
+    "title": "Censor de texto",
+    "longDescription": "Con esta herramienta en línea, puede censurar ciertas palabras en cualquier texto. Puede especificar una lista de palabras no deseadas (como palabras malsonantes o palabras secretas) y el programa las reemplazará con palabras alternativas y creará un texto seguro. Las palabras se pueden especificar en un campo de texto de varias líneas en las opciones, introduciendo una palabra por línea."
   },
   "createPalindrome": {
     "description": "La utilidad de navegador más sencilla del mundo para crear palíndromos a partir de cualquier texto. Introduce texto y transfórmalo al instante en un palíndromo que se lee igual de derecho a revés. Perfecto para juegos de palabras, crear patrones de texto simétricos o explorar curiosidades lingüísticas.",

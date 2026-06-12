@@ -20,9 +20,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Array of objects',
-    description:
-      'Convert multiple JSON objects into CSV rows, one row per object.',
+    title: 'json:jsonToCsv.ui.title1',
+    description: 'json:jsonToCsv.ui.description1',
     sampleText: `[
   { "name": "John Doe", "age": 25, "city": "New York" },
   { "name": "Jane Doe", "age": 30, "city": "Los Angeles" },
@@ -34,9 +33,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Nested object (dot notation)',
-    description:
-      'Nested keys are flattened using dot notation (e.g. address.city).',
+    title: 'json:jsonToCsv.ui.title2',
+    description: 'json:jsonToCsv.ui.description2',
     sampleText: `[
   {
     "name": "John Doe",
@@ -56,9 +54,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Sparse rows',
-    description:
-      'Missing keys are filled with empty values to keep columns aligned.',
+    title: 'json:jsonToCsv.ui.title3',
+    description: 'json:jsonToCsv.ui.description3',
     sampleText: `[
   { "name": "Alice", "age": 30 },
   { "name": "Bob", "city": "Paris" },

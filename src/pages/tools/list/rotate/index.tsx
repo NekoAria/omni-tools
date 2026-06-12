@@ -23,14 +23,14 @@ const splitOperators: {
   type: SplitOperatorType;
 }[] = [
   {
-    title: 'Use a Symbol for Splitting',
-    description: 'Delimit input list items with a character.',
+    title: 'list:rotate.ui.title1',
+    description: 'list:rotate.ui.description1',
     type: 'symbol'
   },
   {
-    title: 'Use a Regex for Splitting',
+    title: 'list:rotate.ui.title2',
     type: 'regex',
-    description: 'Delimit input list items with a regular expression.'
+    description: 'list:rotate.ui.description2'
   }
 ];
 const rotationDirections: {
@@ -39,15 +39,13 @@ const rotationDirections: {
   value: boolean;
 }[] = [
   {
-    title: 'Rotate forward',
-    description:
-      'Rotate list items to the right. (Down if a vertical column list.)',
+    title: 'list:rotate.ui.title3',
+    description: 'list:rotate.ui.description3',
     value: true
   },
   {
-    title: 'Rotate backward',
-    description:
-      'Rotate list items to the left. (Up if a vertical column list.)',
+    title: 'list:rotate.ui.title4',
+    description: 'list:rotate.ui.description4',
     value: false
   }
 ];
@@ -76,13 +74,19 @@ export default function Rotate({ title }: ToolComponentProps) {
       title={title}
       input={input}
       inputComponent={
-        <ToolTextInput title={'Input list'} value={input} onChange={setInput} />
+        <ToolTextInput
+          title={'list:rotate.ui.title5'}
+          value={input}
+          onChange={setInput}
+        />
       }
-      resultComponent={<ToolTextResult title={'Rotated list'} value={result} />}
+      resultComponent={
+        <ToolTextResult title={'list:rotate.ui.title6'} value={result} />
+      }
       initialValues={initialValues}
       getGroups={({ values, updateField }) => [
         {
-          title: 'Item split mode',
+          title: 'list:rotate.ui.title7',
           component: (
             <Box>
               {splitOperators.map(({ title, description, type }) => (
@@ -95,7 +99,7 @@ export default function Rotate({ title }: ToolComponentProps) {
                 />
               ))}
               <TextFieldWithDesc
-                description={'Set a delimiting symbol or regular expression.'}
+                description={'list:rotate.ui.description5'}
                 value={values.splitSeparator}
                 onOwnChange={(val) => updateField('splitSeparator', val)}
               />
@@ -103,7 +107,7 @@ export default function Rotate({ title }: ToolComponentProps) {
           )
         },
         {
-          title: 'Rotation Direction and Count',
+          title: 'list:rotate.ui.title8',
           component: (
             <Box>
               {rotationDirections.map(({ title, description, value }) => (
@@ -116,7 +120,7 @@ export default function Rotate({ title }: ToolComponentProps) {
                 />
               ))}
               <TextFieldWithDesc
-                description={'Number of items to rotate'}
+                description={'list:rotate.ui.description6'}
                 value={values.step}
                 onOwnChange={(val) => updateField('step', formatNumber(val, 1))}
               />
@@ -124,15 +128,13 @@ export default function Rotate({ title }: ToolComponentProps) {
           )
         },
         {
-          title: 'Rotated List Joining Symbol',
+          title: 'list:rotate.ui.title9',
           component: (
             <Box>
               <TextFieldWithDesc
                 value={values.joinSeparator}
                 onOwnChange={(value) => updateField('joinSeparator', value)}
-                description={
-                  'Enter the character that goes between items in the rotated list.'
-                }
+                description={'list:rotate.ui.description7'}
               />
             </Box>
           )

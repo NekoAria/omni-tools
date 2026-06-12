@@ -15,8 +15,8 @@ import { useTranslation } from 'react-i18next';
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Basic Truncation on the Right',
-    description: 'Truncate text from the right side based on max length.',
+    title: 'string:truncate.ui.title1',
+    description: 'string:truncate.ui.description1',
     sampleText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     sampleResult: 'Lorem ipsum dolor...',
     sampleOptions: {
@@ -30,8 +30,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Truncation on the Left with Indicator',
-    description: 'Truncate text from the left side and add an indicator.',
+    title: 'string:truncate.ui.title2',
+    description: 'string:truncate.ui.description2',
     sampleText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     sampleResult: '...is dolor sit amet, consectetur adipiscing elit.',
     sampleOptions: {
@@ -45,9 +45,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Multi-line Truncation with Indicator',
-    description:
-      'Truncate text line by line, adding an indicator to each line.',
+    title: 'string:truncate.ui.title3',
+    description: 'string:truncate.ui.description3',
     sampleText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`,

@@ -2,17 +2,51 @@
   "comparison": {
     "description": "比较两个 JSON 对象以识别结构和值的差异。",
     "shortDescription": "查找两个 JSON 对象之间的差异",
-    "title": "比较 JSON"
+    "title": "比较 JSON",
+    "ui": {
+      "title1": "第一个 JSON",
+      "title2": "第二个 JSON"
+    }
   },
   "escapeJson": {
     "description": "转义 JSON 字符串中的特殊字符。将 JSON 数据转换为正确的转义格式，以便安全传输或存储。",
     "shortDescription": "转义 JSON 中的特殊字符",
-    "title": "转义 JSON"
+    "title": "转义 JSON",
+    "ui": {
+      "title1": "转义简单 JSON 对象",
+      "description1": "在此示例中，我们会转义简单 JSON 对象中键和值周围的所有引号（\"）。这样可确保 JSON 数据在用于另一个 JSON 对象或赋值给字符串变量时能被正确解释。",
+      "title2": "转义复杂 JSON 对象",
+      "description2": "在此示例中，我们会转义一个更复杂的 JSON 对象，其中包含 Margherita 披萨配方的嵌套数据。我们会转义对象中的所有引号，并将所有换行符转换为特殊的 \"\\n\" 字符。此外，我们启用“用引号包裹输出”选项，用双引号包裹整个输出。",
+      "title3": "转义数字 JSON 数组",
+      "description3": "此示例说明，仅包含数字的 JSON 数组不需要转义。由于数字本身在 JSON 中没有特殊含义，工具不会修改输入，输出会保持与原始 JSON 数组相同。",
+      "title4": "引用输出",
+      "title5": "用引号包裹输出",
+      "description4": "在输出 JSON 数据周围添加双引号。",
+      "title6": "输入 JSON",
+      "title7": "已转义 JSON",
+      "title8": "什么是 JSON 转义器？"
+    }
   },
   "jsonToXml": {
     "description": "将 JSON 数据转换为 XML 格式。将结构化的 JSON 对象转换为格式良好的 XML 文档。",
     "shortDescription": "将 JSON 转换为 XML 格式",
-    "title": "JSON 到 XML"
+    "title": "JSON 到 XML",
+    "ui": {
+      "title1": "基础 JSON 转 XML",
+      "description1": "将简单 JSON 对象转换为 XML 格式。",
+      "title2": "输入 JSON",
+      "title3": "输出 XML",
+      "title4": "输出 XML 缩进",
+      "title5": "使用空格缩进",
+      "description2": "使用空格呈现 XML 的层级结构。",
+      "title6": "使用制表符缩进",
+      "description3": "使用制表符呈现 XML 的层级结构。",
+      "title7": "不缩进",
+      "description4": "输出不带任何缩进的 XML。",
+      "title8": "XML 元信息",
+      "title9": "添加 XML 元标签",
+      "description5": "在 XML 输出开头添加元信息标签。"
+    }
   },
   "minify": {
     "description": "从 JSON 中删除所有不必要的空格。",
@@ -23,6 +57,12 @@
     "toolInfo": {
       "description": "JSON 压缩是指在保持 JSON 数据有效性的同时，从中移除所有不必要的空格字符的过程。这包括移除 JSON 正确解析所需的空格、换行符和缩进。压缩可以减小 JSON 数据的大小，使其在保持完全相同的数据结构和值的同时，更高效地存储和传输。",
       "title": "什么是 JSON 最小化？"
+    },
+    "ui": {
+      "title1": "压缩简单 JSON 对象",
+      "description1": "此示例演示如何通过移除所有不必要的空白来压缩简单 JSON 对象。",
+      "title2": "压缩嵌套 JSON 结构",
+      "description2": "此示例演示如何压缩包含数组和对象的复杂嵌套 JSON 结构。"
     }
   },
   "prettify": {
@@ -39,12 +79,38 @@
     "useSpaces": "使用空格",
     "useSpacesDescription": "使用空格缩进输出",
     "useTabs": "使用标签",
-    "useTabsDescription": "使用制表符缩进输出。"
+    "useTabsDescription": "使用制表符缩进输出。",
+    "ui": {
+      "title1": "美化混乱的 JSON 数组",
+      "description1": "在此示例中，我们会美化一个混乱的 JSON 数组。输入数据是一维数字数组 [1,2,3]，但排版杂乱。该数组会被清理并转换为更易读的格式，每个元素占一行，并使用四个空格进行适当缩进。",
+      "title2": "格式化复杂 JSON 对象",
+      "description2": "在此示例中，我们会美化由数组和对象组成的复杂 JSON 数据结构。输入数据是一个经过压缩的 JSON 对象，包含多层数据结构。为了让它整洁易读，我们为每一层添加两个空格缩进，使 JSON 结构清晰易懂。",
+      "title3": "美化包含过多空白的 JSON",
+      "description3": "在此示例中，我们展示 JSON 美化工具如何处理包含过多空白的代码。输入文件包含许多前导和尾随空格，以及对象内部的空格。过多空白会让文件臃肿难读，并给人留下代码质量不佳的印象。程序会移除这些不必要的空格，并通过制表符缩进创建易于处理的规范数据层级。"
+    }
   },
   "stringify": {
     "description": "将 JavaScript 对象转换为 JSON 字符串格式。将数据结构序列化为 JSON 字符串以便存储或传输。",
     "shortDescription": "将对象转换为 JSON 字符串",
-    "title": "字符串化 JSON"
+    "title": "字符串化 JSON",
+    "ui": {
+      "title1": "简单对象转 JSON",
+      "description1": "将基本 JavaScript 对象转换为 JSON 字符串。",
+      "title2": "混合类型数组",
+      "description2": "将包含不同类型值的数组转换为 JSON。",
+      "title3": "HTML 转义 JSON",
+      "description3": "将对象转换为 JSON，并转义 HTML 字符。",
+      "title4": "JavaScript 对象/数组",
+      "title5": "JSON 字符串",
+      "title6": "使用空格",
+      "description4": "使用空格缩进输出",
+      "description5": "使用制表符缩进输出",
+      "title7": "使用制表符",
+      "title8": "转义 HTML 字符",
+      "description6": "将 HTML 特殊字符转换为对应的实体引用",
+      "title9": "什么是 JSON 字符串化？",
+      "description7": "JSON 字符串化是一种将 JavaScript 对象和数组转换为 JSON 字符串表示形式的工具。它会使用可自定义缩进正确格式化输出，并提供转义 HTML 特殊字符的选项，使其可安全用于网页。此工具在你需要序列化数据结构以便存储或传输，或需要准备嵌入 HTML 的 JSON 数据时尤其有用。"
+    }
   },
   "validateJson": {
     "description": "检查 JSON 是否有效且格式正确。",
@@ -57,7 +123,15 @@
       "description": "JSON（JavaScript 对象表示法）是一种轻量级数据交换格式。JSON 验证可确保数据结构符合 JSON 标准。有效的 JSON 对象必须具备以下特征：- 属性名称用双引号括起来。- 正确匹配的花括号 {}。- 最后一个键值对后没有尾随逗号。- 对象和数组的嵌套正确。此工具会检查输入的 JSON 并提供反馈，以帮助识别和修复常见错误。",
       "title": "什么是 JSON 验证？"
     },
-    "validJson": "✅ 有效的 JSON"
+    "validJson": "✅ 有效的 JSON",
+    "ui": {
+      "title1": "有效 JSON 对象",
+      "description1": "此示例显示一个格式正确的 JSON 对象。所有属性名称和字符串值都用双引号括起来，整体结构的左右花括号也正确配对。",
+      "title2": "缺少引号的无效 JSON",
+      "description2": "此示例演示一个无效的 JSON 对象，其中属性名称没有用双引号括起来。根据 JSON 标准，属性名称必须始终用双引号括起来。省略引号会导致语法错误。",
+      "title3": "带尾随逗号的无效 JSON",
+      "description3": "此示例显示一个无效的 JSON 对象，其最后一个键值对后带有尾随逗号。在 JSON 中不允许使用尾随逗号，因为它们会在解析数据结构时造成歧义。"
+    }
   },
   "jsonToCsv": {
     "delimiterOption": "分隔符",
@@ -82,7 +156,15 @@
     "outputTitle": "输出 CSV",
     "quotingOption": "字符串引号",
     "shortDescription": "将 JSON 转换为 CSV 格式",
-    "title": "JSON 转 CSV"
+    "title": "JSON 转 CSV",
+    "ui": {
+      "title1": "对象数组",
+      "description1": "将多个 JSON 对象转换为 CSV 行，每个对象对应一行。",
+      "title2": "嵌套对象（点表示法）",
+      "description2": "嵌套键会使用点表示法展开（例如 address.city）。",
+      "title3": "稀疏行",
+      "description3": "缺失键会填充为空值，以保持列对齐。"
+    }
   },
   "tsvToJson": {
     "description": "将 TSV（制表符分隔值）数据转换为 JSON 格式。将表格数据转换为结构化 JSON 对象。",
@@ -105,6 +187,14 @@
       "modeDescription": "选择是按键值排序数组项，还是按字母顺序排序对象的键",
       "keyDescription": "选择用于排序的键",
       "orderDescription": "选择排序顺序"
+    },
+    "ui": {
+      "title1": "按名称升序排序",
+      "description1": "按 \"name\" 键对 JSON 对象数组进行字母升序排序。",
+      "title2": "按字母顺序排序对象键",
+      "description2": "按字母升序对 JSON 对象的键进行排序。",
+      "label1": "请选择一个键",
+      "title3": "什么是 JSON 排序？"
     }
   }
 }

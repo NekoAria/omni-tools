@@ -13,9 +13,8 @@ const initialValues: InitialValuesType = {};
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Minify a Simple JSON Object',
-    description:
-      'This example shows how to minify a simple JSON object by removing all unnecessary whitespace.',
+    title: 'json:minify.ui.title1',
+    description: 'json:minify.ui.description1',
     sampleText: `{
   "name": "John Doe",
   "age": 30,
@@ -25,9 +24,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleOptions: {}
   },
   {
-    title: 'Minify a Nested JSON Structure',
-    description:
-      'This example demonstrates minification of a complex nested JSON structure with arrays and objects.',
+    title: 'json:minify.ui.title2',
+    description: 'json:minify.ui.description2',
     sampleText: `{
   "users": [
     {

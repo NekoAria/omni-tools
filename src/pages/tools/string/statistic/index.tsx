@@ -22,9 +22,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Text Statistics without any Flag',
-    description:
-      'This example shows basic text statistics without any additional flags.',
+    title: 'string:statistic.ui.title1',
+    description: 'string:statistic.ui.description1',
     sampleText:
       'Giraffes have long necks that can be up to 6 feet (1.8 meters) long, but they only have 7 neck vertebrae, the same as humans.',
     sampleResult: `Text Statistics
@@ -37,9 +36,8 @@ Paragraphs: 1`,
     sampleOptions: initialValues
   },
   {
-    title: 'Text Statistics with Characters Frequency',
-    description:
-      'This example shows basic text statistics with characters frequency.',
+    title: 'string:statistic.ui.title2',
+    description: 'string:statistic.ui.description2',
     sampleText: `The Great Barrier Reef is the world's largest coral reef system, located off the coast of Australia. It consists of over 2,900 individual reefs and 900 islands. The reef is home to thousands of species of marine life, including fish, sea turtles, sharks, and dolphins. It is also a popular tourist destination, attracting millions of visitors every year. However, the reef is facing many threats, including climate change, pollution, and overfishing. Conservation efforts are being made to protect this unique and valuable ecosystem for future generations.`,
     sampleResult: `Text Statistics
 ==================
@@ -90,9 +88,8 @@ q: 1 (0.18%)`,
     }
   },
   {
-    title: 'Text Statistics with Characters and Words Frequencies',
-    description:
-      'This example shows basic text statistics with characters and words frequencies.',
+    title: 'string:statistic.ui.title3',
+    description: 'string:statistic.ui.description3',
     sampleText: `The Great Barrier Reef is the world's largest coral reef system, located off the coast of Australia. It consists of over 2,900 individual reefs and 900 islands. The reef is home to thousands of species of marine life, including fish, sea turtles, sharks, and dolphins. It is also a popular tourist destination, attracting millions of visitors every year. However, the reef is facing many threats, including climate change, pollution, and overfishing. Conservation efforts are being made to protect this unique and valuable ecosystem for future generations.`,
     sampleResult: `Text Statistics
 ==================

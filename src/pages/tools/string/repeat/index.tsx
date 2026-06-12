@@ -13,8 +13,8 @@ import { useTranslation } from 'react-i18next';
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Repeat word five times',
-    description: 'Repeats "Hello!" five times without any delimiter.',
+    title: 'string:repeat.ui.title1',
+    description: 'string:repeat.ui.description1',
     sampleText: 'Hello! ',
     sampleResult: 'Hello! Hello! Hello! Hello! Hello! ',
     sampleOptions: {
@@ -24,9 +24,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Repeat phrase with comma',
-    description:
-      'Repeats "Good job" three times, separated by commas and spaces.',
+    title: 'string:repeat.ui.title2',
+    description: 'string:repeat.ui.description2',
     sampleText: 'Good job',
     sampleResult: 'Good job, Good job, Good job',
     sampleOptions: {
@@ -36,8 +35,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Repeat number with space',
-    description: 'Repeats the number "42" four times, separated by spaces.',
+    title: 'string:repeat.ui.title3',
+    description: 'string:repeat.ui.description3',
     sampleText: '42',
     sampleResult: '42 42 42 42',
     sampleOptions: {

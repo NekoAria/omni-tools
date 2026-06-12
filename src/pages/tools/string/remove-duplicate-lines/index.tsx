@@ -27,21 +27,18 @@ const initialValues: DuplicateRemoverOptions = {
 // Operation mode options
 const operationModes = [
   {
-    title: 'Remove All Duplicate Lines',
-    description:
-      'If this option is selected, then all repeated lines across entire text are removed, starting from the second occurrence.',
+    title: 'string:removeDuplicateLines.ui.title1',
+    description: 'string:removeDuplicateLines.ui.description1',
     value: 'all' as DuplicateRemovalMode
   },
   {
-    title: 'Remove Consecutive Duplicate Lines',
-    description:
-      'If this option is selected, then only consecutive repeated lines are removed.',
+    title: 'string:removeDuplicateLines.ui.title2',
+    description: 'string:removeDuplicateLines.ui.description2',
     value: 'consecutive' as DuplicateRemovalMode
   },
   {
-    title: 'Leave Absolutely Unique Text Lines',
-    description:
-      'If this option is selected, then all lines that appear more than once are removed.',
+    title: 'string:removeDuplicateLines.ui.title3',
+    description: 'string:removeDuplicateLines.ui.description3',
     value: 'unique' as DuplicateRemovalMode
   }
 ];
@@ -49,18 +46,18 @@ const operationModes = [
 // Newlines options
 const newlineOptions = [
   {
-    title: 'Preserve All Newlines',
-    description: 'Leave all empty lines in the output.',
+    title: 'string:removeDuplicateLines.ui.title4',
+    description: 'string:removeDuplicateLines.ui.description4',
     value: 'preserve' as NewlineOption
   },
   {
-    title: 'Filter All Newlines',
-    description: 'Process newlines as regular lines.',
+    title: 'string:removeDuplicateLines.ui.title5',
+    description: 'string:removeDuplicateLines.ui.description5',
     value: 'filter' as NewlineOption
   },
   {
-    title: 'Delete All Newlines',
-    description: 'Before filtering uniques, remove all newlines.',
+    title: 'string:removeDuplicateLines.ui.title6',
+    description: 'string:removeDuplicateLines.ui.description6',
     value: 'delete' as NewlineOption
   }
 ];
@@ -68,9 +65,8 @@ const newlineOptions = [
 // Example cards for demonstration
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Remove Duplicate Items from List',
-    description:
-      'Removes duplicate items from a shopping list, keeping only the first occurrence of each item.',
+    title: 'string:removeDuplicateLines.ui.title7',
+    description: 'string:removeDuplicateLines.ui.description7',
     sampleText: `Apples
 Bananas
 Milk
@@ -96,9 +92,8 @@ Yogurt`,
     }
   },
   {
-    title: 'Clean Consecutive Duplicates',
-    description:
-      'Removes consecutive duplicates from log entries, which often happen when a system repeatedly logs the same error.',
+    title: 'string:removeDuplicateLines.ui.title8',
+    description: 'string:removeDuplicateLines.ui.description8',
     sampleText: `[INFO] Application started
 [ERROR] Connection failed
 [ERROR] Connection failed
@@ -121,9 +116,8 @@ Yogurt`,
     }
   },
   {
-    title: 'Extract Unique Entries Only',
-    description:
-      'Filters a list to keep only entries that appear exactly once, removing any duplicated items entirely.',
+    title: 'string:removeDuplicateLines.ui.title9',
+    description: 'string:removeDuplicateLines.ui.description9',
     sampleText: `Red
 Blue
 Green
@@ -145,9 +139,8 @@ Orange`,
     }
   },
   {
-    title: 'Sort and Clean Data',
-    description:
-      'Removes duplicate items from a list, trims whitespace, and sorts the results alphabetically.',
+    title: 'string:removeDuplicateLines.ui.title10',
+    description: 'string:removeDuplicateLines.ui.description10',
     sampleText: `  Apple
 Banana
  Cherry
@@ -187,12 +180,15 @@ export default function RemoveDuplicateLines({ title }: ToolComponentProps) {
       input={input}
       inputComponent={<ToolTextInput value={input} onChange={setInput} />}
       resultComponent={
-        <ToolTextResult title={'Text without duplicates'} value={result} />
+        <ToolTextResult
+          title={'string:removeDuplicateLines.ui.title11'}
+          value={result}
+        />
       }
       initialValues={initialValues}
       getGroups={({ values, updateField }) => [
         {
-          title: 'Operation Mode',
+          title: 'string:removeDuplicateLines.ui.title12',
           component: operationModes.map(({ title, description, value }) => (
             <SimpleRadio
               key={value}
@@ -204,7 +200,7 @@ export default function RemoveDuplicateLines({ title }: ToolComponentProps) {
           ))
         },
         {
-          title: 'Newlines, Tabs and Spaces',
+          title: 'string:removeDuplicateLines.ui.title13',
           component: [
             ...newlineOptions.map(({ title, description, value }) => (
               <SimpleRadio
@@ -218,20 +214,20 @@ export default function RemoveDuplicateLines({ title }: ToolComponentProps) {
             <CheckboxWithDesc
               key="trimTextLines"
               checked={values.trimTextLines}
-              title="Trim Text Lines"
-              description="Before filtering uniques, remove tabs and spaces from the beginning and end of all lines."
+              title="string:removeDuplicateLines.ui.title14"
+              description="string:removeDuplicateLines.ui.description11"
               onChange={(checked) => updateField('trimTextLines', checked)}
             />
           ]
         },
         {
-          title: 'Sort Lines',
+          title: 'string:removeDuplicateLines.ui.title15',
           component: [
             <CheckboxWithDesc
               key="sortLines"
               checked={values.sortLines}
-              title="Sort the Output Lines"
-              description="After removing the duplicates, sort the unique lines."
+              title="string:removeDuplicateLines.ui.title16"
+              description="string:removeDuplicateLines.ui.description12"
               onChange={(checked) => updateField('sortLines', checked)}
             />
           ]

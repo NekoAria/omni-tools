@@ -12,9 +12,8 @@ import { useTranslation } from 'react-i18next';
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Strong Password (12 characters)',
-    description:
-      'Generate a secure password with all character types including symbols.',
+    title: 'string:passwordGenerator.ui.title1',
+    description: 'string:passwordGenerator.ui.description1',
     sampleText: '',
     sampleResult: 'A7#mK9$pL2@x',
     sampleOptions: {
@@ -27,8 +26,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Simple Password (8 characters)',
-    description: 'Generate a basic password with letters and numbers only.',
+    title: 'string:passwordGenerator.ui.title2',
+    description: 'string:passwordGenerator.ui.description2',
     sampleText: '',
     sampleResult: 'Ab3mK9pL',
     sampleOptions: {
@@ -41,9 +40,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Clear Password (No ambiguous)',
-    description:
-      'Generate a password without ambiguous characters (i, I, l, 0, O).',
+    title: 'string:passwordGenerator.ui.title3',
+    description: 'string:passwordGenerator.ui.description3',
     sampleText: '',
     sampleResult: 'A7#mK9$pL2@x',
     sampleOptions: {

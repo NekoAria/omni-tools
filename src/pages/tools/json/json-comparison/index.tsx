@@ -61,7 +61,7 @@ export default function JsonComparison({ title }: ToolComponentProps) {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} lg={4}>
             <ToolCodeInput
-              title="First JSON"
+              title="json:comparison.ui.title1"
               value={input1}
               onChange={handleInput1Change}
               language={'json'}
@@ -69,7 +69,7 @@ export default function JsonComparison({ title }: ToolComponentProps) {
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
             <ToolCodeInput
-              title="Second JSON"
+              title="json:comparison.ui.title2"
               language={'json'}
               value={input2}
               onChange={handleInput2Change}

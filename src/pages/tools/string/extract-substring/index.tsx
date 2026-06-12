@@ -18,8 +18,8 @@ const initialValues = {
 
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Extract First 5 Characters',
-    description: 'This example extracts the first 5 characters from the text.',
+    title: 'string:extractSubstring.ui.title1',
+    description: 'string:extractSubstring.ui.description1',
     sampleText: 'The quick brown fox jumps over the lazy dog.',
     sampleResult: 'The q',
     sampleOptions: {
@@ -29,9 +29,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Extract Words from the Middle',
-    description:
-      'Extract a substring starting from position 11 with a length of 10 characters.',
+    title: 'string:extractSubstring.ui.title2',
+    description: 'string:extractSubstring.ui.description2',
     sampleText: 'The quick brown fox jumps over the lazy dog.',
     sampleResult: 'brown fox',
     sampleOptions: {
@@ -41,8 +40,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Multi-line Extraction with Reversal',
-    description: 'Extract characters 1-3 from each line and reverse them.',
+    title: 'string:extractSubstring.ui.title3',
+    description: 'string:extractSubstring.ui.description3',
     sampleText: 'First line\nSecond line\nThird line',
     sampleResult: 'riF\nceS\nihT',
     sampleOptions: {
@@ -88,34 +87,34 @@ export default function ExtractSubstring({ title }: ToolComponentProps) {
     updateField
   }) => [
     {
-      title: 'Extraction options',
+      title: 'string:extractSubstring.ui.title4',
       component: [
         <TextFieldWithDesc
           key="start"
           value={values.start}
           onOwnChange={(value) => updateField('start', value)}
-          description="Start position (1-based index)"
+          description="string:extractSubstring.ui.description4"
           type="number"
         />,
         <TextFieldWithDesc
           key="length"
           value={values.length}
           onOwnChange={(value) => updateField('length', value)}
-          description="Number of characters to extract"
+          description="string:extractSubstring.ui.description5"
           type="number"
         />,
         <CheckboxWithDesc
           key="multiLine"
           checked={values.multiLine}
-          title="Process multi-line text"
-          description="Extract from each line independently"
+          title="string:extractSubstring.ui.title5"
+          description="string:extractSubstring.ui.description6"
           onChange={(val) => updateField('multiLine', val)}
         />,
         <CheckboxWithDesc
           key="reverse"
           checked={values.reverse}
-          title="Reverse output"
-          description="Reverse the extracted substring"
+          title="string:extractSubstring.ui.title6"
+          description="string:extractSubstring.ui.description7"
           onChange={(val) => updateField('reverse', val)}
         />
       ]
@@ -131,10 +130,17 @@ export default function ExtractSubstring({ title }: ToolComponentProps) {
       input={input}
       setInput={setInput}
       inputComponent={
-        <ToolTextInput title={'Input text'} value={input} onChange={setInput} />
+        <ToolTextInput
+          title={'string:extractSubstring.ui.title7'}
+          value={input}
+          onChange={setInput}
+        />
       }
       resultComponent={
-        <ToolTextResult title={'Extracted text'} value={result} />
+        <ToolTextResult
+          title={'string:extractSubstring.ui.title8'}
+          value={result}
+        />
       }
       exampleCards={exampleCards}
     />

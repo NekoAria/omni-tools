@@ -28,9 +28,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Beautify an Ugly JSON Array',
-    description:
-      'In this example, we prettify an ugly JSON array. The input data is a one-dimensional array of numbers [1,2,3] but they are all over the place. This array gets cleaned up and transformed into a more readable format where each element is on a new line with an appropriate indentation using four spaces.',
+    title: 'json:prettify.ui.title1',
+    description: 'json:prettify.ui.description1',
     sampleText: `[
  1,
 2,3
@@ -46,9 +45,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Prettify a Complex JSON Object',
-    description:
-      'In this example, we prettify a complex JSON data structure consisting of arrays and objects. The input data is a minified JSON object with multiple data structure depth levels. To make it neat and readable, we add two spaces for indentation to each depth level, making the JSON structure clear and easy to understand.',
+    title: 'json:prettify.ui.title2',
+    description: 'json:prettify.ui.description2',
     sampleText: `{"names":["jack","john","alex"],"hobbies":{"jack":["programming","rock climbing"],"john":["running","racing"],"alex":["dancing","fencing"]}}`,
     sampleResult: `{
   "names": [
@@ -77,9 +75,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Beautify a JSON with Excessive Whitespace',
-    description:
-      "In this example, we show how the JSON prettify tool can handle code with excessive whitespace. The input file has many leading and trailing spaces as well as spaces within the objects. The excessive whitespace makes the file bulky and hard to read and leads to a bad impression of the programmer who wrote it. The program removes all these unnecessary spaces and creates a proper data hierarchy that's easy to work with by adding indentation via tabs.",
+    title: 'json:prettify.ui.title3',
+    description: 'json:prettify.ui.description3',
     sampleText: `
 {
      "name":  "The Name of the Wind",

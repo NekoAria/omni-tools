@@ -22,8 +22,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Censor a Word in a Quote',
-    description: `In this example, we hide the unpleasant word "idiot" from Jim Rohn's quote. We specify this word in the words-to-censor option and mask it with a neat smiling face character "☺".`,
+    title: 'string:censor.ui.title1',
+    description: 'string:censor.ui.description1',
     sampleText:
       'Motivation alone is not enough. If you have an idiot and you motivate him, now you have a motivated idiot. Jim Rohn',
     sampleResult:
@@ -36,8 +36,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Censor an Excerpt',
-    description: `In this example, we censor multiple words from an excerpt from the novel "The Guns of Avalon" by Roger Zelazny. To do this, we write out all unnecessary words in the multi-line text option and select the "Use a Symbol to Censor" censoring mode. We activate the "Mask Each Letter" option so that in place of each word exactly as many block characters "█" appeared as there are letters in that word.`,
+    title: 'string:censor.ui.title2',
+    description: 'string:censor.ui.description2',
     sampleText:
       '“In the mirrors of the many judgments, my hands are the color of blood. I sometimes fancy myself an evil which exists to oppose other evils; and on that great Day of which the prophets speak but in which they do not truly believe, on the day the world is utterly cleansed of evil, then I too will go down into darkness, swallowing curses. Until then, I will not wash my hands nor let them hang useless.” ― Roger Zelazny, The Guns of Avalon',
     sampleResult:
@@ -49,8 +49,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: "Censor Agent's Name",
-    description: `In this example, we hide the name of an undercover FBI agent. We replace two words at once (first name and last name) with the code name "Agent 007"`,
+    title: 'string:censor.ui.title3',
+    description: 'string:censor.ui.description3',
     sampleText:
       'My name is John and I am an undercover FBI agent. I usually write my name in lowercase as "john" because I find uppercase letters scary. Unfortunately, in documents, my name is properly capitalized as John and it makes me upset.',
     sampleResult:
@@ -80,7 +80,7 @@ export default function CensorText({
     updateField
   }) => [
     {
-      title: 'Words to Censor',
+      title: 'string:censor.ui.title4',
       component: (
         <Box>
           <TextFieldWithDesc
@@ -88,31 +88,30 @@ export default function CensorText({
             rows={3}
             value={values.wordsToCensor}
             onOwnChange={(val) => updateField('wordsToCensor', val)}
-            description={`Specify all unwanted words that
-                 you want to hide in text (separated by a new line)`}
+            description="string:censor.ui.description6"
           />
         </Box>
       )
     },
     {
-      title: 'Censor Mode',
+      title: 'string:censor.ui.title5',
       component: (
         <Box>
           <SelectWithDesc
             selected={values.censoredBySymbol}
             options={[
-              { label: 'Censor by Symbol', value: true },
-              { label: 'Censor by Word', value: false }
+              { label: 'string:censor.ui.label1', value: true },
+              { label: 'string:censor.ui.label2', value: false }
             ]}
             onChange={(value) => updateField('censoredBySymbol', value)}
-            description={'Select the censoring mode.'}
+            description={'string:censor.ui.description4'}
           />
 
           {values.censoredBySymbol && (
             <TextFieldWithDesc
               value={values.censorSymbol}
               onOwnChange={(val) => updateField('censorSymbol', val)}
-              description={`A symbol, character, or pattern to use for censoring.`}
+              description="string:censor.ui.description7"
             />
           )}
 
@@ -120,8 +119,8 @@ export default function CensorText({
             <CheckboxWithDesc
               checked={values.eachLetter}
               onChange={(value) => updateField('eachLetter', value)}
-              title="Mask each letter"
-              description="Put a masking symbol in place of each letter of the censored word."
+              title="string:censor.ui.title6"
+              description="string:censor.ui.description5"
             />
           )}
 
@@ -129,7 +128,7 @@ export default function CensorText({
             <TextFieldWithDesc
               value={values.censorWord}
               onOwnChange={(val) => updateField('censorWord', val)}
-              description={`Replace all censored words with this word.`}
+              description="string:censor.ui.description8"
             />
           )}
         </Box>
@@ -146,12 +145,19 @@ export default function CensorText({
       input={input}
       setInput={setInput}
       inputComponent={
-        <ToolTextInput title={'Input text'} value={input} onChange={setInput} />
+        <ToolTextInput
+          title={'string:censor.ui.title7'}
+          value={input}
+          onChange={setInput}
+        />
       }
       resultComponent={
-        <ToolTextResult title={'Censored text'} value={result} />
+        <ToolTextResult title={'string:censor.ui.title8'} value={result} />
       }
-      toolInfo={{ title: `What is a ${title}?`, description: longDescription }}
+      toolInfo={{
+        title: 'string:censor.ui.title9',
+        description: longDescription
+      }}
       exampleCards={exampleCards}
     />
   );

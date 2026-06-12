@@ -14,9 +14,8 @@ import { useTranslation } from 'react-i18next';
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Replace specific word in text',
-    description:
-      'In this example we will replace the word "hello" with the word "hi". This example doesn\'t use regular expressions.',
+    title: 'string:textReplacer.ui.title1',
+    description: 'string:textReplacer.ui.description1',
     sampleText: 'hello, how are you today? hello!',
     sampleResult: 'hi, how are you today? hi!',
     sampleOptions: {
@@ -28,9 +27,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Replace all numbers in text',
-    description:
-      'In this example we will replace all numbers in numbers with * using regexp. In the output we will get text with numbers replaced with *.',
+    title: 'string:textReplacer.ui.title2',
+    description: 'string:textReplacer.ui.description2',
     sampleText: 'The price is 100$, and the discount is 20%.',
     sampleResult: 'The price is X$, and the discount is X%.',
     sampleOptions: {
@@ -42,9 +40,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Replace all dates in text',
-    description:
-      'In this example we will replace all dates in the format YYYY-MM-DD with the word DATE using regexp. The output will have all the dates replaced with the word DATE.',
+    title: 'string:textReplacer.ui.title3',
+    description: 'string:textReplacer.ui.description3',
     sampleText:
       'The event will take place on 2025-03-10, and the deadline is 2025-03-15.',
     sampleResult:

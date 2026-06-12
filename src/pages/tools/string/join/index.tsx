@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const mergeOptions = {
-  placeholder: 'Join Character',
+  placeholder: 'string:join.ui.placeholder1',
   description:
     'Symbol that connects broken\n' + 'pieces of text. (Space by default.)\n',
   accessor: 'joinCharacter' as keyof InitialValuesType
@@ -36,22 +36,21 @@ const blankTrailingOptions: {
   accessor: keyof Omit<InitialValuesType, 'joinCharacter'>;
 }[] = [
   {
-    title: 'Delete Blank Lines',
-    description: "Delete lines that don't have\n text symbols.\n",
+    title: 'string:join.ui.title1',
+    description: 'string:join.ui.description1',
     accessor: 'deleteBlank'
   },
   {
-    title: 'Delete Trailing Spaces',
-    description: 'Remove spaces and tabs at\n the end of the lines.\n',
+    title: 'string:join.ui.title2',
+    description: 'string:join.ui.description2',
     accessor: 'deleteTrailing'
   }
 ];
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Merge a To-Do List',
-    description:
-      "In this example, we merge a bullet point list into one sentence, separating each item by the word 'and'. We also remove all empty lines and trailing spaces. If we didn't remove the empty lines, then they'd be joined with the separator word, making the separator word appear multiple times. If we didn't remove the trailing tabs and spaces, then they'd create extra spacing in the joined text and it wouldn't look nice.",
+    title: 'string:join.ui.title3',
+    description: 'string:join.ui.description3',
     sampleText: `clean the house
 
 go shopping
@@ -67,9 +66,8 @@ build a rocket ship and fly away`,
     }
   },
   {
-    title: 'Comma Separated List',
-    description:
-      'This example joins a column of words into a comma separated list of words.',
+    title: 'string:join.ui.title4',
+    description: 'string:join.ui.description4',
     sampleText: `computer
 memory
 processor
@@ -83,9 +81,8 @@ keyboard`,
     }
   },
   {
-    title: 'Vertical Word to Horizontal',
-    description:
-      'This example rotates words from a vertical position to horizontal. An empty separator is used for this purpose.',
+    title: 'string:join.ui.title5',
+    description: 'string:join.ui.description5',
     sampleText: `T
 e
 x

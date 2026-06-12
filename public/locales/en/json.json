@@ -2,12 +2,30 @@
   "comparison": {
     "description": "Compare two JSON objects to identify differences in structure and values.",
     "shortDescription": "Find differences between two JSON objects",
-    "title": "Compare JSON"
+    "title": "Compare JSON",
+    "ui": {
+      "title1": "First JSON",
+      "title2": "Second JSON"
+    }
   },
   "escapeJson": {
     "description": "Escape special characters in JSON strings. Convert JSON data to properly escaped format for safe transmission or storage.",
     "shortDescription": "Escape special characters in JSON",
-    "title": "Escape JSON"
+    "title": "Escape JSON",
+    "ui": {
+      "title1": "Escape a Simple JSON Object",
+      "description1": "In this example, we escape all quotes (\") around the keys and values in a simple JSON object. This ensures that the JSON data is interpreted correctly if it's used in another JSON object or assigned to a variable as a string.",
+      "title2": "Escape a Complex JSON Object",
+      "description2": "In this example, we escape a more complex JSON object with nested elements containing data about the Margherita pizza recipe. We escape all quotes within the object as well as convert all line breaks into special \"\n\" characters. Additionally, we wrap the entire output in double quotes by enabling the \"Wrap Output in Quotes\" option.",
+      "title3": "Escape a JSON Array of Numbers",
+      "description3": "This example showcases that escaping isn't necessary for JSON arrays containing only numbers. Since numbers themselves don't hold special meaning in JSON, the tool doesn't modify the input and the output remains the same as the original JSON array.",
+      "title4": "Quote Output",
+      "title5": "Wrap Output In Quotes",
+      "description4": "Add double quotes around the output JSON data.",
+      "title6": "Input JSON",
+      "title7": "Escaped JSON",
+      "title8": "What is a JSON Escaper?"
+    }
   },
   "jsonToCsv": {
     "delimiterOption": "Delimiter",
@@ -32,12 +50,36 @@
     "outputTitle": "Output CSV",
     "quotingOption": "String Quoting",
     "shortDescription": "Convert JSON to CSV format",
-    "title": "JSON to CSV"
+    "title": "JSON to CSV",
+    "ui": {
+      "title1": "Array of objects",
+      "description1": "Convert multiple JSON objects into CSV rows, one row per object.",
+      "title2": "Nested object (dot notation)",
+      "description2": "Nested keys are flattened using dot notation (e.g. address.city).",
+      "title3": "Sparse rows",
+      "description3": "Missing keys are filled with empty values to keep columns aligned."
+    }
   },
   "jsonToXml": {
     "description": "Convert JSON data to XML format. Transform structured JSON objects into well-formed XML documents.",
     "shortDescription": "Convert JSON to XML format",
-    "title": "JSON to XML"
+    "title": "JSON to XML",
+    "ui": {
+      "title1": "Basic JSON to XML",
+      "description1": "Convert a simple JSON object into an XML format.",
+      "title2": "Input Json",
+      "title3": "Output XML",
+      "title4": "Output XML Indentation",
+      "title5": "Use Spaces for indentation",
+      "description2": "Use spaces to visualize the hierarchical structure of XML.",
+      "title6": "Use Tabs for indentation",
+      "description3": "Use tabs to visualize the hierarchical structure of XML.",
+      "title7": "No indentation",
+      "description4": "Output XML without any indentation.",
+      "title8": "XML Meta Information",
+      "title9": "Add an XML Meta Tag",
+      "description5": "Add a meta tag at the beginning of the XML output."
+    }
   },
   "minify": {
     "description": "Remove all unnecessary whitespace from JSON.",
@@ -48,6 +90,12 @@
     "toolInfo": {
       "description": "JSON minification is the process of removing all unnecessary whitespace characters from JSON data while maintaining its validity. This includes removing spaces, newlines, and indentation that aren't required for the JSON to be parsed correctly. Minification reduces the size of JSON data, making it more efficient for storage and transmission while keeping the exact same data structure and values.",
       "title": "What Is JSON Minification?"
+    },
+    "ui": {
+      "title1": "Minify a Simple JSON Object",
+      "description1": "This example shows how to minify a simple JSON object by removing all unnecessary whitespace.",
+      "title2": "Minify a Nested JSON Structure",
+      "description2": "This example demonstrates minification of a complex nested JSON structure with arrays and objects."
     }
   },
   "prettify": {
@@ -64,12 +112,38 @@
     "useSpaces": "Use Spaces",
     "useSpacesDescription": "Indent output with spaces",
     "useTabs": "Use Tabs",
-    "useTabsDescription": "Indent output with tabs."
+    "useTabsDescription": "Indent output with tabs.",
+    "ui": {
+      "title1": "Beautify an Ugly JSON Array",
+      "description1": "In this example, we prettify an ugly JSON array. The input data is a one-dimensional array of numbers [1,2,3] but they are all over the place. This array gets cleaned up and transformed into a more readable format where each element is on a new line with an appropriate indentation using four spaces.",
+      "title2": "Prettify a Complex JSON Object",
+      "description2": "In this example, we prettify a complex JSON data structure consisting of arrays and objects. The input data is a minified JSON object with multiple data structure depth levels. To make it neat and readable, we add two spaces for indentation to each depth level, making the JSON structure clear and easy to understand.",
+      "title3": "Beautify a JSON with Excessive Whitespace",
+      "description3": "In this example, we show how the JSON prettify tool can handle code with excessive whitespace. The input file has many leading and trailing spaces as well as spaces within the objects. The excessive whitespace makes the file bulky and hard to read and leads to a bad impression of the programmer who wrote it. The program removes all these unnecessary spaces and creates a proper data hierarchy that's easy to work with by adding indentation via tabs."
+    }
   },
   "stringify": {
     "description": "Convert JavaScript objects to JSON string format. Serialize data structures into JSON strings for storage or transmission.",
     "shortDescription": "Convert objects to JSON string",
-    "title": "Stringify JSON"
+    "title": "Stringify JSON",
+    "ui": {
+      "title1": "Simple Object to JSON",
+      "description1": "Convert a basic JavaScript object into a JSON string.",
+      "title2": "Array with Mixed Types",
+      "description2": "Convert an array containing different types of values into JSON.",
+      "title3": "HTML-Escaped JSON",
+      "description3": "Convert an object to JSON with HTML characters escaped.",
+      "title4": "JavaScript Object/Array",
+      "title5": "JSON String",
+      "title6": "Use Spaces",
+      "description4": "Indent output with spaces",
+      "description5": "Indent output with tabs",
+      "title7": "Use Tabs",
+      "title8": "Escape HTML Characters",
+      "description6": "Convert HTML special characters to their entity references",
+      "title9": "What Is JSON Stringify?",
+      "description7": "JSON Stringify is a tool that converts JavaScript objects and arrays into their JSON string representation. It properly formats the output with customizable indentation and offers the option to escape HTML special characters, making it safe for web usage. This tool is particularly useful when you need to serialize data structures for storage or transmission, or when you need to prepare JSON data for HTML embedding."
+    }
   },
   "tsvToJson": {
     "description": "Convert TSV (Tab-Separated Values) data to JSON format. Transform tabular data into structured JSON objects.",
@@ -87,7 +161,15 @@
       "description": "JSON (JavaScript Object Notation) is a lightweight data-interchange format. JSON validation ensures that the structure of the data conforms to the JSON standard. A valid JSON object must have: - Property names enclosed in double quotes. - Properly balanced curly braces {}. - No trailing commas after the last key-value pair. - Proper nesting of objects and arrays. This tool checks the input JSON and provides feedback to help identify and fix common errors.",
       "title": "What is JSON Validation?"
     },
-    "validJson": "✅ Valid JSON"
+    "validJson": "✅ Valid JSON",
+    "ui": {
+      "title1": "Valid JSON Object",
+      "description1": "This example shows a correctly formatted JSON object. All property names and string values are enclosed in double quotes, and the overall structure is properly balanced with opening and closing braces.",
+      "title2": "Invalid JSON Missing Quotes",
+      "description2": "This example demonstrates an invalid JSON object where the property names are not enclosed in double quotes. According to the JSON standard, property names must always be enclosed in double quotes. Omitting the quotes will result in a syntax error.",
+      "title3": "Invalid JSON with Trailing Comma",
+      "description3": "This example shows an invalid JSON object with a trailing comma after the last key-value pair. In JSON, trailing commas are not allowed because they create ambiguity when parsing the data structure."
+    }
   },
   "sortJson": {
     "title": "Sort JSON",
@@ -105,6 +187,14 @@
       "modeDescription": "Choose whether to sort array items by a key's value, or sort the keys of an object alphabetically",
       "keyDescription": "Select the key to sort by",
       "orderDescription": "Choose the sort order"
+    },
+    "ui": {
+      "title1": "Sort by name ascending",
+      "description1": "Sort a JSON array of objects alphabetically by the \"name\" key.",
+      "title2": "Sort object keys alphabetically",
+      "description2": "Sort the keys of a JSON object alphabetically in ascending order.",
+      "label1": "Please select a key",
+      "title3": "What Is Sort JSON?"
     }
   }
 }

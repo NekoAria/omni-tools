@@ -71,9 +71,8 @@ const outputOptions: {
 
 const exampleCards: CardExampleType<typeof initialValues>[] = [
   {
-    title: 'Split German Numbers',
-    description:
-      'In this example, we break the text into pieces by two characters – a comma and space. As a result, we get a column of numbers from 1 to 10 in German.',
+    title: 'string:split.ui.title1',
+    description: 'string:split.ui.description1',
     sampleText: `1 - eins, 2 - zwei, 3 - drei, 4 - vier, 5 - fünf, 6 - sechs, 7 - sieben, 8 - acht, 9 - neun, 10 - zehn`,
     sampleResult: `1 - eins
 2 - zwei
@@ -93,9 +92,8 @@ const exampleCards: CardExampleType<typeof initialValues>[] = [
     }
   },
   {
-    title: 'Text Cleanup via a Regular Expression',
-    description:
-      'In this example, we use a super smart regular expression trick to clean-up the text. This regexp finds all non-alphabetic characters and splits the text into pieces by these non-alphabetic chars. As a result, we extract only those parts of the text that contain Latin letters and words.',
+    title: 'string:split.ui.title2',
+    description: 'string:split.ui.description2',
     sampleText: `Finding%№1.65*;?words()is'12#easy_`,
     sampleResult: `Finding
 words
@@ -109,9 +107,8 @@ easy`,
     }
   },
   {
-    title: 'Three-dot Output Separator',
-    description:
-      'This example splits the text by spaces and then places three dots between the words.',
+    title: 'string:split.ui.title3',
+    description: 'string:split.ui.description3',
     sampleText: `If you started with $0.01 and doubled your money every day, it would take 27 days to become a millionaire.`,
     sampleResult: `If...you...started...with...$0.01...and...doubled...your...money...every...day,...it...would...take...27...days...to...become...a...millionaire.!`,
     sampleOptions: {

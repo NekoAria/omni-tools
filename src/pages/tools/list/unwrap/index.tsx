@@ -41,9 +41,8 @@ const validationSchema = Yup.object({
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Unwrap quotes from list items',
-    description:
-      'This example shows how to remove quotes from each item in a list.',
+    title: 'list:unwrap.ui.title1',
+    description: 'list:unwrap.ui.description1',
     sampleText: '"apple"\n"banana"\n"orange"',
     sampleResult: 'apple\nbanana\norange',
     sampleOptions: {
@@ -58,9 +57,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Unwrap multiple levels of characters',
-    description:
-      'This example shows how to remove multiple levels of the same character from each item.',
+    title: 'list:unwrap.ui.title2',
+    description: 'list:unwrap.ui.description2',
     sampleText: '###Hello###\n##World##\n#Test#',
     sampleResult: 'Hello\nWorld\nTest',
     sampleOptions: {
@@ -75,9 +73,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     }
   },
   {
-    title: 'Unwrap and join with custom separator',
-    description:
-      'This example shows how to unwrap items and join them with a custom separator.',
+    title: 'list:unwrap.ui.title3',
+    description: 'list:unwrap.ui.description3',
     sampleText: '[item1]\n[item2]\n[item3]',
     sampleResult: 'item1, item2, item3',
     sampleOptions: {
@@ -128,60 +125,60 @@ export default function Unwrap({ title }: ToolComponentProps) {
     updateField
   }) => [
     {
-      title: 'Split Options',
+      title: 'list:unwrap.ui.title4',
       component: (
         <Box>
           <SimpleRadio
             onClick={() => updateField('splitOperatorType', 'symbol')}
             checked={values.splitOperatorType === 'symbol'}
-            title={'Split by Symbol'}
+            title={'list:unwrap.ui.title5'}
           />
           <SimpleRadio
             onClick={() => updateField('splitOperatorType', 'regex')}
             checked={values.splitOperatorType === 'regex'}
-            title={'Split by Regular Expression'}
+            title={'list:unwrap.ui.title6'}
           />
           <TextFieldWithDesc
             value={values.splitSeparator}
             onOwnChange={(val) => updateField('splitSeparator', val)}
-            description={'Separator to split the list'}
+            description={'list:unwrap.ui.description4'}
           />
           <TextFieldWithDesc
             value={values.joinSeparator}
             onOwnChange={(val) => updateField('joinSeparator', val)}
-            description={'Separator to join the unwrapped list'}
+            description={'list:unwrap.ui.description5'}
           />
         </Box>
       )
     },
     {
-      title: 'Unwrap Options',
+      title: 'list:unwrap.ui.title7',
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.left}
             onOwnChange={(val) => updateField('left', val)}
-            description={'Characters to remove from the left side'}
+            description={'list:unwrap.ui.description6'}
           />
           <TextFieldWithDesc
             value={values.right}
             onOwnChange={(val) => updateField('right', val)}
-            description={'Characters to remove from the right side'}
+            description={'list:unwrap.ui.description7'}
           />
           <CheckboxWithDesc
             checked={values.multiLevel}
             onChange={(checked) => updateField('multiLevel', checked)}
-            title={'Remove multiple levels of wrapping'}
+            title={'list:unwrap.ui.title8'}
           />
           <CheckboxWithDesc
             checked={values.trimItems}
             onChange={(checked) => updateField('trimItems', checked)}
-            title={'Trim whitespace from items'}
+            title={'list:unwrap.ui.title9'}
           />
           <CheckboxWithDesc
             checked={values.deleteEmptyItems}
             onChange={(checked) => updateField('deleteEmptyItems', checked)}
-            title={'Remove empty items'}
+            title={'list:unwrap.ui.title10'}
           />
         </Box>
       )
@@ -192,16 +189,21 @@ export default function Unwrap({ title }: ToolComponentProps) {
     <ToolContent
       title={title}
       inputComponent={
-        <ToolTextInput title="Input List" value={input} onChange={setInput} />
+        <ToolTextInput
+          title="list:unwrap.ui.title11"
+          value={input}
+          onChange={setInput}
+        />
       }
-      resultComponent={<ToolTextResult title="Unwrapped List" value={result} />}
+      resultComponent={
+        <ToolTextResult title="list:unwrap.ui.title12" value={result} />
+      }
       initialValues={initialValues}
       getGroups={getGroups}
       validationSchema={validationSchema}
       toolInfo={{
-        title: 'List Unwrapping',
-        description:
-          "This tool allows you to remove wrapping characters from each item in a list. You can specify characters to remove from the left and right sides, handle multiple levels of wrapping, and control how the list is processed. It's useful for cleaning up data, removing quotes or brackets, and formatting lists."
+        title: 'list:unwrap.ui.title13',
+        description: 'list:unwrap.ui.description8'
       }}
       exampleCards={exampleCards}
       input={input}

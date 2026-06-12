@@ -12,6 +12,7 @@ export const tool = defineTool('string', {
     name: 'string:censor.title',
     description: 'string:censor.description',
     shortDescription: 'string:censor.shortDescription',
+    longDescription: 'string:censor.longDescription',
     userTypes: ['generalUsers']
   }
 });
