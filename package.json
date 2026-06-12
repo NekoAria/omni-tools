@@ -20,6 +20,7 @@
     "test:e2e": "playwright test",
     "test:ui": "vitest --ui",
     "script:create:tool": "node scripts/create-tool.mjs",
+    "i18n:audit-hardcoded": "node scripts/audit-i18n-hardcoded-ui.js",
     "lint": "eslint src --max-warnings=0 --fix",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "prepare": "husky install",
