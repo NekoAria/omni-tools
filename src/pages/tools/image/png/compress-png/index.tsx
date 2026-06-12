@@ -8,6 +8,7 @@ import imageCompression from 'browser-image-compression';
 import Typography from '@mui/material/Typography';
 import ToolContent from '@components/ToolContent';
 import { ToolComponentProps } from '@tools/defineTool';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   rate: '50'
@@ -17,6 +18,7 @@ const validationSchema = Yup.object({
 });
 
 export default function ChangeColorsInPng({ title }: ToolComponentProps) {
+  const { t } = useTranslation('image');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
   const [originalSize, setOriginalSize] = useState<number | null>(null); // Store original file size
@@ -60,12 +62,12 @@ export default function ChangeColorsInPng({ title }: ToolComponentProps) {
           value={input}
           onChange={setInput}
           accept={['image/png']}
-          title={'Input PNG'}
+          title={t('compressPng.inputTitle')}
         />
       }
       resultComponent={
         <ToolFileResult
-          title={'Compressed PNG'}
+          title={t('compressPng.resultTitle')}
           value={result}
           extension={'png'}
         />
@@ -73,30 +75,34 @@ export default function ChangeColorsInPng({ title }: ToolComponentProps) {
       initialValues={initialValues}
       getGroups={({ values, updateField }) => [
         {
-          title: 'Compression options',
+          title: t('compressPng.options.title'),
           component: (
             <Box>
               <TextFieldWithDesc
                 value={values.rate}
                 onOwnChange={(val) => updateField('rate', val)}
-                description={'Compression rate (1-100)'}
+                description={t('compressPng.options.rateDescription')}
               />
             </Box>
           )
         },
         {
-          title: 'File sizes',
+          title: t('compressPng.fileSizes.title'),
           component: (
             <Box>
               <Box>
                 {originalSize !== null && (
                   <Typography>
-                    Original Size: {(originalSize / 1024).toFixed(2)} KB
+                    {t('compressPng.fileSizes.originalSize', {
+                      size: (originalSize / 1024).toFixed(2)
+                    })}
                   </Typography>
                 )}
                 {compressedSize !== null && (
                   <Typography>
-                    Compressed Size: {(compressedSize / 1024).toFixed(2)} KB
+                    {t('compressPng.fileSizes.compressedSize', {
+                      size: (compressedSize / 1024).toFixed(2)
+                    })}
                   </Typography>
                 )}
               </Box>

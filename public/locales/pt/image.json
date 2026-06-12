@@ -48,7 +48,8 @@
   "editor": {
     "description": "Editor de imagens avançado com ferramentas para cortar, girar, anotar, ajustar cores e adicionar marcas d'água. Edite suas imagens com ferramentas profissionais diretamente no seu navegador.",
     "shortDescription": "Edite imagens com ferramentas e recursos avançados",
-    "title": "Editor de imagens"
+    "title": "Editor de imagens",
+    "inputTitle": "Enviar imagem para editar"
   },
   "imageToText": {
     "description": "Extraia texto de imagens (JPG, PNG) usando reconhecimento óptico de caracteres (OCR).",

@@ -8,6 +8,7 @@ import TextFieldWithDesc from '@components/options/TextFieldWithDesc';
 import ToolContent from '@components/ToolContent';
 import { ToolComponentProps } from '@tools/defineTool';
 import SimpleRadio from '@components/options/SimpleRadio';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   xPosition: '0',
@@ -33,6 +34,7 @@ const validationSchema = Yup.object({
 });
 
 export default function CropImage({ title }: ToolComponentProps) {
+  const { t } = useTranslation('image');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
 
@@ -127,13 +129,13 @@ export default function CropImage({ title }: ToolComponentProps) {
     updateField
   }) => [
     {
-      title: 'Crop Position and Size',
+      title: t('crop.options.positionAndSize'),
       component: (
         <Box>
           <TextFieldWithDesc
             value={values.xPosition}
             onOwnChange={(val) => updateField('xPosition', val)}
-            description={'X position (in pixels)'}
+            description={t('crop.options.xPosition')}
             inputProps={{
               'data-testid': 'x-position-input',
               type: 'number',
@@ -143,7 +145,7 @@ export default function CropImage({ title }: ToolComponentProps) {
           <TextFieldWithDesc
             value={values.yPosition}
             onOwnChange={(val) => updateField('yPosition', val)}
-            description={'Y position (in pixels)'}
+            description={t('crop.options.yPosition')}
             inputProps={{
               'data-testid': 'y-position-input',
               type: 'number',
@@ -153,7 +155,7 @@ export default function CropImage({ title }: ToolComponentProps) {
           <TextFieldWithDesc
             value={values.cropWidth}
             onOwnChange={(val) => updateField('cropWidth', val)}
-            description={'Crop width (in pixels)'}
+            description={t('crop.options.cropWidth')}
             inputProps={{
               'data-testid': 'crop-width-input',
               type: 'number',
@@ -163,7 +165,7 @@ export default function CropImage({ title }: ToolComponentProps) {
           <TextFieldWithDesc
             value={values.cropHeight}
             onOwnChange={(val) => updateField('cropHeight', val)}
-            description={'Crop height (in pixels)'}
+            description={t('crop.options.cropHeight')}
             inputProps={{
               'data-testid': 'crop-height-input',
               type: 'number',
@@ -174,20 +176,20 @@ export default function CropImage({ title }: ToolComponentProps) {
       )
     },
     {
-      title: 'Crop Shape',
+      title: t('crop.options.cropShape'),
       component: (
         <Box>
           <SimpleRadio
             onClick={() => updateField('cropShape', 'rectangular')}
             checked={values.cropShape == 'rectangular'}
-            description={'Crop a rectangular fragment from an image.'}
-            title={'Rectangular Crop Shape'}
+            description={t('crop.options.rectangularDescription')}
+            title={t('crop.options.rectangularTitle')}
           />
           <SimpleRadio
             onClick={() => updateField('cropShape', 'circular')}
             checked={values.cropShape == 'circular'}
-            description={'Crop a circular fragment from an image.'}
-            title={'Circular Crop Shape'}
+            description={t('crop.options.circularDescription')}
+            title={t('crop.options.circularTitle')}
           />
         </Box>
       )
@@ -201,7 +203,7 @@ export default function CropImage({ title }: ToolComponentProps) {
       value={input}
       onChange={setInput}
       accept={['image/*']}
-      title={'Input image'}
+      title={t('crop.inputTitle')}
       showCropOverlay={!!input}
       cropShape={values.cropShape as 'rectangular' | 'circular'}
       cropPosition={{
@@ -225,12 +227,11 @@ export default function CropImage({ title }: ToolComponentProps) {
       validationSchema={validationSchema}
       renderCustomInput={renderCustomInput}
       resultComponent={
-        <ToolFileResult title={'Cropped image'} value={result} />
+        <ToolFileResult title={t('crop.resultTitle')} value={result} />
       }
       toolInfo={{
-        title: 'Crop Image',
-        description:
-          'This tool allows you to crop an image by specifying the position, size, and shape of the crop area. You can choose between rectangular or circular cropping.'
+        title: t('crop.toolInfo.title'),
+        description: t('crop.toolInfo.description')
       }}
     />
   );

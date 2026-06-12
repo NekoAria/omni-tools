@@ -3,6 +3,7 @@ import { Box } from '@mui/material';
 import ToolImageInput from '@components/input/ToolImageInput';
 import ToolContent from '@components/ToolContent';
 import { ToolComponentProps } from '@tools/defineTool';
+import { useTranslation } from 'react-i18next';
 
 // Import the image editor with proper typing
 import FilerobotImageEditor, {
@@ -10,6 +11,7 @@ import FilerobotImageEditor, {
 } from 'react-filerobot-image-editor';
 
 export default function ImageEditor({ title }: ToolComponentProps) {
+  const { t } = useTranslation('image');
   const [input, setInput] = useState<File | null>(null);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -108,14 +110,13 @@ export default function ImageEditor({ title }: ToolComponentProps) {
             value={input}
             onChange={handleInputChange}
             accept={['image/*']}
-            title="Upload Image to Edit"
+            title={t('editor.inputTitle')}
           />
         )
       }
       toolInfo={{
-        title: 'Image Editor',
-        description:
-          'A powerful image editing tool that provides professional-grade features including cropping, rotating, color adjustments, text annotations, drawing tools, and watermarking. Edit your images directly in your browser without the need for external software.'
+        title: t('editor.title'),
+        description: t('editor.description')
       }}
       compute={() => {}}
     />

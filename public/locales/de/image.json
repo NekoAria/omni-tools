@@ -48,7 +48,8 @@
   "editor": {
     "description": "Erweiterter Bildeditor mit Werkzeugen zum Zuschneiden, Drehen, Kommentieren, Anpassen von Farben und Hinzufügen von Wasserzeichen. Bearbeiten Sie Ihre Bilder mit professionellen Werkzeugen direkt in Ihrem Browser.",
     "shortDescription": "Bearbeiten Sie Bilder mit erweiterten Tools und Funktionen",
-    "title": "Bildeditor"
+    "title": "Bildeditor",
+    "inputTitle": "Bild zum Bearbeiten hochladen"
   },
   "imageToText": {
     "description": "Extrahieren Sie Text aus Bildern (JPG, PNG) mithilfe der optischen Zeichenerkennung (OCR).",

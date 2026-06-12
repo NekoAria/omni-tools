@@ -48,7 +48,8 @@
   "editor": {
     "description": "Éditeur d'images avancé avec des outils de recadrage, de rotation, d'annotation, d'ajustement des couleurs et d'ajout de filigranes. Retouchez vos images avec des outils professionnels directement dans votre navigateur.",
     "shortDescription": "Modifiez des images avec des outils et des fonctionnalités avancés",
-    "title": "Éditeur d'images"
+    "title": "Éditeur d'images",
+    "inputTitle": "Importer une image à modifier"
   },
   "imageToText": {
     "description": "Extraire du texte à partir d'images (JPG, PNG) à l'aide de la reconnaissance optique de caractères (OCR).",

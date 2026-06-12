@@ -12,6 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { extractTextFromImage, getAvailableLanguages } from './service';
 import { InitialValuesType } from './types';
 import { CustomSnackBarContext } from '../../../../../contexts/CustomSnackBarContext';
+import { useTranslation } from 'react-i18next';
 
 const initialValues: InitialValuesType = {
   language: 'eng',
@@ -23,6 +24,7 @@ const validationSchema = Yup.object({
 });
 
 export default function ImageToText({ title }: ToolComponentProps) {
+  const { t } = useTranslation('image');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<string>('');
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -51,24 +53,20 @@ export default function ImageToText({ title }: ToolComponentProps) {
     updateField
   }) => [
     {
-      title: 'OCR Options',
+      title: t('imageToText.options.title'),
       component: (
         <Box>
           <SelectWithDesc
             selected={values.language}
             onChange={(val) => updateField('language', val)}
-            description={
-              'Select the primary language in the image for better accuracy'
-            }
-            options={getAvailableLanguages()}
+            description={t('imageToText.options.languageDescription')}
+            options={getAvailableLanguages((key) => t(key as never))}
           />
           <CheckboxWithDesc
             checked={values.detectParagraphs}
             onChange={(value) => updateField('detectParagraphs', value)}
-            description={
-              'Attempt to preserve paragraph structure in the extracted text'
-            }
-            title={'Detect Paragraphs'}
+            description={t('imageToText.options.detectParagraphsDescription')}
+            title={t('imageToText.options.detectParagraphs')}
           />
         </Box>
       )
@@ -88,20 +86,19 @@ export default function ImageToText({ title }: ToolComponentProps) {
           value={input}
           onChange={setInput}
           accept={['image/jpeg', 'image/png']}
-          title={'Input Image'}
+          title={t('imageToText.inputTitle')}
         />
       }
       resultComponent={
         <ToolTextResult
-          title={'Extracted Text'}
+          title={t('imageToText.resultTitle')}
           value={result}
           loading={isProcessing}
         />
       }
       toolInfo={{
-        title: 'Image to Text (OCR)',
-        description:
-          'This tool extracts text from images using Optical Character Recognition (OCR). Upload an image containing text, select the primary language, and get the extracted text. For best results, use clear images with good contrast.'
+        title: t('imageToText.toolInfo.title'),
+        description: t('imageToText.toolInfo.description')
       }}
     />
   );

@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { areColorsSimilar } from 'utils/color';
 import ToolContent from '@components/ToolContent';
 import { ToolComponentProps } from '@tools/defineTool';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   enableTransparency: false,
@@ -17,6 +18,7 @@ const initialValues = {
 };
 
 export default function ConvertJgpToPng({ title }: ToolComponentProps) {
+  const { t } = useTranslation('image');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
 
@@ -102,37 +104,41 @@ export default function ConvertJgpToPng({ title }: ToolComponentProps) {
           value={input}
           onChange={setInput}
           accept={['image/jpeg']}
-          title={'Input JPG'}
+          title={t('convertJgpToPng.inputTitle')}
         />
       }
       resultComponent={
-        <ToolFileResult title={'Output PNG'} value={result} extension={'png'} />
+        <ToolFileResult
+          title={t('convertJgpToPng.resultTitle')}
+          value={result}
+          extension={'png'}
+        />
       }
       initialValues={initialValues}
       getGroups={({ values, updateField }) => [
         {
-          title: 'PNG Transparency Color',
+          title: t('convertJgpToPng.options.transparencyColor'),
           component: (
             <Box>
               <CheckboxWithDesc
                 key="enableTransparency"
-                title="Enable PNG Transparency"
+                title={t('convertJgpToPng.options.enableTransparency')}
                 checked={!!values.enableTransparency}
                 onChange={(value) => updateField('enableTransparency', value)}
-                description="Make the color below transparent."
+                description={t(
+                  'convertJgpToPng.options.enableTransparencyDescription'
+                )}
               />
               <ColorSelector
                 value={values.color}
                 onColorChange={(val) => updateField('color', val)}
-                description={'With this color (to color)'}
+                description={t('changeColors.toColor.selectorDescription')}
                 inputProps={{ 'data-testid': 'color-input' }}
               />
               <TextFieldWithDesc
                 value={values.similarity}
                 onOwnChange={(val) => updateField('similarity', val)}
-                description={
-                  'Match this % of similar. For example, 10% white will match white and a little bit of gray.'
-                }
+                description={t('convertJgpToPng.options.similarityDescription')}
               />
             </Box>
           )

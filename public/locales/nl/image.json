@@ -48,7 +48,8 @@
   "editor": {
     "description": "Geavanceerde beeldbewerker met tools voor bijsnijden, roteren, annoteren, kleuren aanpassen en watermerken toevoegen. Bewerk je afbeeldingen met professionele tools rechtstreeks in je browser.",
     "shortDescription": "Bewerk afbeeldingen met geavanceerde tools en functies",
-    "title": "Afbeeldingseditor"
+    "title": "Afbeeldingseditor",
+    "inputTitle": "Afbeelding uploaden om te bewerken"
   },
   "imageToText": {
     "description": "Extraheer tekst uit afbeeldingen (JPG, PNG) met behulp van optische tekenherkenning (OCR).",

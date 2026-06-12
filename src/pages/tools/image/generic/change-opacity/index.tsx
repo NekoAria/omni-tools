@@ -9,6 +9,7 @@ import { ToolComponentProps } from '@tools/defineTool';
 import { updateNumberField } from '@utils/string';
 import { Box } from '@mui/material';
 import SimpleRadio from '@components/options/SimpleRadio';
+import { useTranslation } from 'react-i18next';
 
 type InitialValuesType = {
   opacity: number;
@@ -34,8 +35,8 @@ const initialValues: InitialValuesType = {
 
 const exampleCards: CardExampleType<InitialValuesType>[] = [
   {
-    title: 'Semi-transparent PNG',
-    description: 'Make an image 50% transparent',
+    title: 'changeOpacity.examples.semiTransparent.title',
+    description: 'changeOpacity.examples.semiTransparent.description',
     sampleOptions: {
       opacity: 0.5,
       mode: 'solid',
@@ -49,8 +50,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleResult: ''
   },
   {
-    title: 'Slightly Faded PNG',
-    description: 'Create a subtle transparency effect',
+    title: 'changeOpacity.examples.slightlyFaded.title',
+    description: 'changeOpacity.examples.slightlyFaded.description',
     sampleOptions: {
       opacity: 0.8,
       mode: 'solid',
@@ -64,8 +65,8 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
     sampleResult: ''
   },
   {
-    title: 'Radial Gradient Opacity',
-    description: 'Apply a radial gradient opacity effect',
+    title: 'changeOpacity.examples.radialGradient.title',
+    description: 'changeOpacity.examples.radialGradient.description',
     sampleOptions: {
       opacity: 0.8,
       mode: 'gradient',
@@ -81,6 +82,7 @@ const exampleCards: CardExampleType<InitialValuesType>[] = [
 ];
 
 export default function ChangeOpacity({ title }: ToolComponentProps) {
+  const { t } = useTranslation('image');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
 
@@ -98,21 +100,21 @@ export default function ChangeOpacity({ title }: ToolComponentProps) {
           value={input}
           onChange={setInput}
           accept={['image/*']}
-          title={'Input image'}
+          title={t('changeOpacity.inputTitle')}
         />
       }
       resultComponent={
-        <ToolFileResult title={'Changed image'} value={result} />
+        <ToolFileResult title={t('changeOpacity.resultTitle')} value={result} />
       }
       initialValues={initialValues}
       // exampleCards={exampleCards}
       getGroups={({ values, updateField }) => [
         {
-          title: 'Opacity Settings',
+          title: t('changeOpacity.options.opacitySettings'),
           component: (
             <Box>
               <TextFieldWithDesc
-                description="Set opacity between 0 (transparent) and 1 (opaque)"
+                description={t('changeOpacity.options.opacityDescription')}
                 value={values.opacity}
                 onOwnChange={(val) =>
                   updateNumberField(val, 'opacity', updateField)
@@ -123,43 +125,43 @@ export default function ChangeOpacity({ title }: ToolComponentProps) {
               <SimpleRadio
                 onClick={() => updateField('mode', 'solid')}
                 checked={values.mode === 'solid'}
-                description={'Set the same opacity level for all pixels'}
-                title={'Apply Solid Opacity'}
+                description={t('changeOpacity.options.solidDescription')}
+                title={t('changeOpacity.options.solidTitle')}
               />
               <SimpleRadio
                 onClick={() => updateField('mode', 'gradient')}
                 checked={values.mode === 'gradient'}
-                description={'Change opacity in a gradient'}
-                title={'Apply Gradient Opacity'}
+                description={t('changeOpacity.options.gradientDescription')}
+                title={t('changeOpacity.options.gradientTitle')}
               />
             </Box>
           )
         },
         {
-          title: 'Gradient Options',
+          title: t('changeOpacity.options.gradientOptions'),
           component: (
             <Box>
               <SimpleRadio
                 onClick={() => updateField('gradientType', 'linear')}
                 checked={values.gradientType === 'linear'}
-                description={'Linear opacity direction'}
-                title={'Linear Gradient'}
+                description={t('changeOpacity.options.linearDescription')}
+                title={t('changeOpacity.options.linearTitle')}
               />
               <SimpleRadio
                 onClick={() => updateField('gradientType', 'radial')}
                 checked={values.gradientType === 'radial'}
-                description={'Radial opacity direction'}
-                title={'Radial Gradient'}
+                description={t('changeOpacity.options.radialDescription')}
+                title={t('changeOpacity.options.radialTitle')}
               />
             </Box>
           )
         },
         {
-          title: 'Opacity Area',
+          title: t('changeOpacity.options.opacityArea'),
           component: (
             <Box>
               <TextFieldWithDesc
-                description="Left position"
+                description={t('changeOpacity.options.leftPosition')}
                 value={values.areaLeft}
                 onOwnChange={(val) =>
                   updateNumberField(val, 'areaLeft', updateField)
@@ -167,7 +169,7 @@ export default function ChangeOpacity({ title }: ToolComponentProps) {
                 type="number"
               />
               <TextFieldWithDesc
-                description="Top position"
+                description={t('changeOpacity.options.topPosition')}
                 value={values.areaTop}
                 onOwnChange={(val) =>
                   updateNumberField(val, 'areaTop', updateField)
@@ -175,7 +177,7 @@ export default function ChangeOpacity({ title }: ToolComponentProps) {
                 type="number"
               />
               <TextFieldWithDesc
-                description="Width"
+                description={t('changeOpacity.options.width')}
                 value={values.areaWidth}
                 onOwnChange={(val) =>
                   updateNumberField(val, 'areaWidth', updateField)
@@ -183,7 +185,7 @@ export default function ChangeOpacity({ title }: ToolComponentProps) {
                 type="number"
               />
               <TextFieldWithDesc
-                description="Height"
+                description={t('changeOpacity.options.height')}
                 value={values.areaHeight}
                 onOwnChange={(val) =>
                   updateNumberField(val, 'areaHeight', updateField)

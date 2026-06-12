@@ -38,19 +38,27 @@ export const extractTextFromImage = async (
 };
 
 // Helper function to get available languages
-export const getAvailableLanguages = (): { value: string; label: string }[] => {
+export const getAvailableLanguages = (
+  translateLabel: (key: string) => string = (key) => key
+): { value: string; label: string }[] => {
   return [
-    { value: 'eng', label: 'English' },
-    { value: 'fra', label: 'French' },
-    { value: 'deu', label: 'German' },
-    { value: 'spa', label: 'Spanish' },
-    { value: 'ita', label: 'Italian' },
-    { value: 'por', label: 'Portuguese' },
-    { value: 'rus', label: 'Russian' },
-    { value: 'jpn', label: 'Japanese' },
-    { value: 'chi_sim', label: 'Chinese (Simplified)' },
-    { value: 'chi_tra', label: 'Chinese (Traditional)' },
-    { value: 'kor', label: 'Korean' },
-    { value: 'ara', label: 'Arabic' }
+    { value: 'eng', label: translateLabel('imageToText.languages.english') },
+    { value: 'fra', label: translateLabel('imageToText.languages.french') },
+    { value: 'deu', label: translateLabel('imageToText.languages.german') },
+    { value: 'spa', label: translateLabel('imageToText.languages.spanish') },
+    { value: 'ita', label: translateLabel('imageToText.languages.italian') },
+    { value: 'por', label: translateLabel('imageToText.languages.portuguese') },
+    { value: 'rus', label: translateLabel('imageToText.languages.russian') },
+    { value: 'jpn', label: translateLabel('imageToText.languages.japanese') },
+    {
+      value: 'chi_sim',
+      label: translateLabel('imageToText.languages.chineseSimplified')
+    },
+    {
+      value: 'chi_tra',
+      label: translateLabel('imageToText.languages.chineseTraditional')
+    },
+    { value: 'kor', label: translateLabel('imageToText.languages.korean') },
+    { value: 'ara', label: translateLabel('imageToText.languages.arabic') }
   ];
 };

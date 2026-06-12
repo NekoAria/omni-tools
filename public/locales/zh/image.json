@@ -22,7 +22,41 @@
   "changeOpacity": {
     "description": "轻松调整图片透明度。只需上传图片，使用滑块在 0（完全透明）和 1（完全不透明）之间设置所需的不透明度，然后下载修改后的图片即可。",
     "shortDescription": "调整图像的透明度",
-    "title": "更改图像不透明度"
+    "title": "更改图像不透明度",
+    "inputTitle": "输入图像",
+    "resultTitle": "处理后的图像",
+    "examples": {
+      "semiTransparent": {
+        "title": "半透明 PNG",
+        "description": "将图像设置为 50% 透明"
+      },
+      "slightlyFaded": {
+        "title": "轻微淡化 PNG",
+        "description": "创建轻微透明效果"
+      },
+      "radialGradient": {
+        "title": "径向渐变不透明度",
+        "description": "应用径向渐变不透明度效果"
+      }
+    },
+    "options": {
+      "opacitySettings": "不透明度设置",
+      "opacityDescription": "设置 0（透明）到 1（不透明）之间的不透明度",
+      "solidDescription": "为所有像素设置相同的不透明度",
+      "solidTitle": "应用统一不透明度",
+      "gradientDescription": "以渐变方式更改不透明度",
+      "gradientTitle": "应用渐变不透明度",
+      "gradientOptions": "渐变选项",
+      "linearDescription": "线性不透明度方向",
+      "linearTitle": "线性渐变",
+      "radialDescription": "径向不透明度方向",
+      "radialTitle": "径向渐变",
+      "opacityArea": "不透明度区域",
+      "leftPosition": "左侧位置",
+      "topPosition": "顶部位置",
+      "width": "宽度",
+      "height": "高度"
+    }
   },
   "compress": {
     "compressedSize": "压缩尺寸",
@@ -43,34 +77,106 @@
   "compressPng": {
     "description": "这是一个压缩 PNG 图片的程序。只要您将 PNG 图片粘贴到输入区域，程序就会对其进行压缩，并在输出区域显示结果。在选项中，您可以调整压缩级别，以及查看新旧图片文件的大小。",
     "shortDescription": "快速压缩 PNG",
-    "title": "压缩 png"
+    "title": "压缩 png",
+    "inputTitle": "输入 PNG",
+    "resultTitle": "压缩后的 PNG",
+    "options": {
+      "title": "压缩选项",
+      "rateDescription": "压缩率 (1-100)"
+    },
+    "fileSizes": {
+      "title": "文件大小",
+      "originalSize": "原始大小：{{size}} KB",
+      "compressedSize": "压缩后大小：{{size}} KB"
+    }
   },
   "convertJgpToPng": {
     "description": "快速将您的 JPG 图像转换为 PNG。只需在左侧的编辑器中导入您的 PNG 图像即可",
     "shortDescription": "快速将您的 JPG 图像转换为 PNG",
-    "title": "JPG 转换为 PNG"
+    "title": "JPG 转换为 PNG",
+    "inputTitle": "输入 JPG",
+    "resultTitle": "输出 PNG",
+    "options": {
+      "transparencyColor": "PNG 透明颜色",
+      "enableTransparency": "启用 PNG 透明",
+      "enableTransparencyDescription": "使下方颜色变为透明。",
+      "similarityDescription": "匹配此百分比的相似颜色。例如，10% 的白色会匹配白色和少量灰色。"
+    }
   },
   "createTransparent": {
     "description": "通过移除所选颜色，使图像背景变为透明。",
     "shortDescription": "快速使图像透明",
-    "title": "创建透明 PNG"
+    "title": "创建透明 PNG",
+    "inputTitle": "输入图像",
+    "resultTitle": "透明 PNG",
+    "options": {
+      "fromColorAndSimilarity": "源颜色和相似度",
+      "backgroundColor": "替换像素的背景颜色"
+    },
+    "toolInfo": {
+      "title": "创建透明 PNG",
+      "description": "此工具可将图像中的指定颜色变为透明。您可以选择要替换的颜色，并调整相似度阈值以包含相近颜色。"
+    }
   },
   "crop": {
     "description": "裁剪图像以删除不需要的区域。",
     "inputTitle": "输入图像",
     "resultTitle": "裁剪图像",
     "shortDescription": "快速裁剪图像。",
-    "title": "裁剪图片"
+    "title": "裁剪图片",
+    "toolInfo": {
+      "title": "裁剪图像",
+      "description": "此工具允许您通过指定裁剪区域的位置、尺寸和形状来裁剪图像。您可以选择矩形或圆形裁剪。"
+    },
+    "options": {
+      "positionAndSize": "裁剪位置和尺寸",
+      "xPosition": "X 位置（像素）",
+      "yPosition": "Y 位置（像素）",
+      "cropWidth": "裁剪宽度（像素）",
+      "cropHeight": "裁剪高度（像素）",
+      "cropShape": "裁剪形状",
+      "rectangularDescription": "从图像中裁剪矩形片段。",
+      "rectangularTitle": "矩形裁剪形状",
+      "circularDescription": "从图像中裁剪圆形片段。",
+      "circularTitle": "圆形裁剪形状"
+    }
   },
   "editor": {
     "description": "高级图像编辑器，包含裁剪、旋转、注释、调整颜色和添加水印等工具。直接在浏览器中使用专业级工具编辑图像。",
     "shortDescription": "使用高级工具和功能编辑图像",
-    "title": "图像编辑器"
+    "title": "图像编辑器",
+    "inputTitle": "上传要编辑的图像"
   },
   "imageToText": {
     "description": "使用光学字符识别 (OCR) 从图像 (JPG、PNG) 中提取文本。",
     "shortDescription": "使用 OCR 从图像中提取文本。",
-    "title": "图像转文本 (OCR)"
+    "title": "图像转文本 (OCR)",
+    "inputTitle": "输入图像",
+    "resultTitle": "提取的文本",
+    "options": {
+      "title": "OCR 选项",
+      "languageDescription": "选择图像中的主要语言以提高识别准确率",
+      "detectParagraphs": "检测段落",
+      "detectParagraphsDescription": "尝试保留提取文本中的段落结构"
+    },
+    "languages": {
+      "english": "英语",
+      "french": "法语",
+      "german": "德语",
+      "spanish": "西班牙语",
+      "italian": "意大利语",
+      "portuguese": "葡萄牙语",
+      "russian": "俄语",
+      "japanese": "日语",
+      "chineseSimplified": "简体中文",
+      "chineseTraditional": "繁体中文",
+      "korean": "韩语",
+      "arabic": "阿拉伯语"
+    },
+    "toolInfo": {
+      "title": "图像转文本 (OCR)",
+      "description": "此工具使用光学字符识别 (OCR) 从图像中提取文本。上传包含文字的图像，选择主要语言，即可获得提取文本。为获得最佳效果，请使用清晰且对比度良好的图像。"
+    }
   },
   "qrCode": {
     "description": "为不同数据类型生成二维码：URL、文本、电子邮件、电话、短信、WiFi、vCard 等。",
@@ -94,14 +200,37 @@
       "ssid": "网络名称 (SSID)",
       "text": "输入文本",
       "url": "输入 URL",
-      "website": "网站（可选）"
+      "website": "网站（可选）",
+      "typeTitle": "二维码类型",
+      "settingsTitle": "二维码设置",
+      "bgColor": "背景颜色",
+      "fgColor": "前景颜色",
+      "detailsTitle": "{{type}} 详情"
     },
-    "resultOutput": "生成的二维码"
+    "resultOutput": "生成的二维码",
+    "placeholders": {
+      "text": "示例文本",
+      "emailSubject": "主题行",
+      "emailBody": "正文文本",
+      "smsMessage": "示例文本",
+      "ssid": "WiFi 名称",
+      "fullName": "张三",
+      "address": "示例街道 123 号，城市，国家/地区",
+      "company": "公司名称",
+      "job": "软件开发者"
+    }
   },
   "removeBackground": {
     "description": "自动移除图像背景，并保留主体为透明背景。",
     "shortDescription": "自动删除图像的背景",
-    "title": "从图像中删除背景"
+    "title": "从图像中删除背景",
+    "inputTitle": "输入图像",
+    "resultTitle": "透明 PNG",
+    "loadingText": "正在移除背景",
+    "toolInfo": {
+      "title": "移除图像背景",
+      "description": "此工具使用 AI 自动移除图像背景并创建透明 PNG。非常适合产品照片、头像和设计素材。"
+    }
   },
   "resize": {
     "description": "将图像调整为不同的尺寸。",
@@ -133,7 +262,24 @@
   "rotate": {
     "description": "按指定角度旋转图像。",
     "shortDescription": "轻松旋转图像。",
-    "title": "旋转图像"
+    "title": "旋转图像",
+    "inputTitle": "输入图像",
+    "resultTitle": "旋转后的图像",
+    "toolInfo": {
+      "title": "旋转图像",
+      "description": "此工具允许您按任意指定角度旋转图像。"
+    },
+    "options": {
+      "method": "旋转方式",
+      "presetDescription": "按指定角度旋转。",
+      "presetAngle": "预设角度",
+      "customDescription": "按自定义角度旋转。",
+      "customAngle": "自定义角度",
+      "degrees90": "90 度",
+      "degrees180": "180 度",
+      "degrees270": "270 度",
+      "customAngleDescription": "按自定义角度旋转（-360 到 360 度）。"
+    }
   },
   "split": {
     "title": "将图像拆分为页面",

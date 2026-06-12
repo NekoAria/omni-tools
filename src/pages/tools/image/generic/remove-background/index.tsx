@@ -6,6 +6,7 @@ import { ToolComponentProps } from '@tools/defineTool';
 import ToolImageInput from '@components/input/ToolImageInput';
 import { removeBackground } from '@imgly/background-removal';
 import * as heic2any from 'heic2any';
+import { useTranslation } from 'react-i18next';
 
 const initialValues = {};
 
@@ -14,6 +15,7 @@ const validationSchema = Yup.object({});
 export default function RemoveBackgroundFromImage({
   title
 }: ToolComponentProps) {
+  const { t } = useTranslation('image');
   const [input, setInput] = useState<File | null>(null);
   const [result, setResult] = useState<File | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
@@ -92,22 +94,21 @@ export default function RemoveBackgroundFromImage({
           value={input}
           onChange={setInput}
           accept={['image/*']}
-          title={'Input Image'}
+          title={t('removeBackground.inputTitle')}
         />
       }
       resultComponent={
         <ToolFileResult
-          title={'Transparent PNG'}
+          title={t('removeBackground.resultTitle')}
           value={result}
           extension={'png'}
           loading={isProcessing}
-          loadingText={'Removing background'}
+          loadingText={t('removeBackground.loadingText')}
         />
       }
       toolInfo={{
-        title: 'Remove Background from Image',
-        description:
-          'This tool uses AI to automatically remove the background from your images, creating a transparent PNG. Perfect for product photos, profile pictures, and design assets.'
+        title: t('removeBackground.toolInfo.title'),
+        description: t('removeBackground.toolInfo.description')
       }}
     />
   );
